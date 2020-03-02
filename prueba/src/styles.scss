@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+p{
+    padding: 5px 23px 10px 23px; //arriba, derecha, abajo, izquierda
+}
+h3{
+    padding: 5px 0px 5px 15px;
+}
+.divTitulo{
+    background:  rgba(100,149,237,1);
+    background: linear-gradient(90deg, rgba(100,149,237,1) 0%, rgba(116,255,216,1) 100%);
+    padding-top: 7px;
+    padding-left: 13px;
+    padding-bottom: 8px;
+}
+$header-color: #6495ED;
+footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $header-color;
+  text-align: center;
+  display: block;
+  position: fixed;
+}
+nav{
+    background-color: $header-color;
+}
