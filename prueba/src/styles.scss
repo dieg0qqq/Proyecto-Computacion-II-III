@@ -13,15 +13,20 @@ h3{
     padding-bottom: 8px;
 }
 $header-color: #6495ED;
+
 footer {
   right: 0;
   bottom: 0;
   left: 0;
   background-color: $header-color;
-  text-align: center;
+  text-align: left;
   display: block;
   position: fixed;
 }
 nav{
     background-color: $header-color;
+}
+h1 {
+    text-align: center;
+
 }
