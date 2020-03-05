@@ -1,0 +1,30 @@
+<!-- <textarea [(ngMode)]="miTexto" name="miTexto"></textarea> -->
+<div class="divTitulo">
+    <h1 class="display-4"><b>Análisis de texto</b></h1>
+</div>
+<div id="cambio" class="container">
+    <p class="h2"><b>¿Cómo funciona este sistema?</b></p>
+    <p>
+        Primero analizamos si la frase se refiere a una marca o producto. Luego observamos la intencion del autor:
+        positivo, negativo
+        o neutro. Con esto se podría controlar la opinión de los usuarios.
+    </p>
+    
+    <p class="h4">Texto a traducir:</p>
+    
+    <form class="form-inline">
+        <div class="form-group mb-2">
+            <textarea type="text" name="inputTexto" [(ngModel)]="miTexto" rows="5" cols="50"></textarea>
+        </div>
+    </form>
+    
+    <div class="form-group mx-sm-4 mb-1">
+        <input type="submit" value="Analizar" (click)="analizar()">
+    </div>
+    <a href="">
+        <button id="buttonVolver" type="button" class="btn btn-primary px-3">
+            Volver <i class="fas fa-chevron-right"></i>
+        </button>
+    </a>
+</div>
+
