@@ -3,6 +3,7 @@ from textblob import TextBlob
 from flask_cors import CORS, cross_origin
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
+
 app=Flask(__name__)
 CORS(app)
 @cross_origin()

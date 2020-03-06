@@ -40,7 +40,7 @@ export class AnalyseComponent implements OnInit {
           document.getElementById("cambio").innerHTML =
             "<div id=\"DivCambiado\">" +
             "<h4>Texto introducido: </h4><label>" + this.texto + "</label >" +
-            "<h4>Analisis del texto: </h4><label>" + this.conclusion + "</label >" +
+            "<h4>Análisis del texto: </h4><label>" + this.conclusion + "</label >" +
             "<div id=\"accordion\">" +
             "<div id=\"headingOne\">" +
             "<h5 class=\"mb-0\" >" +
@@ -71,7 +71,7 @@ export class AnalyseComponent implements OnInit {
             "</li>" +
             "</ul>" +
             "</div>" +
-            "< /div>" +
+            
             "</div>";
         }
         else {
@@ -79,7 +79,7 @@ export class AnalyseComponent implements OnInit {
             "<div id=\"DivCambiado\">" +
             "<h4>Texto introducido: </h4><label>"+this.miTexto+"</label>"+
             "<h4> Traducción del texto introducido: </h4><label>" + this.texto + "</label >" +
-            "<h4>Analisis del texto: </h4><label>" + this.conclusion + "</label >" +
+            "<h4>Análisis del texto: </h4><label>" + this.conclusion + "</label >" +
             "<div id=\"accordion\">" +
             "<div id=\"headingOne\">" +
             "<h5 class=\"mb-0\" >"+
