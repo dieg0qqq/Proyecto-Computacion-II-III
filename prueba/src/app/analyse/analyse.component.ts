@@ -45,7 +45,7 @@ export class AnalyseComponent implements OnInit {
             "<div id=\"headingOne\">" +
             "<h5 class=\"mb-0\" >" +
             "<button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapseOne\" aria-controls=\"collapseOne\" >" +
-            "Informacion adicional + " +
+            "Informacion adicional <i class=\"fas fa-plus-circle\"></i> " +
             "</button>" +
             "</h5>" +
             "</div>" +
@@ -71,7 +71,11 @@ export class AnalyseComponent implements OnInit {
             "</li>" +
             "</ul>" +
             "</div>" +
-            
+            "<a href=\"/analyse\">"+
+            "<button id=\"buttonVolverAnalizer\" type=\"button\" class=\"btn btn-primary px-3\">"+
+                "Volver <i class=\"fas fa-chevron-left\"></i>"+
+            "</button>"+
+        "</a>"+
             "</div>";
         }
         else {
@@ -84,7 +88,7 @@ export class AnalyseComponent implements OnInit {
             "<div id=\"headingOne\">" +
             "<h5 class=\"mb-0\" >"+
             "<button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapseOne\" aria-controls=\"collapseOne\" >"+
-            "Informacion adicional + " +
+            "Informacion adicional <i class=\"fas fa-plus-circle\"></i> " +
             "</button>"+
             "</h5>"+
             "</div>"+
