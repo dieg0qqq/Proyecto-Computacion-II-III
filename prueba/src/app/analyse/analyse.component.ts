@@ -71,12 +71,12 @@ export class AnalyseComponent implements OnInit {
             "</li>" +
             "</ul>" +
             "</div>" +
-            "<a href=\"/analyse\">"+
-            "<button id=\"buttonVolverAnalizer\" type=\"button\" class=\"btn btn-primary px-3\">"+
-                "Volver <i class=\"fas fa-chevron-left\"></i>"+
-            "</button>"+
-        "</a>"+
-            "</div>";
+            "</div>" +
+            "<a href=\"/analyse\">" +
+            "<button id=\"buttonVolverAnalizer\" type=\"button\" class=\"btn btn-primary px-3\">" +
+            "Volver <i class=\"fas fa-chevron-left\"></i>" +
+            "</button>" +
+            "</a>";
         }
         else {
           document.getElementById("cambio").innerHTML =
@@ -114,7 +114,12 @@ export class AnalyseComponent implements OnInit {
             "</li>" +
             "</ul>" +
             "</div>"+
-            "</div>";
+            "</div>" +
+            "<a href=\"/analyse\">" +
+            "<button id=\"buttonVolverAnalizer\" type=\"button\" class=\"btn btn-primary px-3\">" +
+            "Volver <i class=\"fas fa-chevron-left\"></i>" +
+            "</button>" +
+            "</a>";
         }        
       }
     );
