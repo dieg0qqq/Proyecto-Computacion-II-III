@@ -8,7 +8,11 @@ import re
 import tweepy 
 from tweepy import OAuthHandler 
 from textblob import TextBlob 
-import json
+
+import requests
+
+data = {}
+data['opiniones'] = []
 
 consumer_key = 'Y11e8yrSe2s6PsA0K6bX5GlTk'
 consumer_secret = 'ld3Xu6h8JMDs9fHF33is95iHG5imJkqDBEaQBbeiWTpqdshEG0'
@@ -25,9 +29,15 @@ for j in range(len(aerolineas)):
     it = 1
     search = api.user_timeline(screen_name = aerolineas[j], count = 10) 
     print("-------------------------------------")
-    print(aerolineas[j])
+    # print(aerolineas[j])
     for i in search:
-        print(it,": ... + ", i.text)
+        # print(it,": ... + ", i.text)
         it = it+1
+        data['opiniones'].append({
+            'aerolinea':aerolineas[j],
+            'texto' : i.text
+        })
+    print(data)
     print("-------------------------------------")
+requests.post('http://127.0.0.1:8000/api/twitter/opinion', json=data)
     

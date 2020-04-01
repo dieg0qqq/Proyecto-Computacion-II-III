@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource("climas","DatosClimaController");
+
+Route::post('/twitter/opinion', 'TwitterController@store');
