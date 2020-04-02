@@ -14,7 +14,8 @@ class TwitterController extends Controller
      */
     public function index()
     {
-        //
+        $twitters = Twitter::all();
+        return $twitters;
     }
 
     /**
@@ -45,6 +46,7 @@ class TwitterController extends Controller
             echo($array['opiniones'][$dict]['texto']);
             $model->save();
         }
+        return $model;
     }
 
     /**

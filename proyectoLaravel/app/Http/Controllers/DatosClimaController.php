@@ -36,14 +36,58 @@ class DatosClimaController extends Controller
      */
     public function store(Request $request)
     {
-        $climas == datosClima::create($request->all());
 
+        $array = $request->json()->all();
+        // echo($array['clima'][0]['forecast']);
+        foreach ($array['clima'] as $dict => $value) {
+            $climas = new datosClima();
+            $climas->hour = $array['clima'][$dict]['hour'];
+            $climas->forecast = $array['clima'][$dict]['forecast'];
+            $climas->temp = $array['clima'][$dict]['temp'];
+            $climas->rain = $array['clima'][$dict]['rain'];
+            $climas->cloud = $array['clima'][$dict]['cloud'];
+            $climas->wind = $array['clima'][$dict]['wind'];
+            $climas->humidity = $array['clima'][$dict]['humidity'];
+            $climas->pressure = $array['clima'][$dict]['pressure'];
+
+            $climas->save();
+        }
+
+        // $clima = new datosClima();
+        // $clima->id = request('id');
+        // //$clima->save();
+        // $climas == datosClima::create($request->all());
+        // process_data();
+        // print("prueba");
         /*
         $clima = new datosClima();
         $clima->climas = request('climas');
         */
         
         return $climas;
+    }
+
+    public function process_data() {
+        /*
+        $file = File::find($id);
+    
+        // Si fichero no existe:
+        if ($file == null) {
+    
+            return redirect('/file')->with('error','No tienes permiso para este fichero.');
+        }
+    */
+        // Se selecciona el fichero raw (sin extension)
+
+            // Se crea el comando con ejecutable y la ruta de la imagen
+            $cmd = storage_path("/Web Scrapping/Madrid-Weather.py");
+            $path = "python Madrid-Weather.py";
+            
+            $ans = shell_exec($path);
+            //print($ans[2]['forecast']);
+            //dd($cmd,$ans);
+            $content = json_decode($ans, true);
+            return print($ans);  
     }
 
     /**

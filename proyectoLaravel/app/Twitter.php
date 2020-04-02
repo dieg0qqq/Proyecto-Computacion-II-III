@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Twitter extends Model
 {
-    //
+    protected $fillable = ["nombreAerolinea","opinionExtraida"];
 }
