@@ -36,9 +36,9 @@ class DatosClimaController extends Controller
      */
     public function store(Request $request)
     {
-
         $array = $request->json()->all();
         // echo($array['clima'][0]['forecast']);
+        // return $array ;
         foreach ($array['clima'] as $dict => $value) {
             $climas = new datosClima();
             $climas->hour = $array['clima'][$dict]['hour'];
@@ -50,20 +50,9 @@ class DatosClimaController extends Controller
             $climas->humidity = $array['clima'][$dict]['humidity'];
             $climas->pressure = $array['clima'][$dict]['pressure'];
 
+            echo($array['clima'][$dict]['pressure']);
             $climas->save();
         }
-
-        // $clima = new datosClima();
-        // $clima->id = request('id');
-        // //$clima->save();
-        // $climas == datosClima::create($request->all());
-        // process_data();
-        // print("prueba");
-        /*
-        $clima = new datosClima();
-        $clima->climas = request('climas');
-        */
-        
         return $climas;
     }
 

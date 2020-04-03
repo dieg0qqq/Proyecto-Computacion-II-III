@@ -20,4 +20,4 @@ Route::apiResource("twitters", "TwitterController");
 Route::post('/twitter/opinion', 'TwitterController@store');
 Route::post('/clima/datos','DatosClimaController@store');
 
-Route::get('/twitter/opinion','TwitterController@index');
+// Route::get('/twitter/opinion','TwitterController@index');
