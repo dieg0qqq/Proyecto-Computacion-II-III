@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Twitter;
 use Illuminate\Http\Request;
+use Symfony\Component\Process\Process;
 
 class TwitterController extends Controller
 {
@@ -12,10 +13,18 @@ class TwitterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $twitters = Twitter::all();
-        return $twitters;
+        // $twitters = Twitter::all();
+        // return $twitters;
+        // $process = new Process('python C:\Users\camii\OneDrive\Documents\Git\Proyecto-Computacion-II\Web Scrapping\tweet.py');
+
+        // $command = escapeshellcmd('C:\Users\camii\OneDrive\Documents\Git\Proyecto-Computacion-II\Web Scrapping\tweet.py');
+        // $output = shell_exec($command);
+        // echo $output;
+        $output = "Twitter Index works";
+        return $output;
     }
 
     /**
@@ -44,7 +53,7 @@ class TwitterController extends Controller
             $model->opinionExtraida = $array['opiniones'][$dict]['texto'];
             echo($array['opiniones'][$dict]['aerolinea']);
             echo($array['opiniones'][$dict]['texto']);
-            $model->save();
+            // $model->save();
         }
         return $model;
     }
