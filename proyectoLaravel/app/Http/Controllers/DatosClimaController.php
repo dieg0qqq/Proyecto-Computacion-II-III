@@ -47,6 +47,8 @@ class DatosClimaController extends Controller
             $climas->rain = $array['clima'][$dict]['rain'];
             $climas->cloud = $array['clima'][$dict]['cloud'];
             $climas->wind = $array['clima'][$dict]['wind'];
+            $climas->gust = $array['clima'][$dict]['gust'];
+            $climas->direction = $array['clima'][$dict]['dir'];
             $climas->humidity = $array['clima'][$dict]['humidity'];
             $climas->pressure = $array['clima'][$dict]['pressure'];
 

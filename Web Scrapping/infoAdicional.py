@@ -21,9 +21,9 @@ for i in range(len(link1)):
 
 # print(len(arrayLinks))
 for i in range(len(arrayLinks)):
-  titulo = link1[i].text
+  tituloP = link1[i].text
   cu = requests.get(arrayLinks[i])
-  print(titulo,":",arrayLinks[i], "\n")
+  print(tituloP,":",arrayLinks[i], "\n")
   html = BeautifulSoup(cu.content, 'html.parser')
   #print(html, "\npagina:",i)
   titulo = html.select("div.encabezadoTit > div.izq")

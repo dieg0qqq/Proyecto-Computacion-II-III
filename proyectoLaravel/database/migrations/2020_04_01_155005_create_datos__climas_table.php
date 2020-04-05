@@ -17,17 +17,16 @@ class CreateDatosClimasTable extends Migration
             
             $table->id();
             $table->timestamps();
-        
-            $table->string('hour')->nullable();
-            $table->string('forecast')->nullable();
-            $table->string('temp')->nullable();
-            $table->string('rain')->nullable();
-            $table->string('cloud')->nullable();
-            $table->string('wind')->nullable();
-            $table->string('humidity')->nullable();
-            $table->string('pressure')->nullable();
-           
-            //$table->json('climas');
+            $table->string('hour');//1 - cambiar a date
+            $table->string('forecast');//2
+            $table->integer('temp');//3
+            $table->double('rain');//5
+            $table->integer('cloud');//7
+            $table->integer('wind');//8
+            $table->integer('gust');//9 rafaga
+            $table->string('direction');//10
+            $table->integer('humidity');//11
+            $table->integer('pressure');//12
         });
     }
 
