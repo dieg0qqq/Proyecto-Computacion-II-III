@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 url = [0,6,12,18]
 for i in range(len(url)):
-    index = "https://www.madrid-airport.com/departures.php?tp=" + str(url[i])
+    index = "https://www.madrid-airport.com/arrivals.php?tp=" + str(url[i])
     page = requests.get(index)
 
     soup = BeautifulSoup(page.content, 'html.parser')
