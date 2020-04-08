@@ -1,7 +1,4 @@
-import asyncio
 import requests
-
-from pyppeteer import launch
 from bs4 import BeautifulSoup
 
 page = requests.get('https://www.worldweatheronline.com/madrid-weather/madrid/es.aspx?day=20&tp=1')
@@ -23,6 +20,6 @@ for i in range(1,25):
             'pressure': soup.select_one(f'.tb_row:nth-child({i}) > .tb_cont_item:nth-child(12)').text.replace(" mb", ""),
         }
         data['clima'].append(hora)
-print(data)
+#print(data)
 requests.post('http://127.0.0.1:8000/api/clima/datos',json=data)
 
