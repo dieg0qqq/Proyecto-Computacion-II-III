@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import date
 
 page = requests.get('https://www.worldweatheronline.com/madrid-weather/madrid/es.aspx?day=20&tp=1')
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -20,6 +21,12 @@ for i in range(1,25):
             'pressure': soup.select_one(f'.tb_row:nth-child({i}) > .tb_cont_item:nth-child(12)').text.replace(" mb", ""),
         }
         data['clima'].append(hora)
+
+ruta_rel = "Web Scrapping\\Archivos JSON\\"
+dateStr = date.today().strftime("%Y-%m-%d")
+archivo = open(ruta_rel + "Clima" + dateStr+ ".json", "w", encoding="utf-8")
+archivo.write(str(data['clima'])) 
+archivo.close()
 #print(data)
-requests.post('http://127.0.0.1:8000/api/clima/datos',json=data)
+# requests.post('http://127.0.0.1:8000/api/clima/datos',json=data)
 

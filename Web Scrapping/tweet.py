@@ -8,6 +8,7 @@ import re
 import tweepy 
 from tweepy import OAuthHandler 
 from textblob import TextBlob 
+from datetime import date
 
 import requests
 
@@ -36,8 +37,12 @@ for j in range(len(aerolineas)):
         data['opiniones'].append({
             'aerolinea':aerolineas[j],
             'texto' : i.text
-        })
-    print(data)
-    print("-------------------------------------")
-requests.post('http://127.0.0.1:8000/api/twitter/opinion', json=data)
+        })  
+
+ruta_rel = "Web Scrapping\\Archivos JSON\\"
+dateStr = date.today().strftime("%Y-%m-%d")
+archivo = open(ruta_rel + "Tweets" + dateStr+ ".json", "w", encoding="utf-8")
+archivo.write(str(data['opiniones'])) 
+archivo.close()
+# requests.post('http://127.0.0.1:8000/api/twitter/opinion', json=data)
     

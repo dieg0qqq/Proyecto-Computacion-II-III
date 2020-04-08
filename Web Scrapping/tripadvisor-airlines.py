@@ -1,5 +1,6 @@
 import asyncio
 from pyppeteer import launch
+from datetime import date
 from pyppeteer_stealth import stealth
 
 async def main():
@@ -35,5 +36,11 @@ async def main():
     nextLink = await page.evaluate('document.querySelector(".pageNumbers").children[4].href')
     opiniones.extend(await page.evaluate(hookComments))
     await browser.close()
-    print(opiniones)
+    # print(opiniones)
+    ruta_rel = "Web Scrapping\\Archivos JSON\\"
+    dateStr = date.today().strftime("%Y-%m-%d")
+    archivo = open(ruta_rel + "TripAdvisor" + dateStr+ ".json", "w", encoding="utf-8")
+    archivo.write(str(opiniones)) 
+    archivo.close()
+    
 asyncio.get_event_loop().run_until_complete(main())
