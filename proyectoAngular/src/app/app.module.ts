@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { AnalyseComponent } from './analyse/analyse.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
+    HeaderComponent,
+    FooterComponent,
     AnalyseComponent
   ],
   imports: [
