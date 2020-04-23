@@ -36,7 +36,7 @@ async def main():
     nextLink = await page.evaluate('document.querySelector(".pageNumbers").children[4].href')
     opiniones.extend(await page.evaluate(hookComments))
     await browser.close()
-    # print(opiniones)
+    print(opiniones)
     ruta_rel = "Web Scrapping\\Archivos JSON\\"
     dateStr = date.today().strftime("%Y-%m-%d")
     archivo = open(ruta_rel + "TripAdvisor" + dateStr+ ".json", "w", encoding="utf-8")

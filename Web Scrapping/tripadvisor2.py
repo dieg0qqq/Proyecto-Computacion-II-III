@@ -2,7 +2,7 @@ from ichrome import AsyncChromeDaemon, AsyncChrome
 import asyncio
 
 async def main():
-    aerolinea = 'Ryanair' #El parámetro
+    aerolinea = 'Arkia' #El parámetro
     opiniones = []
     hook_comments_js = '''
         function(){  
@@ -23,7 +23,7 @@ async def main():
         async with AsyncChrome() as chrome:
             tab = await chrome.new_tab(url="https://www.tripadvisor.es/Search?q="+aerolinea)
             async with tab():
-                await asyncio.sleep(5)
+                await asyncio.sleep(10)
                 await tab.set_url("https://www.tripadvisor.es"+await tab.get_value('''document.querySelector(".result-title").onclick.toString().split("'")[3]'''))
                 for i in range(0, 5):
                     await asyncio.sleep(5)
