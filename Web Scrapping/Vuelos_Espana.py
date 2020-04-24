@@ -124,55 +124,56 @@ async def main():
             page = requests.get(vuelo)
             soup = BeautifulSoup(page.content, 'html.parser')
 
-            id_vuelo = soup.select("div.text-helper__TextHelper-s8bko4a-0.ekVwAR")
-            aerolinea = soup.select("div.text-helper__TextHelper-s8bko4a-0.dNaxcH")
-            siglas_origen = soup.select("div.route-with-plane__RouteGroup-s154xj1h-0.geSBNm div:nth-child(1) a.route-with-plane__AirportLink-s154xj1h-3.dBXRil")
-            siglas_destino = soup.select("div.route-with-plane__RouteGroup-s154xj1h-0.geSBNm div:nth-child(3) a.route-with-plane__AirportLink-s154xj1h-3.dBXRil")
-            origen = soup.select("div.route-with-plane__RouteGroup-s154xj1h-0.geSBNm div:nth-child(1) div.text-helper__TextHelper-s8bko4a-0.eFnGmW")
-            destino = soup.select("div.route-with-plane__RouteGroup-s154xj1h-0.geSBNm div:nth-child(3) div.text-helper__TextHelper-s8bko4a-0.eFnGmW")
-            estado1 = soup.select("div.text-helper__TextHelper-s8bko4a-0.kWxgTv")
-            estado2 = soup.select("div.text-helper__TextHelper-s8bko4a-0.yeKfN")
+            id_vuelo = soup.select("div.ticket__Header-s1rrbl5o-1 > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1)")
+            aerolinea = soup.select("div.ticket__Header-s1rrbl5o-1 > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(2)")
+            siglas = soup.select("div.ticket__Header-s1rrbl5o-1 > div:nth-child(1) > div > div:nth-child(2) > div a")
+            origen = soup.select(
+                "div.route-with-plane__RouteGroup-s154xj1h-0.geSBNm div:nth-child(1) div.text-helper__TextHelper-s8bko4a-0.eFnGmW")
+            destino = soup.select(
+                "div.route-with-plane__RouteGroup-s154xj1h-0.geSBNm div:nth-child(3) div.text-helper__TextHelper-s8bko4a-0.eFnGmW")
+            estado1 = soup.select("div.ticket__StatusContainer-s1rrbl5o-17 div")
+            hora_prog_est_origen = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)")
+            hora_real_origen = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2)")
+            hora_prog_est_destino = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)")
+            hora_real_destino = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2)")
 
-            hora_prog_est_origen = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(1) div.ticket__InfoSection-s1rrbl5o-8.igyRqP div.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            hora_prog_est_destino = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(2) div.ticket__InfoSection-s1rrbl5o-8.igyRqP div.text-helper__TextHelper-s8bko4a-0.cCfBRT")
+            gate_origen = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(2)")
+            gate_destino = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(2)")
             
-            # hora_prog_origen = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(1) div.ticket__TimeGroupContainer-s1rrbl5o-11.ckbilY div:nth-children(1) div.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            # hora_est_origen = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(1) div.ticket__TimeGroupContainer-s1rrbl5o-11.ckbilY div:nth-children(2) div.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            
-            terminal_origen = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(1) div.ticket__TGBSection-s1rrbl5o-14.bcEbYB.ticket__InfoSection-s1rrbl5o-8.isGpsI div.ticket__TGBValue-s1rrbl5o-16.icyRae.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            gate_origen = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(1) ticket__TGBSection-s1rrbl5o-14.gOacyS.ticket__InfoSection-s1rrbl5o-8.isGpsI div.ticket__TGBValue-s1rrbl5o-16.icyRae.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            
-            terminal_destino = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(2) div.ticket__TGBSection-s1rrbl5o-14.bcEbYB.ticket__InfoSection-s1rrbl5o-8.isGpsI div.ticket__TGBValue-s1rrbl5o-16.icyRae.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            gate_destino = soup.select("div.ticket__TicketContent-s1rrbl5o-6.ccpWcM div:nth-child(2) ticket__TGBSection-s1rrbl5o-14.gOacyS.ticket__InfoSection-s1rrbl5o-8.isGpsI div.ticket__TGBValue-s1rrbl5o-16.icyRae.text-helper__TextHelper-s8bko4a-0.cCfBRT")
-            
-            try:
-                print("---------------------------------")
-                print("Link vuelo: " + vuelo)
-                print("[Datos vuelo]")
-                print("Id: " + id_vuelo[0].text)
-                print("Aerolínea: " + aerolinea[0].text)
-                print("Estado: " + estado1[0].text + " " + estado2[0].text)
-                print("\n")
-                print("[Datos origen]")
-                print("Siglas origen: " + siglas_origen[0].text)
-                print("Origen: " + origen[0].text)
-                print("Hora programada: " + hora_prog_est_origen[0].text)
-                print("Hora estimada: " + hora_prog_est_origen[1].text)
-                print("Terminal: " + terminal_origen[0].text)
-                print("Gate: " + gate_origen)
-                print("\n")
-                print("[Datos destino]")
-                print("Siglas destino: " + siglas_destino[0].text)
-                print("Destino: " + destino[0].text)
-                print("Hora programada: " + hora_prog_est_destino[0].text)
-                print("Hora estimada: " + hora_prog_est_destino[1].text)
-                print("Terminal: " + terminal_destino[0].text)
-                print("Gate: " + gate_destino[0].text)
-                print("---------------------------------")
-                print("\n")
-            
-            except:
-                print("Algo malo ocurrió")
+            terminal_origen = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2)")
+            terminal_destino = soup.select(
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2)")
+                    
+            print("---------------------------------")
+            print("Link vuelo: " + vuelo)
+            print("[Datos vuelo]")
+            print("Id: " + id_vuelo[0].text)
+            print("Aerolínea: " + aerolinea[0].text)
+            print("Estado del vuelo: ",estado1[0].text, " ", estado1[1].text)
+            print("[Datos origen]")
+            print("Siglas origen: " + siglas[0].text)
+            print("Origen: " + origen[0].text)
+            print("Hora programada: " + hora_prog_est_origen[0].text)
+            print("Hora estimada: " + hora_real_origen[0].text)
+            print("Terminal: " + terminal_origen[0].text)
+            print("Gate: " + gate_origen[0].text)
+            print("\n")
+            print("[Datos destino]")
+            print("Siglas destino: " + siglas[1].text)
+            print("Destino: " + destino[0].text)
+            print("Hora programada: " + hora_prog_est_destino[0].text)
+            print("Hora estimada: " + hora_real_destino[0].text)
+            print("Terminal: " + terminal_destino[0].text)
+            print("Gate: " + gate_destino[0].text)
+            print("---------------------------------")
+            print("\n")
 
         await browser.close()
 
