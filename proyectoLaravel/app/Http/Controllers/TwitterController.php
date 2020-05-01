@@ -45,15 +45,13 @@ class TwitterController extends Controller
      */
     public function store(Request $request)
     {
-        //
-         $array = $request->json()->all();
+        $array = $request->json()->all();
         foreach ($array['opiniones'] as $dict => $value) {
             $model = new Twitter();
-            $model->nombreAerolinea = $array['opiniones'][$dict]['aerolinea'];
-            $model->opinionExtraida = $array['opiniones'][$dict]['texto'];
-            echo($array['opiniones'][$dict]['aerolinea']);
-            echo($array['opiniones'][$dict]['texto']);
-            // $model->save();
+            $model->nombreAerolinea = $array['opiniones'][$dict]['nombreAerolinea'];
+            $model->opinionExtraida = $array['opiniones'][$dict]['comentario'];
+            $model->analisis = $array['opiniones'][$dict]['analisis'];            
+            $model->save();
         }
         return $model;
     }
