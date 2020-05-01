@@ -1,16 +1,7 @@
-from flask import Flask, jsonify, request, abort
 from textblob import TextBlob
-from flask_cors import CORS, cross_origin
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-
-app=Flask(__name__)
-CORS(app)
-@cross_origin()
-
-@app.route('/vader_texto', methods=['POST'])
-def vader_texto():
-    texto = request.json['texto']
+def vader_texto(texto):
     blob = TextBlob(texto)
     lanDet = blob.detect_language()
     if(lanDet != 'en'):
@@ -32,5 +23,3 @@ def vader_texto():
     
     return ({'idioma': lanDet, 'texto' : str(lan),'compound': compound ,'%neg': neg, '%pos': pos, '%neu': neu, 'conclusion': conclu})   
 
-if __name__ == '__main__':
-    app.run(debug = True)

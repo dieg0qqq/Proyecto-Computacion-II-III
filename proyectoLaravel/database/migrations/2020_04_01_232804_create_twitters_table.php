@@ -17,7 +17,8 @@ class CreateTwittersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nombreAerolinea');
-            $table->string('opinionExtraida');
+            $table->text('opinionExtraida');
+            $table->string('analisis');
         });
     }
 

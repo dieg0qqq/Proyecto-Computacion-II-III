@@ -1,6 +1,7 @@
 from datetime import date
 from twython import Twython
-# import sim
+import requests
+import analisis_sentimientos
 
 data = {}
 data['opiniones'] = []
@@ -17,13 +18,20 @@ aerolineas = ['Iberia', 'Ryanair',
               'LATAM', 'AirEuropa', 'Avianca']
 
 for j in range(len(aerolineas)):
-    query = aerolineas[j] + " atencion al cliente"
-    # search = api.user_timeline(screen_name = aerolineas[j], count = 10)
+    query = aerolineas[j] + " cliente -filter:retweets AND -filter:replies"
     search = twitter.search(q=query, tweet_mode='extended')
+    it = 0
     for se in search['statuses']:
+        print(it, ": ", se['full_text'])
+        analisis = analisis_sentimientos.vader_texto(se['full_text'])
+        print(analisis['conclusion'])
         data['opiniones'].append({
             'nombreAerolinea': aerolineas[j],
-            'comentario': se['full_text']
+            'comentario': se['full_text'],
+            'analisis' : analisis['conclusion']
         })
-print(data)
+        it = it +1
+
+# print(data)
+requests.post('http://127.0.0.1:8000/api/comentarios/twitter',json=data)
 
