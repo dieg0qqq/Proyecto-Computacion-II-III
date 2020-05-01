@@ -1,4 +1,3 @@
-from datetime import date
 from twython import Twython
 import requests
 import analisis_sentimientos
