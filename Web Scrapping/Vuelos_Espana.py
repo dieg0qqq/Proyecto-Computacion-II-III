@@ -1,5 +1,6 @@
 import asyncio
 import requests
+import numpy as np
 from pyppeteer import launch
 from bs4 import BeautifulSoup
 
@@ -28,7 +29,7 @@ if __name__ == "__main__":
     links()
       
 async def main():
-
+    lista_aerolinea = []
     for link in lista: 
         browser = await launch()
         page = await browser.newPage()
@@ -119,6 +120,9 @@ async def main():
             await page.evaluate('() => {document.querySelector("#flightStatusByRouteForm > select").value++; document.querySelector("#flightStatusByRouteForm").submit()}')
             await page.waitForNavigation()
 
+        
+
+        # aerolineas = []
         for vuelo in id_vuelos:
 
             page = requests.get(vuelo)
@@ -150,31 +154,43 @@ async def main():
                 "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2)")
             terminal_destino = soup.select(
                 "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2)")
-                    
-            print("---------------------------------")
-            print("Link vuelo: " + vuelo)
-            print("[Datos vuelo]")
-            print("Id: " + id_vuelo[0].text)
-            print("Aerolínea: " + aerolinea[0].text)
-            print("Estado del vuelo: ",estado1[0].text, " ", estado1[1].text)
-            print("[Datos origen]")
-            print("Siglas origen: " + siglas[0].text)
-            print("Origen: " + origen[0].text)
-            print("Hora programada: " + hora_prog_est_origen[0].text)
-            print("Hora estimada: " + hora_real_origen[0].text)
-            print("Terminal: " + terminal_origen[0].text)
-            print("Gate: " + gate_origen[0].text)
-            print("\n")
-            print("[Datos destino]")
-            print("Siglas destino: " + siglas[1].text)
-            print("Destino: " + destino[0].text)
-            print("Hora programada: " + hora_prog_est_destino[0].text)
-            print("Hora estimada: " + hora_real_destino[0].text)
-            print("Terminal: " + terminal_destino[0].text)
-            print("Gate: " + gate_destino[0].text)
-            print("---------------------------------")
-            print("\n")
 
+            
+            for i in range(len(aerolinea)):
+                a = aerolinea[i].text
+                lista_aerolinea.append(a)
+                
+                # print(a)
+
+            # print("---------------------------------")
+            # print("Link vuelo: " + vuelo)
+            # print("[Datos vuelo]")
+            # print("Id: " + id_vuelo[0].text)
+            # print("Aerolínea: " + aerolinea[0].text)
+            # print("Estado del vuelo: ",estado1[0].text, " ", estado1[1].text)
+            # print("[Datos origen]")
+            # print("Siglas origen: " + siglas[0].text)
+            # print("Origen: " + origen[0].text)
+            # print("Hora programada: " + hora_prog_est_origen[0].text)
+            # print("Hora estimada: " + hora_real_origen[0].text)
+            # print("Terminal: " + terminal_origen[0].text)
+            # print("Gate: " + gate_origen[0].text)
+            # print("\n")
+            # print("[Datos destino]")
+            # print("Siglas destino: " + siglas[1].text)
+            # print("Destino: " + destino[0].text)
+            # print("Hora programada: " + hora_prog_est_destino[0].text)
+            # print("Hora estimada: " + hora_real_destino[0].text)
+            # print("Terminal: " + terminal_destino[0].text)
+            # print("Gate: " + gate_destino[0].text)
+            # print("---------------------------------")
+            # print("\n")
+        # print (lista_aerolinea)
+        lista_aero_unica = np.unique(lista_aerolinea)
+        print(len(lista_aero_unica))
+        for e in range(len(lista_aero_unica)):
+            print(lista_aero_unica[e])
         await browser.close()
+    print(lista_aerolinea)
 
 asyncio.get_event_loop().run_until_complete(main())

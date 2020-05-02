@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource("climas","DatosClimaController");
+Route::apiResource("clima","ClimaController");
 Route::apiResource("twitters", "TwitterController");
 Route::apiResource("siglas", "AeroSiglasController");
 
 Route::post('/comentarios/twitter', 'TwitterController@store');
-Route::post('/clima/datos','DatosClimaController@store');
+Route::post('/clima/datos','ClimaController@store');
 Route::post('/tienda/datos','TiendasController@store');
 Route::post('/siglas/datos','AeroSiglasController@store');
 

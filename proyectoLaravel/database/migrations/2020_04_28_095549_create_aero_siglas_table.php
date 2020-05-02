@@ -15,7 +15,7 @@ class CreateAeroSiglasTable extends Migration
     {
         Schema::create('aero_siglas', function (Blueprint $table) {
             
-            $table->id();
+            $table->increments('id');
             $table->timestamps();
             $table->string('nombre');
             $table->string('siglas');
