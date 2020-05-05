@@ -22,7 +22,7 @@ class CreateVuelosTable extends Migration
             $table->integer('Aerolinea')->unsigned();
             $table->foreign('Aerolinea')->references('id')->on('aerolineas');
             $table->string('Estado1');
-            $table->string('Estado2');
+            $table->string('Estado2')->nullable();
 
             $table->integer('SiglasOrigen')->unsigned();
             $table->foreign('SiglasOrigen')->references('id')->on('aero_siglas');

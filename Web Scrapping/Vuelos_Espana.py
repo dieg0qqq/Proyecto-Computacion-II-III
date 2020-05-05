@@ -163,7 +163,7 @@ async def main():
             for i in range(len(aerolinea)):
                 a = aerolinea[i].text
                 lista_aerolinea.append(a)     
-      
+        
             print("Link vuelo: " + vuelo)
 
             array['vuelos'].append({
@@ -188,9 +188,11 @@ async def main():
                 'GateDestino': gate_destino[0].text
             })
             print("Vuelo analizado")
-            
-        lista_aero_unica = np.unique(lista_aerolinea)
-        await browser.close()
+
+    
+    requests.post('http://127.0.0.1:8000/api/vuelos/datos', json=array)      
+    lista_aero_unica = np.unique(lista_aerolinea)
+    await browser.close()
     print(lista_aero_unica)
     ruta_rel = "Web Scrapping\\Archivos_JSON\\"
     archivo = open(ruta_rel + "Aerolineas" + ".txt","w", encoding="utf-8")
@@ -198,6 +200,6 @@ async def main():
         archivo.write(e + "\n")
     archivo.close()
     print(array)  
-    requests.post('http://127.0.0.1:8000/api/vuelos/datos', json=array)  
+
 
 asyncio.get_event_loop().run_until_complete(main())

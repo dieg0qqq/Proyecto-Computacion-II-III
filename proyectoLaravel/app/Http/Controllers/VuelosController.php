@@ -37,11 +37,13 @@ class VuelosController extends Controller
      */
     public function store(Request $request)
     {
+        error_log("Holaaa");
         $array = $request->json()->all();  
+        
         foreach ($array['vuelos'] as $dict => $value) {
             
             $model = new Vuelos();
-
+            error_log($array['vuelos'][$dict]['IdVuelo']);
             $model->IdVuelo = $array['vuelos'][$dict]['IdVuelo'];
             $x = $array['vuelos'][$dict]['Aerolinea'];
             $idx = Aerolinea::where('nombreAerolinea', $x)->first();
@@ -64,6 +66,7 @@ class VuelosController extends Controller
             $y = $array['vuelos'][$dict]['SiglasOrigen'];
             $idy = AeroSiglas::select('id')->where('siglas',$y)->get();
             $model->SiglasOrigen = $idy[0]['id'];
+            // $model->SiglasOrigen = $array['vuelos'][$dict]['SiglasOrigen'];
             $model->Origen = $array['vuelos'][$dict]['Origen'];
             $model->HoraProgOrigen = $array['vuelos'][$dict]['HoraProgOrigen'];
             $model->HoraEstOrigen = $array['vuelos'][$dict]['HoraEstOrigen'];
@@ -77,10 +80,10 @@ class VuelosController extends Controller
             $model->TerminalDestino = $array['vuelos'][$dict]['TerminalDestino'];
             $model->GateDestino = $array['vuelos'][$dict]['GateDestino'];
             
-            echo($array['vuelos'][$dict]['IdVuelo']);
-            echo($array['vuelos'][$dict]['Aerolinea']);
-            echo($array['vuelos'][$dict]['Estado1']);
-            echo($array['vuelos'][$dict]['Estado2']);
+            error_log($array['vuelos'][$dict]['IdVuelo']);
+            error_log($array['vuelos'][$dict]['Aerolinea']);
+            error_log($array['vuelos'][$dict]['Estado1']);
+            error_log($array['vuelos'][$dict]['Estado2']);
 
             echo($array['vuelos'][$dict]['SiglasOrigen']);
             echo($array['vuelos'][$dict]['Origen']);
