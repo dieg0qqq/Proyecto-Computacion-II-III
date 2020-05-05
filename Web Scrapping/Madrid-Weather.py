@@ -22,7 +22,7 @@ for i in range(1,25):
         }
         data['clima'].append(hora)
 
-ruta_rel = "Web Scrapping\\Archivos JSON\\"
+ruta_rel = "Web Scrapping\\Archivos_JSON\\"
 dateStr = date.today().strftime("%Y-%m-%d")
 archivo = open(ruta_rel + "Clima" + dateStr+ ".json", "w", encoding="utf-8")
 archivo.write(str(data['clima'])) 

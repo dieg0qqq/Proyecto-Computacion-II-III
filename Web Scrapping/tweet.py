@@ -12,14 +12,18 @@ access_token_secret = 'AWM4LzNZICFq1e6MFwsLZnaLQpDRHN4rIjreleYptwC0C'
 
 twitter = Twython(consumer_key, consumer_secret,
                   access_token, access_token_secret)
+aerolineas = []
+ruta_rel = "Web Scrapping\\Archivos_JSON\\"
+archivo = open(ruta_rel + "Aerolineas" + ".txt","r", encoding="utf-8")
 
-aerolineas = ['Iberia', 'Ryanair',
-              'LATAM', 'AirEuropa', 'Avianca']
+for line in archivo:
+    aerolineas.append(line)
 
 for j in range(len(aerolineas)):
     query = aerolineas[j] + " cliente -filter:retweets AND -filter:replies"
     search = twitter.search(q=query, tweet_mode='extended')
     it = 0
+    print(query)
     for se in search['statuses']:
         print(it, ": ", se['full_text'])
         analisis = analisis_sentimientos.vader_texto(se['full_text'])
@@ -31,6 +35,6 @@ for j in range(len(aerolineas)):
         })
         it = it +1
 
-# print(data)
-requests.post('http://127.0.0.1:8000/api/comentarios/twitter',json=data)
+print(data)
+# requests.post('http://127.0.0.1:8000/api/comentarios/twitter',json=data)
 
