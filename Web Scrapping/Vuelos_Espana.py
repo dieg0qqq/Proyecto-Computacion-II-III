@@ -1,5 +1,6 @@
 import asyncio
 import requests
+import numpy as np
 from pyppeteer import launch
 from bs4 import BeautifulSoup
 
@@ -28,6 +29,10 @@ if __name__ == "__main__":
     links()
       
 async def main():
+    
+    lista_aerolinea = []
+    array = {}
+    array['vuelos'] = []
 
     for link in lista: 
         browser = await launch()
@@ -119,6 +124,9 @@ async def main():
             await page.evaluate('() => {document.querySelector("#flightStatusByRouteForm > select").value++; document.querySelector("#flightStatusByRouteForm").submit()}')
             await page.waitForNavigation()
 
+        
+        it=0
+        # aerolineas = []
         for vuelo in id_vuelos:
 
             page = requests.get(vuelo)
@@ -139,7 +147,7 @@ async def main():
             hora_prog_est_destino = soup.select(
                 "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)")
             hora_real_destino = soup.select(
-                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2)")
+                "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2)")
 
             gate_origen = soup.select(
                 "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(2)")
@@ -150,31 +158,48 @@ async def main():
                 "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2)")
             terminal_destino = soup.select(
                 "div.ticket__TicketContent-s1rrbl5o-6 > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2)")
-                    
-            print("---------------------------------")
-            print("Link vuelo: " + vuelo)
-            print("[Datos vuelo]")
-            print("Id: " + id_vuelo[0].text)
-            print("Aerolínea: " + aerolinea[0].text)
-            print("Estado del vuelo: ",estado1[0].text, " ", estado1[1].text)
-            print("[Datos origen]")
-            print("Siglas origen: " + siglas[0].text)
-            print("Origen: " + origen[0].text)
-            print("Hora programada: " + hora_prog_est_origen[0].text)
-            print("Hora estimada: " + hora_real_origen[0].text)
-            print("Terminal: " + terminal_origen[0].text)
-            print("Gate: " + gate_origen[0].text)
-            print("\n")
-            print("[Datos destino]")
-            print("Siglas destino: " + siglas[1].text)
-            print("Destino: " + destino[0].text)
-            print("Hora programada: " + hora_prog_est_destino[0].text)
-            print("Hora estimada: " + hora_real_destino[0].text)
-            print("Terminal: " + terminal_destino[0].text)
-            print("Gate: " + gate_destino[0].text)
-            print("---------------------------------")
-            print("\n")
 
-        await browser.close()
+            
+            for i in range(len(aerolinea)):
+                a = aerolinea[i].text
+                lista_aerolinea.append(a)     
+        
+            print("Link vuelo: " + vuelo)
+
+            array['vuelos'].append({
+
+                'IdVuelo': id_vuelo[0].text,
+                'Aerolinea': aerolinea[0].text,
+                'Estado1': estado1[0].text,
+                'Estado2': estado1[1].text,
+
+                'SiglasOrigen': siglas[0].text,
+                'Origen': origen[0].text,
+                'HoraProgOrigen': hora_prog_est_origen[0].text,
+                'HoraEstOrigen': hora_real_origen[0].text,
+                'TerminalOrigen': terminal_origen[0].text,
+                'GateOrigen': gate_origen[0].text,
+
+                'SiglasDestino': siglas[1].text,
+                'Destino': destino[0].text,
+                'HoraProgDestino': hora_prog_est_destino[0].text,
+                'HoraEstDestino': hora_real_destino[0].text,
+                'TerminalDestino': terminal_destino[0].text,
+                'GateDestino': gate_destino[0].text
+            })
+            print("Vuelo analizado")
+
+    
+    requests.post('http://127.0.0.1:8000/api/vuelos/datos', json=array)      
+    lista_aero_unica = np.unique(lista_aerolinea)
+    await browser.close()
+    print(lista_aero_unica)
+    ruta_rel = "Web Scrapping\\Archivos_JSON\\"
+    archivo = open(ruta_rel + "Aerolineas" + ".txt","w", encoding="utf-8")
+    for e in lista_aero_unica:
+        archivo.write(e + "\n")
+    archivo.close()
+    print(array)  
+
 
 asyncio.get_event_loop().run_until_complete(main())

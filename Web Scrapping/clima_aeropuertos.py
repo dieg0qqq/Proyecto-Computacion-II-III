@@ -16,6 +16,7 @@ for aeropuerto in aeropuertos:
     nombre_aeropuertos.append(aeropuerto.text)
     links_por_pagina = be.select("ul.m_search_results > li:nth-of-type(1) > a")
 
+
     if (len(links_por_pagina) == 0):
         hey1 = re.sub("Aeropuerto de ", "", aeropuerto.text)
         hey = re.sub(" ", "+", hey1)
@@ -62,6 +63,7 @@ for i in linkd_presultados:
 
     for k in range(1, total_filas):
         it = k-1
+        print(aeropuerto)
         print(horas[k].text)
         print("prevision: ",prevision[k].text.replace("°", ""))
 

@@ -1,5 +1,5 @@
 <?php
-
+// php artisan make:model Todo -mcr
 namespace App\Http\Controllers;
 
 use App\Twitter;
