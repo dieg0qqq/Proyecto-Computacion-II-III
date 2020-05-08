@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Tiendas;
 use Illuminate\Http\Request;
 
+/**
+* @group MRC Tiendas
+* Controlador-Modelo-Tabla
+*/
+
 class TiendasController extends Controller
 {
     /**
@@ -28,7 +33,8 @@ class TiendasController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Recoge el diccionario y crea las filas para la bbdd
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

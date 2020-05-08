@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\AeroSiglas;
 use Illuminate\Http\Request;
 
+/**
+* @group MRC Areosiglas
+* Controlador-Modelo-Tabla
+*/
+
 class AeroSiglasController extends Controller
 {
     /**
@@ -28,7 +33,8 @@ class AeroSiglasController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     *  Recoge el diccionario y crea entradas para la bbdd
+
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

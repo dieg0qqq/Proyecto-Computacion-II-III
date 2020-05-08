@@ -6,6 +6,11 @@ use App\Clima;
 use App\AeroSiglas;
 use Illuminate\Http\Request;
 
+/**
+ * @group MRC Clima
+ * Controlador-Modelo-Tabla
+ */
+
 class ClimaController extends Controller
 {
     /**
@@ -29,7 +34,22 @@ class ClimaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Recoge el diccionario y lo procesa para buscar el fk del aeropuerto antes de insertarlo en la bbdd
+     * @response {
+     * "id": 5,
+     * "idaeropuerto": "LCG\n",
+     * "fecha": "2020-05-08",
+     * "hora": "14:00", 
+     * "prevision": "Patchy rain possible", 
+     * "temperatura": "18", 
+     * "lluvia": "0.1", 
+     * "nubes": "38", 
+     * "viento": "11", 
+     * "rafagas": "13", 
+     * "direccion": "NW", 
+     * "humedad": "78", 
+     * "presion": "1013"
+     * }
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

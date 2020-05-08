@@ -7,6 +7,11 @@ use App\AeroSiglas;
 use App\Aerolinea;
 use Illuminate\Http\Request;
 
+/**
+ * @group MRC Vuelos
+ * Recoge el diccionario y crea un fila para la bbdd
+ */
+
 class VuelosController extends Controller
 {
     /**
@@ -30,8 +35,24 @@ class VuelosController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * [Se busca la aerolinea en su tabla y si no se encuentra se crea una entrada, además se busca la sigla del aeropuerto de origen]
+     * @response {
+     * "IdVuelo": "SWT 112", 
+     * "Aerolinea": "Swiftair", 
+     * "Estado1": "Unknown", 
+     * "Estado2": "", 
+     * "SiglasOrigen": "BCN", 
+     * "Origen": "Barcelona", 
+     * "HoraProgOrigen": "04:30 CEST", 
+     * "HoraEstOrigen": "-- ", 
+     * "TerminalOrigen": "N/A", 
+     * "GateOrigen": "N/A", 
+     * "SiglasDestino": "PMI", 
+     * "Destino": "Palma Mallorca", 
+     * "HoraProgDestino": "05:30 CEST", 
+     * "HoraEstDestino": "-- ", 
+     * "TerminalDestino": "N/A", 
+     * "GateDestino": "N/A"}
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

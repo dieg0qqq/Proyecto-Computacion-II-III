@@ -6,6 +6,10 @@ use App\TripAdvisor;
 use App\Aerolinea;
 use Illuminate\Http\Request;
 
+/**
+ * @group MRC TripAdvisor
+ */
+
 class TripAdvisorController extends Controller
 {
     /**
@@ -29,7 +33,7 @@ class TripAdvisorController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Se recoge el diccionario, se busca el FK del nombre de aerolinea para coger su id y se crea una fila para la bbdd
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

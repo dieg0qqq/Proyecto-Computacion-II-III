@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource("siglas", "AeroSiglasController");
-Route::apiResource("clima","ClimaController");
-Route::apiResource("vuelos","VuelosController");
-Route::apiResource("twitters", "TwitterController");
-Route::apiResource("tripadvisor", "TripAdvisorController");
+// Route::apiResource("siglas", "AeroSiglasController");
+// Route::apiResource("clima","ClimaController");
+// Route::apiResource("vuelos","VuelosController");
+// Route::apiResource("twitters", "TwitterController");
+// Route::apiResource("tripadvisor", "TripAdvisorController");
 
 Route::post('/clima/datos','ClimaController@store');
 Route::post('/vuelos/datos','VuelosController@store');

@@ -6,6 +6,10 @@ use App\Twitter;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 
+/**
+ * @group MRC Twitter
+ */
+
 class TwitterController extends Controller
 {
     /**
@@ -23,8 +27,8 @@ class TwitterController extends Controller
         // $command = escapeshellcmd('C:\Users\camii\OneDrive\Documents\Git\Proyecto-Computacion-II\Web Scrapping\tweet.py');
         // $output = shell_exec($command);
         // echo $output;
-        $output = "Twitter Index works";
-        return $output;
+        // $output = "Twitter Index works";
+        // return $output;
     }
 
     /**
@@ -38,7 +42,13 @@ class TwitterController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Recoge el diccionario y crea un fila pra la bbdd
+     * 
+     * @response{
+     *  "nombreAerolinea": "Iberia",
+     *  "comentario" : "Todo muy bien ha llegado a tiempo",
+     *  "analisis": "Positivo"
+     * }
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
