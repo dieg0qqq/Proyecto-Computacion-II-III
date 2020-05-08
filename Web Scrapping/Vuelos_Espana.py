@@ -162,7 +162,7 @@ async def main():
             
             for i in range(len(aerolinea)):
                 a = aerolinea[i].text
-                lista_aerolinea.append(a)     
+                lista_aerolinea.append(a)   
         
             print("Link vuelo: " + vuelo)
 

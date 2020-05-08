@@ -5,10 +5,10 @@ import analisis_sentimientos
 data = {}
 data['opiniones'] = []
 
-consumer_key = 'Y11e8yrSe2s6PsA0K6bX5GlTk'
-consumer_secret = 'ld3Xu6h8JMDs9fHF33is95iHG5imJkqDBEaQBbeiWTpqdshEG0'
-access_token = '805623734-svhgkst8CoLqR44X5Xmxuxdh8Lw5dMEgrM8zm9XR'
-access_token_secret = 'AWM4LzNZICFq1e6MFwsLZnaLQpDRHN4rIjreleYptwC0C'
+consumer_key = 'WinKm5pQsOCDXIeAulJzO16oN'
+consumer_secret = 'ganVeYBL1hnH4Icth8ceWb0UUEfcNswgrcJONuoe1g8G9LtXKx'
+access_token = '805623734-2k3zeIULrBolBTNIjXgZoHbxWZnNemCPz5TKWM8S'
+access_token_secret = 'BvvkJSmEz4jRy294LIYDz2nGQGY15NOzer4ZhCCLji5Hq'
 
 twitter = Twython(consumer_key, consumer_secret,
                   access_token, access_token_secret)
@@ -17,21 +17,24 @@ ruta_rel = "Web Scrapping\\Archivos_JSON\\"
 archivo = open(ruta_rel + "Aerolineas" + ".txt","r", encoding="utf-8")
 
 for line in archivo:
-    aerolineas.append(line)
+    lineas = archivo.readlines()
+    for i in lineas:
+        aero = i.split("\n")
+        aerolineas.append(aero[0])
 
 for j in range(len(aerolineas)):
-    query = aerolineas[j] + " cliente -filter:retweets AND -filter:replies"
-    search = twitter.search(q=query, tweet_mode='extended')
+    query = aerolineas[j] + " cliente -filter:retweets AND -filter:replies AND -filter:links"
+    search = twitter.search(q=query, tweet_mode='extended', count="10")
     it = 0
     print(query)
     for se in search['statuses']:
         print(it, ": ", se['full_text'])
-        analisis = analisis_sentimientos.vader_texto(se['full_text'])
-        print(analisis['conclusion'])
+        # analisis = analisis_sentimientos.vader_texto(se['full_text'])
+        # print(analisis['conclusion'])
         data['opiniones'].append({
             'nombreAerolinea': aerolineas[j],
-            'comentario': se['full_text'],
-            'analisis' : analisis['conclusion']
+            'comentario': se['full_text']
+            # 'analisis' : analisis['conclusion']
         })
         it = it +1
 

@@ -37,7 +37,6 @@ class VuelosController extends Controller
      */
     public function store(Request $request)
     {
-        error_log("Holaaa");
         $array = $request->json()->all();  
         
         foreach ($array['vuelos'] as $dict => $value) {
@@ -79,11 +78,6 @@ class VuelosController extends Controller
             $model->HoraEstDestino = $array['vuelos'][$dict]['HoraEstDestino'];
             $model->TerminalDestino = $array['vuelos'][$dict]['TerminalDestino'];
             $model->GateDestino = $array['vuelos'][$dict]['GateDestino'];
-            
-            error_log($array['vuelos'][$dict]['IdVuelo']);
-            error_log($array['vuelos'][$dict]['Aerolinea']);
-            error_log($array['vuelos'][$dict]['Estado1']);
-            error_log($array['vuelos'][$dict]['Estado2']);
 
             echo($array['vuelos'][$dict]['SiglasOrigen']);
             echo($array['vuelos'][$dict]['Origen']);

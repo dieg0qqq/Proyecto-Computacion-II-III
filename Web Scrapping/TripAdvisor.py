@@ -1,10 +1,14 @@
 from ichrome import AsyncChromeDaemon, AsyncChrome
+import requests
 import asyncio
 
+ruta_rel = "Web Scrapping\\Archivos_JSON\\"
+archivo = open(ruta_rel + "Aerolineas" + ".txt","r", encoding="utf-8")
+
 async def main():
-    aerolineas = ["ANA","ASL Airlines Belgium","Aeroflot","Aerolineas Argentinas","Aeromexico","Air Austral"] #Array de ejemplo de aerolíneas
-    data={}
-    data['comentarios'] = []
+
+    array={}
+    array['comentarios'] = []
     hook_comments_js = '''
         function(){  
             for (const readMore of document.getElementsByClassName("location-review-review-list-parts-ExpandableReview__cta--2mR2g"))
@@ -22,7 +26,7 @@ async def main():
         '''
     async with AsyncChromeDaemon(headless=True):
         async with AsyncChrome() as chrome:
-            for aero in aerolineas:
+            for aero in archivo:
                 working = True
                 aerolinea = aero #El parámetro
                 print(aero) #Para ir viendo por qué aerolínea va
@@ -53,10 +57,12 @@ async def main():
                                 await tab.js(f'document.querySelector(".pageNumbers").children[{i+1}].click()')
                         for i in opiniones_aux:
                             i['id_aerolinea']=aerolinea
-                        data['comentarios'].extend(opiniones_aux)
-                print(len(data['comentarios'])) #Imprime el total de comentarios recogidos hasta el momento
-            await chrome.close_browser()
-    print(data) #Imprime todos los comentarios. Aquí tocaría el post.
+                        array['comentarios'].extend(opiniones_aux)
+                print(len(array['comentarios'])) #Imprime el total de comentarios recogidos hasta el momento
+            
+        requests.post('http://127.0.0.1:8000/api/tripadvisor/comentarios', json=array)
+        await chrome.close_browser()
+    print(array) #Imprime todos los comentarios. Aquí tocaría el post.
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
