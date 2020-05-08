@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "b9f01614-6ceb-419a-a1bf-9456fdbfa29e",
+        "_postman_id": "d57d6e54-597e-425e-9d66-4f5c649680f3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -67,6 +67,34 @@
                         ],
                         "body": {
                             "mode": "raw",
+                            "raw": "{\n    \"id\": 9,\n    \"name\": \"eligendi\",\n    \"acronym\": \"minima\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Devuelve la lista de aeropuertos junto con sus siglas",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/siglas\/lista",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
                             "raw": "[]"
                         },
                         "description": "",
@@ -101,7 +129,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"id\": 19,\n    \"idaeropuerto\": 1,\n    \"fecha\": \"est\",\n    \"hora\": \"fugiat\",\n    \"prevision\": 5536378.58474,\n    \"temperatura\": 125222.8,\n    \"lluvia\": 40513.2,\n    \"nubes\": 9533.6,\n    \"viento\": 6,\n    \"rafagas\": 4899949.0764784,\n    \"direccion\": 5211397.1,\n    \"humedad\": 323168.85,\n    \"presion\": 9997.0072\n}"
                         },
                         "description": "",
                         "response": []
@@ -135,7 +163,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"id\": 4,\n    \"tienda\": \"error\",\n    \"direccion\": 7\n}"
                         },
                         "description": "",
                         "response": []
@@ -169,7 +197,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"id\": 17,\n    \"id_aerolinea\": 10,\n    \"cuerpo\": \"distinctio\",\n    \"valoracion\": 2416816.280998\n}"
                         },
                         "description": "",
                         "response": []
@@ -203,7 +231,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"id\": 3,\n    \"nombreAerolinea\": 17,\n    \"comentario\": \"tempore\",\n    \"analisis\": \"eius\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -265,7 +293,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"id\": 9,\n    \"IdVuelo\": \"natus\",\n    \"Aerolinea\": 3,\n    \"Estado1\": \"voluptas\",\n    \"Estado2\": \"commodi\",\n    \"SiglasOrigen\": 10,\n    \"Origen\": \"ducimus\",\n    \"HoraProgOrigen\": \"similique\",\n    \"HoraEstOrigen\": \"vel\",\n    \"TerminalOrigen\": \"temporibus\",\n    \"GateOrigen\": \"incidunt\",\n    \"SiglasDestino\": \"beatae\",\n    \"Destino\": \"dicta\",\n    \"HoraProgDestino\": \"voluptatem\",\n    \"HoraEstDestino\": \"eos\",\n    \"TerminalDestino\": \"enim\",\n    \"GateDestino\": \"nihil\"\n}"
                         },
                         "description": "",
                         "response": []

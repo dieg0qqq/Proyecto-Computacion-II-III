@@ -44,12 +44,17 @@ class TwitterController extends Controller
     /**
      * Recoge el diccionario y crea un fila pra la bbdd
      * 
-     * @response{
+     * @response {
      *  "nombreAerolinea": "Iberia",
      *  "comentario" : "Todo muy bien ha llegado a tiempo",
      *  "analisis": "Positivo"
      * }
      *
+     * @bodyParam id int required El id del tweet
+     * @bodyParam nombreAerolinea int required El id de la aerolínea asociada por FK.
+     * @bodyParam comentario text required La información extraída del comentario.
+     * @bodyParam analisis string required El resultado del análisis de sentimientos sobre el comentario.
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -75,6 +80,8 @@ class TwitterController extends Controller
     public function show(Twitter $twitter)
     {
         //
+
+
     }
 
     /**

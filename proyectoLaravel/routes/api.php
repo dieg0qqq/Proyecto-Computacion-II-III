@@ -28,3 +28,4 @@ Route::post('/comentarios/twitter', 'TwitterController@store');
 Route::post('/tripadvisor/comentarios', 'TripAdvisorController@store');
 
 Route::get('/twitter/opinionG','TwitterController@index');
+Route::get('/siglas/lista', 'AeroSiglasController@show');

@@ -51,6 +51,20 @@ class ClimaController extends Controller
      * "presion": "1013"
      * }
      *
+     * @bodyParam id int required El id del clima.
+     * @bodyParam idaeropuerto int required El id del aeropuerto asociado por FK.
+     * @bodyParam fecha date required La fecha del día que se recogen los datos.
+     * @bodyParam hora string required La hora y minutos del clima.
+     * @bodyParam prevision double required Descripción del clima (nublado, soleado...).
+     * @bodyParam temperatura double required La temperatura que había en °C.
+     * @bodyParam lluvia double required La cantidad de lluvia en mm.
+     * @bodyParam nubes double required El porcentaje de nubes que cubre el cielo.
+     * @bodyParam viento double required La velocidad del viento en km/h.
+     * @bodyParam rafagas double required La velocidad de las ráfagas en km/h.
+     * @bodyParam direccion double required La dirección del viento en sistema cardinal.
+     * @bodyParam humedad double required La cantidad de humedad en porcentaje.
+     * @bodyParam presion double required La cantidad de presión en milibars (mb).
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

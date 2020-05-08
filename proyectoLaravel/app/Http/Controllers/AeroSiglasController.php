@@ -33,9 +33,31 @@ class AeroSiglasController extends Controller
     }
 
     /**
-     *  Recoge el diccionario y crea entradas para la bbdd
-
+     * Devuelve la lista de aeropuertos junto con sus siglas
      *
+     * @param  \App\AeroSiglas  $twitter
+     * @return \Illuminate\Http\Response
+     */
+    public function show(AeroSiglas $aeroSiglas)
+    {
+        $siglas = AeroSiglas::all();
+        return($siglas);
+    }
+
+    /**
+     *  Recoge el diccionario y crea entradas para la bbdd
+     * @response{
+     * "nombre": "Aeropuerto de Madrid Barajas",
+     * "siglas": "MAD",
+     * "updated_at": "2020-05-08T19:16:27.000000Z",
+     * "created_at": "2020-05-08T19:16:27.000000Z",
+     * "id": 37
+     * }
+     *
+     * @bodyParam id int required El id de la sigla.
+     * @bodyParam name string required El nombre del aeropuerto de la sigla.
+     * @bodyParam acronym string required El conjunto de siglas que define el aeropuerto/región.
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

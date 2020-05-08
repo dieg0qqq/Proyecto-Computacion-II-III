@@ -87,7 +87,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/siglas/datos" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"id":9,"name":"eligendi","acronym":"minima"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/siglas/datos"
 );
@@ -97,15 +99,328 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "id": 9,
+    "name": "eligendi",
+    "acronym": "minima"
+}
+
 fetch(url, {
     method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "nombre": "Aeropuerto de Madrid Barajas",
+    "siglas": "MAD",
+    "updated_at": "2020-05-08T19:16:27.000000Z",
+    "created_at": "2020-05-08T19:16:27.000000Z",
+    "id": 37
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/siglas/datos</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>id</b></code>&nbsp; <small>integer</small>     <br>
+    El id de la sigla.
+</p>
+<p>
+    <code><b>name</b></code>&nbsp; <small>string</small>     <br>
+    El nombre del aeropuerto de la sigla.
+</p>
+<p>
+    <code><b>acronym</b></code>&nbsp; <small>string</small>     <br>
+    El conjunto de siglas que define el aeropuerto/región.
+</p>
+<h2>Devuelve la lista de aeropuertos junto con sus siglas</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/siglas/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/siglas/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
     headers: headers,
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "created_at": "2020-05-08T21:49:43.000000Z",
+        "updated_at": "2020-05-08T21:49:43.000000Z",
+        "nombre": "Aeropuerto de Madrid Barajas",
+        "siglas": "MAD"
+    },
+    {
+        "id": 2,
+        "created_at": "2020-05-08T21:49:43.000000Z",
+        "updated_at": "2020-05-08T21:49:43.000000Z",
+        "nombre": "Aeropuerto de Barcelona El Prat",
+        "siglas": "BCN"
+    },
+    {
+        "id": 3,
+        "created_at": "2020-05-08T21:49:43.000000Z",
+        "updated_at": "2020-05-08T21:49:43.000000Z",
+        "nombre": "Aeropuerto de Bilbao",
+        "siglas": "BIO"
+    },
+    {
+        "id": 4,
+        "created_at": "2020-05-08T21:49:43.000000Z",
+        "updated_at": "2020-05-08T21:49:43.000000Z",
+        "nombre": "Aeropuerto de Ibiza",
+        "siglas": "IBZ"
+    },
+    {
+        "id": 5,
+        "created_at": "2020-05-08T21:49:43.000000Z",
+        "updated_at": "2020-05-08T21:49:43.000000Z",
+        "nombre": "Aeropuerto de Santiago de Compostela",
+        "siglas": "SCQ"
+    },
+    {
+        "id": 6,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de La Coruña",
+        "siglas": "LCG"
+    },
+    {
+        "id": 7,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Santander",
+        "siglas": "SDR"
+    },
+    {
+        "id": 8,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Málaga",
+        "siglas": "AGP"
+    },
+    {
+        "id": 9,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Vigo",
+        "siglas": "VGO"
+    },
+    {
+        "id": 10,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Asturias",
+        "siglas": "OVD"
+    },
+    {
+        "id": 11,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Valencia",
+        "siglas": "VLC"
+    },
+    {
+        "id": 12,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Alicante",
+        "siglas": "ALC"
+    },
+    {
+        "id": 13,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Palma de Mallorca",
+        "siglas": "PMI"
+    },
+    {
+        "id": 14,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Zaragoza",
+        "siglas": "ZAZ"
+    },
+    {
+        "id": 15,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Gran Canaria",
+        "siglas": "LPA"
+    },
+    {
+        "id": 16,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Sevilla",
+        "siglas": "SVQ"
+    },
+    {
+        "id": 17,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Granada",
+        "siglas": "GRX"
+    },
+    {
+        "id": 18,
+        "created_at": "2020-05-08T21:49:44.000000Z",
+        "updated_at": "2020-05-08T21:49:44.000000Z",
+        "nombre": "Aeropuerto de Tenerife Sur",
+        "siglas": "TFS"
+    },
+    {
+        "id": 19,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Girona-Costa Brava",
+        "siglas": "GRO"
+    },
+    {
+        "id": 20,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Tenerife Norte",
+        "siglas": "TFN"
+    },
+    {
+        "id": 21,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Lanzarote",
+        "siglas": "ACE"
+    },
+    {
+        "id": 22,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Jerez",
+        "siglas": "XRY"
+    },
+    {
+        "id": 23,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Valladolid",
+        "siglas": "VLL"
+    },
+    {
+        "id": 24,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Menorca",
+        "siglas": "MAH"
+    },
+    {
+        "id": 25,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Almería",
+        "siglas": "LEI"
+    },
+    {
+        "id": 26,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Pamplona",
+        "siglas": "PNA"
+    },
+    {
+        "id": 27,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de León",
+        "siglas": "LEN"
+    },
+    {
+        "id": 28,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Fuerteventura",
+        "siglas": "FUE"
+    },
+    {
+        "id": 29,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Melilla",
+        "siglas": "MLN"
+    },
+    {
+        "id": 30,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Reus",
+        "siglas": "REU"
+    },
+    {
+        "id": 31,
+        "created_at": "2020-05-08T21:49:45.000000Z",
+        "updated_at": "2020-05-08T21:49:45.000000Z",
+        "nombre": "Aeropuerto de Murcia",
+        "siglas": "RMU"
+    },
+    {
+        "id": 32,
+        "created_at": "2020-05-08T21:49:46.000000Z",
+        "updated_at": "2020-05-08T21:49:46.000000Z",
+        "nombre": "Aeropuerto de San Sebastián",
+        "siglas": "EAS"
+    },
+    {
+        "id": 33,
+        "created_at": "2020-05-08T21:49:46.000000Z",
+        "updated_at": "2020-05-08T21:49:46.000000Z",
+        "nombre": "Aeropuerto de La Palma",
+        "siglas": "SPC"
+    },
+    {
+        "id": 34,
+        "created_at": "2020-05-08T21:49:46.000000Z",
+        "updated_at": "2020-05-08T21:49:46.000000Z",
+        "nombre": "Aeropuerto de Lleida",
+        "siglas": "ILD"
+    },
+    {
+        "id": 35,
+        "created_at": "2020-05-08T21:49:46.000000Z",
+        "updated_at": "2020-05-08T21:49:46.000000Z",
+        "nombre": "Aeropuerto de Huesca-Pirineos",
+        "siglas": "HSK"
+    },
+    {
+        "id": 36,
+        "created_at": "2020-05-08T21:49:46.000000Z",
+        "updated_at": "2020-05-08T21:49:46.000000Z",
+        "nombre": "Aeropuerto de El Hierro",
+        "siglas": "VDE"
+    }
+]</code></pre>
 <h3>Request</h3>
-<p><small class="badge badge-black">POST</small>
-<strong><code>api/siglas/datos</code></strong></p><h1>MRC Clima</h1>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/siglas/lista</code></strong></p><h1>MRC Clima</h1>
 <p>Controlador-Modelo-Tabla</p>
 <h2>Recoge el diccionario y lo procesa para buscar el fk del aeropuerto antes de insertarlo en la bbdd</h2>
 <blockquote>
@@ -114,7 +429,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/clima/datos" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"id":19,"idaeropuerto":1,"fecha":"est","hora":"fugiat","prevision":5536378.58474,"temperatura":125222.8,"lluvia":40513.2,"nubes":9533.6,"viento":6,"rafagas":4899949.0764784,"direccion":5211397.1,"humedad":323168.85,"presion":9997.0072}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/clima/datos"
 );
@@ -124,9 +441,26 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "id": 19,
+    "idaeropuerto": 1,
+    "fecha": "est",
+    "hora": "fugiat",
+    "prevision": 5536378.58474,
+    "temperatura": 125222.8,
+    "lluvia": 40513.2,
+    "nubes": 9533.6,
+    "viento": 6,
+    "rafagas": 4899949.0764784,
+    "direccion": 5211397.1,
+    "humedad": 323168.85,
+    "presion": 9997.0072
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
@@ -150,7 +484,60 @@ fetch(url, {
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
-<strong><code>api/clima/datos</code></strong></p><h1>MRC Tiendas</h1>
+<strong><code>api/clima/datos</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>id</b></code>&nbsp; <small>integer</small>     <br>
+    El id del clima.
+</p>
+<p>
+    <code><b>idaeropuerto</b></code>&nbsp; <small>integer</small>     <br>
+    El id del aeropuerto asociado por FK.
+</p>
+<p>
+    <code><b>fecha</b></code>&nbsp; <small>date</small>     <br>
+    La fecha del día que se recogen los datos.
+</p>
+<p>
+    <code><b>hora</b></code>&nbsp; <small>string</small>     <br>
+    La hora y minutos del clima.
+</p>
+<p>
+    <code><b>prevision</b></code>&nbsp; <small>float</small>     <br>
+    Descripción del clima (nublado, soleado...).
+</p>
+<p>
+    <code><b>temperatura</b></code>&nbsp; <small>float</small>     <br>
+    La temperatura que había en °C.
+</p>
+<p>
+    <code><b>lluvia</b></code>&nbsp; <small>float</small>     <br>
+    La cantidad de lluvia en mm.
+</p>
+<p>
+    <code><b>nubes</b></code>&nbsp; <small>float</small>     <br>
+    El porcentaje de nubes que cubre el cielo.
+</p>
+<p>
+    <code><b>viento</b></code>&nbsp; <small>float</small>     <br>
+    La velocidad del viento en km/h.
+</p>
+<p>
+    <code><b>rafagas</b></code>&nbsp; <small>float</small>     <br>
+    La velocidad de las ráfagas en km/h.
+</p>
+<p>
+    <code><b>direccion</b></code>&nbsp; <small>float</small>     <br>
+    La dirección del viento en sistema cardinal.
+</p>
+<p>
+    <code><b>humedad</b></code>&nbsp; <small>float</small>     <br>
+    La cantidad de humedad en porcentaje.
+</p>
+<p>
+    <code><b>presion</b></code>&nbsp; <small>float</small>     <br>
+    La cantidad de presión en milibars (mb).
+</p><h1>MRC Tiendas</h1>
 <p>Controlador-Modelo-Tabla</p>
 <h2>Recoge el diccionario y crea las filas para la bbdd</h2>
 <blockquote>
@@ -159,7 +546,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/tienda/datos" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"id":4,"tienda":"error","direccion":7}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/tienda/datos"
 );
@@ -169,15 +558,45 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "id": 4,
+    "tienda": "error",
+    "direccion": 7
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "nombre_tienda": "Accessorize",
+    "direccion": "Terminal T3. Planta 1. Salidas. Zona de embarque E",
+    "updated_at": "2020-05-08T19:19:03.000000Z",
+    "created_at": "2020-05-08T19:19:03.000000Z",
+    "id": 137
+}</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
-<strong><code>api/tienda/datos</code></strong></p><h1>MRC TripAdvisor</h1>
+<strong><code>api/tienda/datos</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>id</b></code>&nbsp; <small>integer</small>     <br>
+    El id de la tienda.
+</p>
+<p>
+    <code><b>tienda</b></code>&nbsp; <small>string</small>     <br>
+    El nombre de la tienda.
+</p>
+<p>
+    <code><b>direccion</b></code>&nbsp; <small>integer</small>     <br>
+    La dirección donde se encuentra la tienda.
+</p><h1>MRC TripAdvisor</h1>
 <h2>Se recoge el diccionario, se busca el FK del nombre de aerolinea para coger su id y se crea una fila para la bbdd</h2>
 <blockquote>
 <p>Example request:</p>
@@ -185,7 +604,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/tripadvisor/comentarios" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"id":17,"id_aerolinea":10,"cuerpo":"distinctio","valoracion":2416816.280998}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/tripadvisor/comentarios"
 );
@@ -195,15 +616,51 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "id": 17,
+    "id_aerolinea": 10,
+    "cuerpo": "distinctio",
+    "valoracion": 2416816.280998
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "IdAerolinea": 24,
+    "Comentario": "CORRECTA Y PROFESIONAL Espacio adecuado , el personal atento y agradable . La comida correcta, la limpieza buena . Los labavos limpios y suficientes",
+    "Valoracion": "4",
+    "updated_at": "2020-05-08T18:48:05.000000Z",
+    "created_at": "2020-05-08T18:48:05.000000Z",
+    "id": 856
+}</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
-<strong><code>api/tripadvisor/comentarios</code></strong></p><h1>MRC Twitter</h1>
+<strong><code>api/tripadvisor/comentarios</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>id</b></code>&nbsp; <small>integer</small>     <br>
+    El id del comentario.
+</p>
+<p>
+    <code><b>id_aerolinea</b></code>&nbsp; <small>integer</small>     <br>
+    El id del aeropuerto asociado por FK.
+</p>
+<p>
+    <code><b>cuerpo</b></code>&nbsp; <small>string</small>     <br>
+    La información que contiene el cuerpo (comentario).
+</p>
+<p>
+    <code><b>valoracion</b></code>&nbsp; <small>float</small>     <br>
+    La valoración de 1 a 5 sobre la aerolínea.
+</p><h1>MRC Twitter</h1>
 <h2>Recoge el diccionario y crea un fila pra la bbdd</h2>
 <blockquote>
 <p>Example request:</p>
@@ -211,7 +668,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/comentarios/twitter" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"id":3,"nombreAerolinea":17,"comentario":"tempore","analisis":"eius"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/comentarios/twitter"
 );
@@ -221,9 +680,17 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "id": 3,
+    "nombreAerolinea": 17,
+    "comentario": "tempore",
+    "analisis": "eius"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
@@ -238,6 +705,23 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/comentarios/twitter</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>id</b></code>&nbsp; <small>integer</small>     <br>
+    El id del tweet
+</p>
+<p>
+    <code><b>nombreAerolinea</b></code>&nbsp; <small>integer</small>     <br>
+    El id de la aerolínea asociada por FK.
+</p>
+<p>
+    <code><b>comentario</b></code>&nbsp; <small>text</small>     <br>
+    La información extraída del comentario.
+</p>
+<p>
+    <code><b>analisis</b></code>&nbsp; <small>string</small>     <br>
+    El resultado del análisis de sentimientos sobre el comentario.
+</p>
 <h2>Display a listing of the resource.</h2>
 <blockquote>
 <p>Example request:</p>
@@ -272,7 +756,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/vuelos/datos" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"id":9,"IdVuelo":"natus","Aerolinea":3,"Estado1":"voluptas","Estado2":"commodi","SiglasOrigen":10,"Origen":"ducimus","HoraProgOrigen":"similique","HoraEstOrigen":"vel","TerminalOrigen":"temporibus","GateOrigen":"incidunt","SiglasDestino":"beatae","Destino":"dicta","HoraProgDestino":"voluptatem","HoraEstDestino":"eos","TerminalDestino":"enim","GateDestino":"nihil"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/vuelos/datos"
 );
@@ -282,9 +768,30 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "id": 9,
+    "IdVuelo": "natus",
+    "Aerolinea": 3,
+    "Estado1": "voluptas",
+    "Estado2": "commodi",
+    "SiglasOrigen": 10,
+    "Origen": "ducimus",
+    "HoraProgOrigen": "similique",
+    "HoraEstOrigen": "vel",
+    "TerminalOrigen": "temporibus",
+    "GateOrigen": "incidunt",
+    "SiglasDestino": "beatae",
+    "Destino": "dicta",
+    "HoraProgDestino": "voluptatem",
+    "HoraEstDestino": "eos",
+    "TerminalDestino": "enim",
+    "GateDestino": "nihil"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
@@ -312,6 +819,75 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/vuelos/datos</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>id</b></code>&nbsp; <small>integer</small>     <br>
+    El id del vuelo en base de datos.
+</p>
+<p>
+    <code><b>IdVuelo</b></code>&nbsp; <small>string</small>     <br>
+    El identificador del vuelo.
+</p>
+<p>
+    <code><b>Aerolinea</b></code>&nbsp; <small>integer</small>     <br>
+    El id de la aerolínea asociada por FK.
+</p>
+<p>
+    <code><b>Estado1</b></code>&nbsp; <small>string</small>     <br>
+    El estado del vuelo.
+</p>
+<p>
+    <code><b>Estado2</b></code>&nbsp; <small>string</small>     <br>
+    El subestado del vuelo.
+</p>
+<p>
+    <code><b>SiglasOrigen</b></code>&nbsp; <small>integer</small>     <br>
+    El id del aeropuerto asociado por FK.
+</p>
+<p>
+    <code><b>Origen</b></code>&nbsp; <small>string</small>     <br>
+    De donde sale el vuelo.
+</p>
+<p>
+    <code><b>HoraProgOrigen</b></code>&nbsp; <small>string</small>     <br>
+    La hora programada de salida.
+</p>
+<p>
+    <code><b>HoraEstOrigen</b></code>&nbsp; <small>string</small>     <br>
+    La hora real de salida.
+</p>
+<p>
+    <code><b>TerminalOrigen</b></code>&nbsp; <small>string</small>     <br>
+    El terminal asociado al vuelo a la salida.
+</p>
+<p>
+    <code><b>GateOrigen</b></code>&nbsp; <small>string</small>     <br>
+    La puerta de embarque del vuelo a la salida.
+</p>
+<p>
+    <code><b>SiglasDestino</b></code>&nbsp; <small>string</small>     <br>
+    Las siglas del destino.
+</p>
+<p>
+    <code><b>Destino</b></code>&nbsp; <small>string</small>     <br>
+    El nombre del destino.
+</p>
+<p>
+    <code><b>HoraProgDestino</b></code>&nbsp; <small>string</small>     <br>
+    La hora programada de llegada.
+</p>
+<p>
+    <code><b>HoraEstDestino</b></code>&nbsp; <small>string</small>     <br>
+    La hora real de llegada.
+</p>
+<p>
+    <code><b>TerminalDestino</b></code>&nbsp; <small>string</small>     <br>
+    El terminal asociado al vuelo a la llegada.
+</p>
+<p>
+    <code><b>GateDestino</b></code>&nbsp; <small>string</small>     <br>
+    La puerta de embarque del vuelo a la llegada.
+</p>
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

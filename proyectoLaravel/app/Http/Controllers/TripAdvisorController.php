@@ -34,7 +34,21 @@ class TripAdvisorController extends Controller
 
     /**
      * Se recoge el diccionario, se busca el FK del nombre de aerolinea para coger su id y se crea una fila para la bbdd
+     * 
+     * @response {
+     * "IdAerolinea": 24,
+     * "Comentario": "CORRECTA Y PROFESIONAL Espacio adecuado , el personal atento y agradable . La comida correcta, la limpieza buena . Los labavos limpios y suficientes",
+     * "Valoracion": "4",
+     * "updated_at": "2020-05-08T18:48:05.000000Z",
+     * "created_at": "2020-05-08T18:48:05.000000Z",
+     * "id": 856
+     * }
      *
+     * @bodyParam id int required El id del comentario.
+     * @bodyParam id_aerolinea int required El id del aeropuerto asociado por FK.
+     * @bodyParam cuerpo string required La información que contiene el cuerpo (comentario).
+     * @bodyParam valoracion double required La valoración de 1 a 5 sobre la aerolínea.
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

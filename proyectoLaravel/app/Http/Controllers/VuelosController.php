@@ -53,6 +53,25 @@ class VuelosController extends Controller
      * "HoraEstDestino": "-- ", 
      * "TerminalDestino": "N/A", 
      * "GateDestino": "N/A"}
+     * 
+     * @bodyParam id int required El id del vuelo en base de datos.
+     * @bodyParam IdVuelo string required El identificador del vuelo.
+     * @bodyParam Aerolinea int required El id de la aerolínea asociada por FK.
+     * @bodyParam Estado1 string required El estado del vuelo.
+     * @bodyParam Estado2 string required El subestado del vuelo.
+     * @bodyParam SiglasOrigen int required El id del aeropuerto asociado por FK.
+     * @bodyParam Origen string required De donde sale el vuelo.
+     * @bodyParam HoraProgOrigen string required La hora programada de salida.
+     * @bodyParam HoraEstOrigen string required La hora real de salida.
+     * @bodyParam TerminalOrigen string required El terminal asociado al vuelo a la salida.
+     * @bodyParam GateOrigen string required La puerta de embarque del vuelo a la salida.
+     * @bodyParam SiglasDestino string required Las siglas del destino.
+     * @bodyParam Destino string required El nombre del destino.
+     * @bodyParam HoraProgDestino string required La hora programada de llegada.
+     * @bodyParam HoraEstDestino string required La hora real de llegada.
+     * @bodyParam TerminalDestino string required El terminal asociado al vuelo a la llegada.
+     * @bodyParam GateDestino string required La puerta de embarque del vuelo a la llegada.
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
