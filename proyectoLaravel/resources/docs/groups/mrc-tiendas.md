@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/tienda/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":4,"tienda":"error","direccion":7}'
+    -d '{"id":11,"tienda":"deleniti","direccion":6}'
 
 ```
 
@@ -27,9 +27,9 @@ let headers = {
 };
 
 let body = {
-    "id": 4,
-    "tienda": "error",
-    "direccion": 7
+    "id": 11,
+    "tienda": "deleniti",
+    "direccion": 6
 }
 
 fetch(url, {

@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/tripadvisor/comentarios" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":17,"id_aerolinea":10,"cuerpo":"distinctio","valoracion":2416816.280998}'
+    -d '{"id":2,"id_aerolinea":4,"cuerpo":"earum","valoracion":261010873.85384536}'
 
 ```
 
@@ -27,10 +27,10 @@ let headers = {
 };
 
 let body = {
-    "id": 17,
-    "id_aerolinea": 10,
-    "cuerpo": "distinctio",
-    "valoracion": 2416816.280998
+    "id": 2,
+    "id_aerolinea": 4,
+    "cuerpo": "earum",
+    "valoracion": 261010873.85384536
 }
 
 fetch(url, {

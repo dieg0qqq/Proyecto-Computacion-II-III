@@ -6,7 +6,7 @@ use App\AeroSiglas;
 use Illuminate\Http\Request;
 
 /**
-* @group MRC Areosiglas
+* @group MRC Aerosiglas
 * Controlador-Modelo-Tabla
 */
 

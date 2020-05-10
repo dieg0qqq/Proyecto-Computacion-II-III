@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/clima/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":19,"idaeropuerto":1,"fecha":"est","hora":"fugiat","prevision":5536378.58474,"temperatura":125222.8,"lluvia":40513.2,"nubes":9533.6,"viento":6,"rafagas":4899949.0764784,"direccion":5211397.1,"humedad":323168.85,"presion":9997.0072}'
+    -d '{"id":6,"idaeropuerto":15,"fecha":"ea","hora":"asperiores","prevision":48.823585726,"temperatura":959.80741148,"lluvia":85.05864437,"nubes":14403151.8616042,"viento":7112556.8,"rafagas":3561223.5,"direccion":623.31,"humedad":19756246.4481039,"presion":862802.8}'
 
 ```
 
@@ -27,19 +27,19 @@ let headers = {
 };
 
 let body = {
-    "id": 19,
-    "idaeropuerto": 1,
-    "fecha": "est",
-    "hora": "fugiat",
-    "prevision": 5536378.58474,
-    "temperatura": 125222.8,
-    "lluvia": 40513.2,
-    "nubes": 9533.6,
-    "viento": 6,
-    "rafagas": 4899949.0764784,
-    "direccion": 5211397.1,
-    "humedad": 323168.85,
-    "presion": 9997.0072
+    "id": 6,
+    "idaeropuerto": 15,
+    "fecha": "ea",
+    "hora": "asperiores",
+    "prevision": 48.823585726,
+    "temperatura": 959.80741148,
+    "lluvia": 85.05864437,
+    "nubes": 14403151.8616042,
+    "viento": 7112556.8,
+    "rafagas": 3561223.5,
+    "direccion": 623.31,
+    "humedad": 19756246.4481039,
+    "presion": 862802.8
 }
 
 fetch(url, {

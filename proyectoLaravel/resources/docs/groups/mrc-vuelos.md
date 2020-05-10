@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/vuelos/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":9,"IdVuelo":"natus","Aerolinea":3,"Estado1":"voluptas","Estado2":"commodi","SiglasOrigen":10,"Origen":"ducimus","HoraProgOrigen":"similique","HoraEstOrigen":"vel","TerminalOrigen":"temporibus","GateOrigen":"incidunt","SiglasDestino":"beatae","Destino":"dicta","HoraProgDestino":"voluptatem","HoraEstDestino":"eos","TerminalDestino":"enim","GateDestino":"nihil"}'
+    -d '{"id":13,"IdVuelo":"quasi","Aerolinea":1,"Estado1":"numquam","Estado2":"odit","SiglasOrigen":13,"Origen":"mollitia","HoraProgOrigen":"maxime","HoraEstOrigen":"provident","TerminalOrigen":"enim","GateOrigen":"ipsum","SiglasDestino":"consequuntur","Destino":"voluptatem","HoraProgDestino":"praesentium","HoraEstDestino":"eaque","TerminalDestino":"earum","GateDestino":"molestias"}'
 
 ```
 
@@ -27,23 +27,23 @@ let headers = {
 };
 
 let body = {
-    "id": 9,
-    "IdVuelo": "natus",
-    "Aerolinea": 3,
-    "Estado1": "voluptas",
-    "Estado2": "commodi",
-    "SiglasOrigen": 10,
-    "Origen": "ducimus",
-    "HoraProgOrigen": "similique",
-    "HoraEstOrigen": "vel",
-    "TerminalOrigen": "temporibus",
-    "GateOrigen": "incidunt",
-    "SiglasDestino": "beatae",
-    "Destino": "dicta",
-    "HoraProgDestino": "voluptatem",
-    "HoraEstDestino": "eos",
-    "TerminalDestino": "enim",
-    "GateDestino": "nihil"
+    "id": 13,
+    "IdVuelo": "quasi",
+    "Aerolinea": 1,
+    "Estado1": "numquam",
+    "Estado2": "odit",
+    "SiglasOrigen": 13,
+    "Origen": "mollitia",
+    "HoraProgOrigen": "maxime",
+    "HoraEstOrigen": "provident",
+    "TerminalOrigen": "enim",
+    "GateOrigen": "ipsum",
+    "SiglasDestino": "consequuntur",
+    "Destino": "voluptatem",
+    "HoraProgDestino": "praesentium",
+    "HoraEstDestino": "eaque",
+    "TerminalDestino": "earum",
+    "GateDestino": "molestias"
 }
 
 fetch(url, {

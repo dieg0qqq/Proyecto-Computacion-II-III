@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {  } from "@angular/common";
 import { AnaTextoService } from "../servicioAnalisis/ana-texto.service";
 
 

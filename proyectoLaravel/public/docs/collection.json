@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "d57d6e54-597e-425e-9d66-4f5c649680f3",
+        "_postman_id": "e3e19107-6497-4c78-9327-45466984930a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "name": "MRC Areosiglas",
+            "name": "MRC Aerosiglas",
             "description": "Controlador-Modelo-Tabla",
             "item": [
                 {
@@ -67,7 +67,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 9,\n    \"name\": \"eligendi\",\n    \"acronym\": \"minima\"\n}"
+                            "raw": "{\n    \"id\": 19,\n    \"name\": \"officiis\",\n    \"acronym\": \"minus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -129,7 +129,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 19,\n    \"idaeropuerto\": 1,\n    \"fecha\": \"est\",\n    \"hora\": \"fugiat\",\n    \"prevision\": 5536378.58474,\n    \"temperatura\": 125222.8,\n    \"lluvia\": 40513.2,\n    \"nubes\": 9533.6,\n    \"viento\": 6,\n    \"rafagas\": 4899949.0764784,\n    \"direccion\": 5211397.1,\n    \"humedad\": 323168.85,\n    \"presion\": 9997.0072\n}"
+                            "raw": "{\n    \"id\": 6,\n    \"idaeropuerto\": 15,\n    \"fecha\": \"ea\",\n    \"hora\": \"asperiores\",\n    \"prevision\": 48.823585726,\n    \"temperatura\": 959.80741148,\n    \"lluvia\": 85.05864437,\n    \"nubes\": 14403151.8616042,\n    \"viento\": 7112556.8,\n    \"rafagas\": 3561223.5,\n    \"direccion\": 623.31,\n    \"humedad\": 19756246.4481039,\n    \"presion\": 862802.8\n}"
                         },
                         "description": "",
                         "response": []
@@ -163,7 +163,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 4,\n    \"tienda\": \"error\",\n    \"direccion\": 7\n}"
+                            "raw": "{\n    \"id\": 11,\n    \"tienda\": \"deleniti\",\n    \"direccion\": 6\n}"
                         },
                         "description": "",
                         "response": []
@@ -197,7 +197,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 17,\n    \"id_aerolinea\": 10,\n    \"cuerpo\": \"distinctio\",\n    \"valoracion\": 2416816.280998\n}"
+                            "raw": "{\n    \"id\": 2,\n    \"id_aerolinea\": 4,\n    \"cuerpo\": \"earum\",\n    \"valoracion\": 261010873.85384536\n}"
                         },
                         "description": "",
                         "response": []
@@ -231,7 +231,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 3,\n    \"nombreAerolinea\": 17,\n    \"comentario\": \"tempore\",\n    \"analisis\": \"eius\"\n}"
+                            "raw": "{\n    \"id\": 8,\n    \"nombreAerolinea\": 17,\n    \"comentario\": \"quibusdam\",\n    \"analisis\": \"dolorem\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -293,7 +293,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 9,\n    \"IdVuelo\": \"natus\",\n    \"Aerolinea\": 3,\n    \"Estado1\": \"voluptas\",\n    \"Estado2\": \"commodi\",\n    \"SiglasOrigen\": 10,\n    \"Origen\": \"ducimus\",\n    \"HoraProgOrigen\": \"similique\",\n    \"HoraEstOrigen\": \"vel\",\n    \"TerminalOrigen\": \"temporibus\",\n    \"GateOrigen\": \"incidunt\",\n    \"SiglasDestino\": \"beatae\",\n    \"Destino\": \"dicta\",\n    \"HoraProgDestino\": \"voluptatem\",\n    \"HoraEstDestino\": \"eos\",\n    \"TerminalDestino\": \"enim\",\n    \"GateDestino\": \"nihil\"\n}"
+                            "raw": "{\n    \"id\": 13,\n    \"IdVuelo\": \"quasi\",\n    \"Aerolinea\": 1,\n    \"Estado1\": \"numquam\",\n    \"Estado2\": \"odit\",\n    \"SiglasOrigen\": 13,\n    \"Origen\": \"mollitia\",\n    \"HoraProgOrigen\": \"maxime\",\n    \"HoraEstOrigen\": \"provident\",\n    \"TerminalOrigen\": \"enim\",\n    \"GateOrigen\": \"ipsum\",\n    \"SiglasDestino\": \"consequuntur\",\n    \"Destino\": \"voluptatem\",\n    \"HoraProgDestino\": \"praesentium\",\n    \"HoraEstDestino\": \"eaque\",\n    \"TerminalDestino\": \"earum\",\n    \"GateDestino\": \"molestias\"\n}"
                         },
                         "description": "",
                         "response": []

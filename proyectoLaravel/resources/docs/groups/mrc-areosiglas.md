@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/siglas/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":9,"name":"eligendi","acronym":"minima"}'
+    -d '{"id":14,"name":"ducimus","acronym":"voluptas"}'
 
 ```
 
@@ -27,9 +27,9 @@ let headers = {
 };
 
 let body = {
-    "id": 9,
-    "name": "eligendi",
-    "acronym": "minima"
+    "id": 14,
+    "name": "ducimus",
+    "acronym": "voluptas"
 }
 
 fetch(url, {
