@@ -47,7 +47,8 @@ class AerolineaController extends Controller
      */
     public function show(Aerolinea $aerolinea)
     {
-        //
+        $aerolineas = Aerolinea::all();
+        return ($aerolineas);
     }
 
     /**
