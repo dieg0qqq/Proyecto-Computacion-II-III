@@ -10,6 +10,9 @@ import { FooterComponent } from './footer/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InicioComponent } from './inicio/inicio.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { InterfazadminComponent } from './interfazadmin/interfazadmin.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +20,15 @@ import { BuscadorComponent } from './buscador/buscador.component';
     HeaderComponent,
     FooterComponent,
     InicioComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    InterfazadminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

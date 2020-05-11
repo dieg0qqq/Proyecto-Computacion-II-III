@@ -1,0 +1,87 @@
+.login{
+	font-family: 'Montserrat'!important;
+	letter-spacing: 1px;
+}
+
+.textoLogin{
+	text-align: center;
+}
+
+.contentImage{
+	text-align: center;
+}
+
+.logo{
+	width: 200px;
+    height: 180px;
+	outline-width: 0 !important;
+	cursor: pointer;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.cuadroPrincipal{
+	margin: auto;
+	width: 40%;
+	height: 95%;
+	padding: 10px;
+	border-right: 3px solid #049494;
+	border-radius: 1em;
+	background-color: lightcyan;
+
+	-webkit-box-shadow: -24px 24px 25px 0px rgba(4,148,148,1);
+	-moz-box-shadow: -24px 24px 25px 0px rgba(4,148,148,1);
+	box-shadow: -24px 24px 25px 0px rgba(4,148,148,1);
+}
+
+.form-group-button{
+	padding-top: 30px;
+	text-align: center;
+}
+
+.form-group{
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+}
+
+.botonLogin{
+	width: 150px;
+	height: 50px;
+	color: white;
+	background-color: #049494;
+	cursor: pointer;
+	font-family: 'Montserrat' bold;
+	letter-spacing: 1px;
+	transition-duration: 0.4s;
+}
+
+.botonLogin:hover{
+	width: 150px;
+	height: 50px;
+	color: #049494;
+	background-color: white;
+	cursor: pointer;
+	font-family: 'Montserrat' bold;
+	letter-spacing: 1px;
+	transition-duration: 0.4s;
+}
+
+.inputText:not(.is-invalid){
+	border: none;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.24); 
+	outline: none;
+	border-radius: 5px;
+	transition-duration: 0.4s;
+	outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.inputText:not(.is-invalid):hover{
+	border: none;
+	border-bottom: 2px solid rgb(27, 151, 233); 
+	outline: none;
+	transition-duration: 0.4s;
+}
