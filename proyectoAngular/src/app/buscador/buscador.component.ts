@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AeroSiglasService } from "../servicios/aero-siglas.service";
 import { AerolineasService } from '../servicios/aerolineas.service';
+
+import { aeroSiglas } from '../modelos/aeroSiglas';
+import { aerolineas } from '../modelos/aerolineas';
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -12,6 +15,8 @@ import { HttpClient } from "@angular/common/http";
 export class BuscadorComponent implements OnInit {
 
   sql = 'http://127.0.0.1:8000';
+  siglas: aeroSiglas[];
+
   constructor(private aeroSiglasService : AeroSiglasService,private aerolinasService : AerolineasService ,private httpClient : HttpClient) { 
     httpClient.get(this.sql + '/api/siglas/lista').subscribe((data) => {
       var array = data as JSON;
@@ -20,6 +25,12 @@ export class BuscadorComponent implements OnInit {
         console.log(array[i]['id']+":"+array[i]['siglas'] + ":"+array[i]['nombre'] );
       }
     });
+
+    httpClient.get(this.sql + '/api/siglas/lista').subscribe((data: aeroSiglas[]) => {
+      this.siglas = data;
+    
+    });
+
 
     httpClient.get(this.sql + '/api/aerolineas/lista').subscribe((data) => {
       var array = data as JSON;

@@ -34,5 +34,23 @@
                 </div>
             </div>
         </div>
+       
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Aeropuerto</th>
+                    <th scope="col">Siglas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of siglas">
+                    <th>{{i.id}}</th>
+                    <th>{{i.nombre}}</th>
+                    <th>{{i.siglas}}</th>
+                </tr>
+            </tbody>
+        </table>
+
     </form>
 </body>
