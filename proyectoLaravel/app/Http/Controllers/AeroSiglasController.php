@@ -41,6 +41,7 @@ class AeroSiglasController extends Controller
     public function show(AeroSiglas $aeroSiglas)
     {
         $siglas = AeroSiglas::all();
+        // error_log($siglas);
         return($siglas);
     }
 

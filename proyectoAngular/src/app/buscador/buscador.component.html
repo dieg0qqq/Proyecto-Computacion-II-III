@@ -9,11 +9,9 @@
         <div class="form-group">
             <label>Seleccionar aeropuerto:</label>
             <select class="custom-select select">
-                <option value="1">Amazon</option>
-                <option value="2">Apple</option>
-                <option value="3">Blogger</option>
-                <option value="4">Evernote</option>
-                <option value="5">GitHub</option>
+                <option *ngFor="let i of siglas" value="{{i.id}}">
+                    {{i.nombre}}({{i.siglas}})
+                </option>
             </select>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -35,7 +33,7 @@
             </div>
         </div>
        
-        <table class = "table">
+        <!-- <table class = "table">
             <thead class = "thead-dark">
                 <tr>
                     <th scope="col">Id</th>
@@ -50,7 +48,7 @@
                     <th>{{i.siglas}}</th>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
 
     </form>
 </body>
