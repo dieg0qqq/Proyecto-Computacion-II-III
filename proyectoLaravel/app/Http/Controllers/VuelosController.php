@@ -35,6 +35,30 @@ class VuelosController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Vuelos  $aerolinea
+     * @return \Illuminate\Http\Response
+     */
+    public function showxAeropuerto($id_aeropuerto)
+    {
+        $lista_aeropuertos = Vuelos::select('*')->where('siglasOrigen', $id_aeropuerto)->get();
+        return $lista_aeropuertos;
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Vuelos  $aerolinea
+     * @return \Illuminate\Http\Response
+     */
+    public function showxvueloEspecifico($id_vuelo)
+    {
+        $vuelo = Vuelos::select('*')->where('IdVuelo',$id_vuelo)->get();
+        return $vuelo;
+    }
+
+    /**
      * [Se busca la aerolinea en su tabla y si no se encuentra se crea una entrada, además se busca la sigla del aeropuerto de origen]
      * @response {
      * "IdVuelo": "SWT 112", 

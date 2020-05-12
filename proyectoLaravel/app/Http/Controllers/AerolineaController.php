@@ -45,10 +45,10 @@ class AerolineaController extends Controller
      * @param  \App\Aerolinea  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function show(Aerolinea $aerolinea)
+    public function show($idAeropuerto)
     {
-        $aerolineas = Aerolinea::all();
-        return ($aerolineas);
+        $aero = Aerolinea::select("nombreAerolinea")->where('id',$idAeropuerto)->get();
+        return $aero;
     }
 
     /**

@@ -13,13 +13,15 @@ use Illuminate\Http\Request;
 class AeroSiglasController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Devuelve la lista de aeropuertos junto con sus siglas
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $siglas = AeroSiglas::all();
+        // error_log($siglas);
+        return($siglas);
     }
 
     /**
@@ -33,20 +35,18 @@ class AeroSiglasController extends Controller
     }
 
     /**
-     * Devuelve la lista de aeropuertos junto con sus siglas
+     * Display the specified resource.
      *
      * @param  \App\AeroSiglas  $twitter
      * @return \Illuminate\Http\Response
      */
-    public function show(AeroSiglas $aeroSiglas)
+    public function show($id)//AeroSiglas $aeroSiglas)
     {
-        $siglas = AeroSiglas::all();
-        // error_log($siglas);
-        return($siglas);
+
     }
 
     /**
-     *  Recoge el diccionario y crea entradas para la bbdd
+     * Recoge el diccionario y crea entradas para la bbdd
      * @response{
      * "nombre": "Aeropuerto de Madrid Barajas",
      * "siglas": "MAD",

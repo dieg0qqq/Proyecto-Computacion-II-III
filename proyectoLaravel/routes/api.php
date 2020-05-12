@@ -28,5 +28,11 @@ Route::post('/comentarios/twitter', 'TwitterController@store');
 Route::post('/tripadvisor/comentarios', 'TripAdvisorController@store');
 
 Route::get('/twitter/opinionG','TwitterController@index');
-Route::get('/siglas/lista', 'AeroSiglasController@show');
+Route::get('/siglas/lista', 'AeroSiglasController@index');
+
 Route::get('/aerolineas/lista', 'AerolineaController@show');
+Route::get('/aerolineas/{id}', 'AerolineaController@show');
+
+Route::get('/vuelosXaeropuerto/{id}', 'VuelosController@showxAeropuerto');
+Route::get('/vueloEspecifico/{id}','VuelosController@showxvueloEspecifico');
+
