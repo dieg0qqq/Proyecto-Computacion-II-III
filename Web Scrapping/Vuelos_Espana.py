@@ -124,8 +124,7 @@ async def main():
             await page.evaluate('() => {document.querySelector("#flightStatusByRouteForm > select").value++; document.querySelector("#flightStatusByRouteForm").submit()}')
             await page.waitForNavigation()
 
-        
-        it=0
+
         # aerolineas = []
         for vuelo in id_vuelos:
 
@@ -166,36 +165,38 @@ async def main():
         
             print("Link vuelo: " + vuelo)
 
-            array['vuelos'].append({
+            try:
+                array['vuelos'].append({
 
-                'IdVuelo': id_vuelo[0].text,
-                'Aerolinea': aerolinea[0].text,
-                'Estado1': estado1[0].text,
-                'Estado2': estado1[1].text,
+                    'IdVuelo': id_vuelo[0].text,
+                    'Aerolinea': aerolinea[0].text,
+                    'Estado1': estado1[0].text,
+                    'Estado2': estado1[1].text,
 
-                'SiglasOrigen': siglas[0].text,
-                'Origen': origen[0].text,
-                'HoraProgOrigen': hora_prog_est_origen[0].text,
-                'HoraEstOrigen': hora_real_origen[0].text,
-                'TerminalOrigen': terminal_origen[0].text,
-                'GateOrigen': gate_origen[0].text,
+                    'SiglasOrigen': siglas[0].text,
+                    'Origen': origen[0].text,
+                    'HoraProgOrigen': hora_prog_est_origen[0].text,
+                    'HoraEstOrigen': hora_real_origen[0].text,
+                    'TerminalOrigen': terminal_origen[0].text,
+                    'GateOrigen': gate_origen[0].text,
 
-                'SiglasDestino': siglas[1].text,
-                'Destino': destino[0].text,
-                'HoraProgDestino': hora_prog_est_destino[0].text,
-                'HoraEstDestino': hora_real_destino[0].text,
-                'TerminalDestino': terminal_destino[0].text,
-                'GateDestino': gate_destino[0].text
-            })
-            print("Vuelo analizado")
-
+                    'SiglasDestino': siglas[1].text,
+                    'Destino': destino[0].text,
+                    'HoraProgDestino': hora_prog_est_destino[0].text,
+                    'HoraEstDestino': hora_real_destino[0].text,
+                    'TerminalDestino': terminal_destino[0].text,
+                    'GateDestino': gate_destino[0].text
+                })
+                print("Vuelo analizado")
+            except:
+                print('Vuelo desaparecido')
     
     requests.post('http://127.0.0.1:8000/api/vuelos/datos', json=array)      
     lista_aero_unica = np.unique(lista_aerolinea)
     await browser.close()
     print(lista_aero_unica)
     ruta_rel = "Web Scrapping\\Archivos_JSON\\"
-    archivo = open(ruta_rel + "Aerolineas" + ".txt","w", encoding="utf-8")
+    archivo = open(ruta_rel + "Aerolineas" + ".txt","r+", encoding="utf-8")
     for e in lista_aero_unica:
         archivo.write(e + "\n")
     archivo.close()

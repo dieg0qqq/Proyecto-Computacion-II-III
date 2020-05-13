@@ -5,7 +5,6 @@ Aeromexico
 Air Algerie
 Air Europa
 Air France
-Air Malta
 Alitalia
 American Airlines
 Binter Canarias
@@ -13,17 +12,14 @@ British Airways
 China Airlines
 China Eastern Airlines
 China Southern Airlines
-Condor
 Corendon Airlines Europe
 Corendon Dutch Airlines
-Cubana de Aviacion
 Delta Air Lines
+Emirates
 Ethiopian Airlines
 Eurowings
 Finnair
-FlexFlight
 Garuda Indonesia
-Hainan Airlines
 Iberia
 Iberia Express
 JAL
@@ -33,14 +29,26 @@ Korean Air
 LATAM Airlines
 Lufthansa
 Middle East Airlines
-Plus Ultra
+Pakistan International Airlines
 Qatar Airways
 SA AVIANCA
 SAS
+SkyUP Airlines
 Swiftair
-TUI Airways
+TAP Air Portugal
 TUIfly
 Turkish Airlines
+UIA
 Vueling
 Wizz Air
+Xiamen Airlines
+ortugal
+TUIfly
+Turkish Airlines
+UIA
+United Airlines
+Virgin Atlantic
+Vueling
+Wizz Air
+Wizz Air UK
 Xiamen Airlines

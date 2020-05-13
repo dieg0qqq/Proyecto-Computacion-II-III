@@ -27,7 +27,7 @@ for link in array:
     lista_siglas.append(airport2)
     links['siglas'].append(airport)
 
-ruta_rel = "Archivos_JSON\\"
+ruta_rel = "Web Scrapping\\Archivos_JSON\\"
 archivo = open(ruta_rel + "Siglas.txt","w", encoding="utf-8")
 for e in lista_siglas:
     archivo.write(e + "\n")
