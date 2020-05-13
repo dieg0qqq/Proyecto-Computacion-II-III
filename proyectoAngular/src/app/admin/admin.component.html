@@ -1,0 +1,24 @@
+<p>admin works!</p>
+
+<div class="content-father">
+    <div class="content-principal">
+        <div>
+            <div class="content-canvas">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+            </div>
+            <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+        </div>
+    </div>
+
+    <div class="content-principal">
+        <div>
+            <div class="content-canvas">
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

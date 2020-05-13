@@ -12,6 +12,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { InterfazadminComponent } from './interfazadmin/interfazadmin.component';
 import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -21,14 +23,16 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     InicioComponent,
     BuscadorComponent,
-    InterfazadminComponent
+    InterfazadminComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

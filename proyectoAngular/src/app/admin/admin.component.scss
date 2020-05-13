@@ -1,0 +1,15 @@
+.content-father{
+    display: flex;
+    flex-direction: row;
+}
+
+.content-canvas{
+    display: block;
+}
+
+.content-principal{
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    margin: 20px;
+}
