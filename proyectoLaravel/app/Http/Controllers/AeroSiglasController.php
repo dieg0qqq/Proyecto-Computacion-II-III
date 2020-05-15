@@ -50,8 +50,8 @@ class AeroSiglasController extends Controller
      * @response{
      * "nombre": "Aeropuerto de Madrid Barajas",
      * "siglas": "MAD",
-     * "updated_at": "2020-05-08T19:16:27.000000Z",
-     * "created_at": "2020-05-08T19:16:27.000000Z",
+     * "updated_at": "2020-05-08",
+     * "created_at": "2020-05-08",
      * "id": 37
      * }
      *

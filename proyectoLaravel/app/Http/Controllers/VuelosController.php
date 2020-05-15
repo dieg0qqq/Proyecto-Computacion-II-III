@@ -59,6 +59,14 @@ class VuelosController extends Controller
     }
 
     /**
+     * 
+     */
+    public function showVuelo($id_vuelo, $fecha){
+        $vuelo = Vuelos::select('*')->where('IdVuelo',$id_vuelo)->whereDate('created_at',$fecha)->get();
+        return $vuelo;
+    }
+
+    /**
      * [Se busca la aerolinea en su tabla y si no se encuentra se crea una entrada, además se busca la sigla del aeropuerto de origen]
      * @response {
      * "IdVuelo": "SWT 112", 
