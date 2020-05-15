@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ResourceLoader } from '@angular/compiler';
@@ -17,6 +17,8 @@ export class InterfazadminComponent implements OnInit {
   messageError: string;
   blurredUser = false;
   blurredPass = false;
+  email: string;
+  pass: string;
 
   constructor(
     private router: Router,
@@ -30,16 +32,16 @@ export class InterfazadminComponent implements OnInit {
   }
 
   doLogin() {
-    const endpoint = 'http://localhost:4200/login';
+    const endpoint = 'http://127.0.0.1:8000/api/login';
     const data = {
-      username: 'Diego',
-      password: '12345'
+      email: this.email,
+      password: this.pass
     };
 
     this.http.post(endpoint, data)
     .toPromise()
-    .then(token => {
-      // console.log(result);
+    .then((token:string) => {
+      console.log(token);
       sessionStorage.setItem('token', token);
     })
     .catch(error => {
@@ -47,6 +49,42 @@ export class InterfazadminComponent implements OnInit {
       alert('Error al iniciar sesion');
     });
   }
+
+  // getData() {
+  //   const endpoint = 'http://127.0.0.1:8000/api/login';
+  //   const headers = new HttpHeaders();
+
+  //   headers.set('Authorization','Bearer' + sessionStorage.getItem('token'));
+  //   this.http.get(endpoint, { headers: headers })
+  //   .toPromise()
+  //   .then(result => {
+  //     console.log('Petición exitosa', result);
+  //   }) 
+  //   .catch(error => {
+  //     if (error.status === 401) {
+  //       console.log('Token no válido o enviado de forma incorrecta')
+  //     } else {
+  //       console.log('Otro error')
+  //     }
+  //   });
+  // }
+
+  getData() {
+    const endpoint = 'http://127.0.0.1:8000/api/login';
+
+    this.http.get(endpoint)
+        .toPromise()
+        .then(result => {
+            console.log('Petición exitosa', result);
+        })
+        .catch(error => {
+            if (error.status === 401) {
+                // Unauthorized, quiere decir que tu token: o no es válido o no fue enviado de forma correcta.
+            } else {
+                // Otro error ocurrió.
+            }
+        });
+}
 
   ngOnInit() {
     this.blurredUser = false;

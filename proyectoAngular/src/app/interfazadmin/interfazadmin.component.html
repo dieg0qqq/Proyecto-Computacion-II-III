@@ -8,19 +8,19 @@
     <br>
     <form [ngFormOptions]="{updateOn:'change'}" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
         <div class="form-group">
-            <label for="username">Usuario</label>
-            <input type="text" name="username" class="form-control inputText" #username="ngModel"
+            <label for="username">Email</label>
+            <input type="text" name="username" class="form-control inputText" [(ngModel)] = "email" #username="ngModel"
                 (ngModelChange)="blur('username')" ngModel required (blur)="blur('username')"
                 [ngClass]="{ 'is-invalid': ((submitted || blurredUser) && !username.valid) || messageError.length>0 }" />
 
             <div style="color: red;" 
-                *ngIf="(((submitted || blurredUser) && !username.valid))">El usuario es obligatorio
+                *ngIf="(((submitted || blurredUser) && !username.valid))">El email es obligatorio
             </div>
         </div>
         <br>
         <div class="form-group">
             <label for="password">Contraseña</label>
-            <input type="password" name="password" class="form-control inputText" #password="ngModel"
+            <input type="password" name="password" class="form-control inputText" [(ngModel)] = "pass" #password="ngModel"
                 (ngModelChange)="blur('password')" ngModel required (blur)="blur('password')"
                 [ngClass]="{ 'is-invalid': ((submitted || blurredPass) && !password.valid) || messageError.length>0 }" />
             
@@ -30,8 +30,7 @@
         </div>
         <div class="form-group" style="color: red;">{{messageError}}</div>
         <div class="form-group-button">
-            <button [disabled]="loading" class="botonLogin">
-                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            <button  class="botonLogin" (click) = "doLogin()">
                 Login
             </button>
         </div>
