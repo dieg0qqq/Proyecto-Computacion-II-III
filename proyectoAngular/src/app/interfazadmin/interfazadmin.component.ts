@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { ResourceLoader } from '@angular/compiler';
 
 @Component({
   selector: 'app-interfazadmin',
@@ -18,12 +20,32 @@ export class InterfazadminComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public http: HttpClient
     /*private authenticationService: AuthenticationService*/
   ) {
     // redirect to home if already logged in
    /* if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }*/
+  }
+
+  doLogin() {
+    const endpoint = 'http://localhost:4200/login';
+    const data = {
+      username: 'Diego',
+      password: '12345'
+    };
+
+    this.http.post(endpoint, data)
+    .toPromise()
+    .then(token => {
+      // console.log(result);
+      sessionStorage.setItem('token', token);
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Error al iniciar sesion');
+    });
   }
 
   ngOnInit() {

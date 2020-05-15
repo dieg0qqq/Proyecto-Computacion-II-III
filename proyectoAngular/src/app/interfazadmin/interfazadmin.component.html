@@ -2,8 +2,9 @@
 <div class = "container">
 
 <div class="cuadroPrincipal">
-    <div class="contentImage"><img routerLink="/home" routerLinkActive="router-link-active" class="logo"
-            src="assets/logo_bicimad_86x70.png"></div>
+    <div class="contentImage">
+        <img  class="logo"src="https://upload.wikimedia.org/wikipedia/commons/1/12/User_icon_2.svg">
+    </div>
     <br>
     <form [ngFormOptions]="{updateOn:'change'}" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
         <div class="form-group">
@@ -34,9 +35,8 @@
                 Login
             </button>
         </div>
-        <div class="form-group-button">
-            <a routerLink="/register" routerLinkActive="router-link-active">¿No tiene cuenta? Registrarse</a>
-        </div>
+        <br>
+       
     </form>
 </div>
 </div>
