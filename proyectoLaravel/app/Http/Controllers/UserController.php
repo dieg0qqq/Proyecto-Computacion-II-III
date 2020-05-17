@@ -63,4 +63,10 @@ class UserController extends Controller
     return response()->json(['success' => $user], $this-> successStatus); 
     } 
 
+    public function logout() {
+        if(Auth::check()) {
+            Auth::user()->AauthAcessToken()->delete();
+        }
+    }
+
 }

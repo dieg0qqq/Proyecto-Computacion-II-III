@@ -43,11 +43,15 @@ export class InterfazadminComponent implements OnInit {
     .then((token:string) => {
       console.log(token);
       sessionStorage.setItem('token', token);
+      // this.http.get('http://127.0.0.1:8000/api/admin').subscribe();
     })
     .catch(error => {
       console.error(error);
       alert('Error al iniciar sesion');
     });
+
+
+
   }
 
   // getData() {
