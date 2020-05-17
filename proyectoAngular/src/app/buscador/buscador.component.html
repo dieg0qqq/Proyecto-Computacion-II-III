@@ -46,15 +46,17 @@
                     <th scope="col">Destino</th>
                     <th scope="col">Hora de salida</th>
                     <th scope="col">Estado del vuelo</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let a of arrayVuelo">
                     <th>{{a.IdVuelo}}</th>
-                    <th>{{a.Aerolinea}}</th>
+                    <th>{{a.nombreAerolinea}}</th>
                     <th>{{a.Destino}}</th>
                     <th>{{a.HoraProgOrigen}}</th>
                     <th>{{a.Estado1}}</th>
+                    <th><button (click) ="vueloEspecifico(a.IdVuelo)">Ver más <span class="material-icons">keyboard_arrow_right</span></button></th>
                 </tr>
             </tbody>
         </table>
@@ -69,10 +71,9 @@
           {{e.IdVuelo}}
       </h3>        
       <ul>
-          <li>Aerolinea: {{e.Aerolinea}}</li>
-          <li>Estado del vuelo: {{e.Estado1}} - {{e.Estado2}}</li>
+          <li>Aerolinea: {{e.nombreAerolinea}}</li>
+          <li>Estado del vuelo: {{e.Estado1}} <small>{{e.Estado2}}</small></li>
       </ul>
-
   </div>
   <div data-role="accordion" data-material="true"*ngFor="let e of arrayEspecifico">
       <div class="frame active">

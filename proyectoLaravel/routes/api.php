@@ -34,8 +34,9 @@ Route::get('/aerolineas/lista', 'AerolineaController@show');
 Route::get('/aerolineas/{id}', 'AerolineaController@show');
 
 Route::get('/vuelosXaeropuerto/{id}', 'VuelosController@showxAeropuerto');
-Route::get('/vueloEspecifico/{id}','VuelosController@showxvueloEspecifico');
+// Route::get('/vueloEspecifico/{id}','VuelosController@showxvueloEspecifico');
 Route::get('/vuelo/{id}/{fecha}','VuelosController@showVuelo');
+Route::get('/listaVuelos','VuelosController@index');
 
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');

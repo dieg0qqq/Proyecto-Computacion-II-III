@@ -6,6 +6,7 @@ use App\Vuelos;
 use App\AeroSiglas;
 use App\Aerolinea;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group MRC Vuelos
@@ -15,13 +16,19 @@ use Illuminate\Http\Request;
 class VuelosController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Devuelve todos los vuelos que hayan en la BBDD
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
+        $vuelo = DB::table('vuelos')
+            ->join('aerolineas','vuelos.Aerolinea','aerolineas.id')
+            ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')  
+            ->select('IdVuelo','aerolineas.nombreAerolinea', 'aero_siglas.nombre')        
+            ->get();
+        return($vuelo);
     }
 
     /**
@@ -35,34 +42,52 @@ class VuelosController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra la lista de vuelos en un específico aeropuerto
      *
      * @param  \App\Vuelos  $aerolinea
      * @return \Illuminate\Http\Response
      */
     public function showxAeropuerto($id_aeropuerto)
     {
-        $lista_aeropuertos = Vuelos::select('*')->where('siglasOrigen', $id_aeropuerto)->get();
+        $lista_aeropuertos = DB::table('vuelos')
+            ->join('aerolineas','vuelos.Aerolinea','aerolineas.id')
+            ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')
+            ->select('IdVuelo','aerolineas.nombreAerolinea','Estado1','Estado2',
+            'aero_siglas.nombre','Origen','HoraProgOrigen','HoraEstOrigen','TerminalOrigen',
+            'GateOrigen','SiglasDestino','Destino','HoraProgDestino','HoraEstDestino',
+            'TerminalDestino','GateDestino')
+            ->where('siglasOrigen', $id_aeropuerto)
+            ->get();
         return $lista_aeropuertos;
     }
 
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  \App\Vuelos  $aerolinea
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function showxvueloEspecifico($id_vuelo)
+    // {
+    //     $vuelo = Vuelos::select('*')->join('aerolineas', 'aerolineas.id', '=', 'vuelos.Aerolinea')->where('IdVuelo',$id_vuelo)->get();
+
+    //     return $vuelo;
+    // }
+
     /**
-     * Display the specified resource.
-     *
+     * Muestra los detalles del vuelo 
+     * 
      * @param  \App\Vuelos  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function showxvueloEspecifico($id_vuelo)
-    {
-        $vuelo = Vuelos::select('*')->where('IdVuelo',$id_vuelo)->get();
-        return $vuelo;
-    }
-
-    /**
-     * 
-     */
     public function showVuelo($id_vuelo, $fecha){
-        $vuelo = Vuelos::select('*')->where('IdVuelo',$id_vuelo)->whereDate('created_at',$fecha)->get();
+        $vuelo = DB::table('vuelos')
+            ->join('aerolineas','vuelos.Aerolinea','aerolineas.id')
+            ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')
+            ->select('*')
+            ->where('IdVuelo',$id_vuelo)
+            ->whereDate('vuelos.created_at',$fecha)
+            ->get();
         return $vuelo;
     }
 

@@ -12,5 +12,6 @@ class AeroSiglas extends Model
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d'
     ];
+    protected $table = 'aero_siglas';
 
 }

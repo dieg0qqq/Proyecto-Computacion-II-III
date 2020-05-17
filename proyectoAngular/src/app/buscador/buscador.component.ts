@@ -3,6 +3,8 @@ import { AeroSiglasService } from "../servicios/aero-siglas.service";
 import { AerolineasService } from '../servicios/aerolineas.service';
 
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
+import {formatDate} from '@angular/common';
 
 import { aeroSiglas } from '../modelos/aeroSiglas';
 import { aerolineas } from '../modelos/aerolineas';
@@ -12,7 +14,8 @@ import { HttpClient } from "@angular/common/http";
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
-  styleUrls: ['./buscador.component.scss']
+  styleUrls: ['./buscador.component.scss'],
+  providers: [DatePipe]
 })
 
 export class BuscadorComponent implements OnInit {
@@ -41,7 +44,10 @@ export class BuscadorComponent implements OnInit {
 
   model: NgbDateStruct;
 
-  constructor(private aeroSiglasService: AeroSiglasService, private aerolinasService: AerolineasService, private httpClient: HttpClient) {
+  // fechaActual: string;
+  currentDate = new Date();
+
+  constructor(private datePipe: DatePipe, private aeroSiglasService: AeroSiglasService, private aerolinasService: AerolineasService, private httpClient: HttpClient) {
     httpClient.get(this.sql + '/api/siglas/lista').subscribe((data: aeroSiglas[]) => {
       this.siglas = data;
     });
@@ -73,15 +79,16 @@ export class BuscadorComponent implements OnInit {
             this.no_encontrado = true;
           }
           else{
-            for (var i = 0; i < Object.keys(data).length;i++){
-              this.httpClient.get(this.sql+'/api/aerolineas/'+data[i]['Aerolinea']).subscribe((datum) =>{
-                for (var i = 0; i <Object.keys(datum).length; i++){
-                  data[i]['Aerolinea']= datum[i]['nombreAerolinea'];
-                }
-              });
+            // for (var i = 0; i < Object.keys(data).length;i++){
+            //   this.httpClient.get(this.sql+'/api/aerolineas/'+data[i]['Aerolinea']).subscribe((datum) =>{
+            //     for (var i = 0; i <Object.keys(datum).length; i++){
+            //       data[i]['Aerolinea']= datum[i]['nombreAerolinea'];
+            //       console.log(data[i]['Aerolinea']);
+            //     }
+            //   });
               this.arrayEspecifico = data;
               console.log(this.arrayEspecifico);
-            }
+            // }
             // importante 
             this.detalles = true;//activar el contenido del vuelo
             this.vuelo = false;//esconder el formulario
@@ -97,11 +104,26 @@ export class BuscadorComponent implements OnInit {
   listaAeropuerto() {
     console.log(this.selectedLevel)
     this.httpClient.get(this.sql + '/api/vuelosXaeropuerto/' + this.selectedLevel).subscribe((data: vuelo[]) => {
+      for (var i=0; i<Object.keys(data).length;i++){
+        console.log(i+"->"+data[i]["IdVuelo"]);
+      }
       this.arrayVuelo = data;
       console.log(this.arrayVuelo);
       this.lista = true;
     });
   };
+  vueloEspecifico(id_vuelo){
+    // var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
+    var dia = "2020-05-14";
+    
+    this.httpClient.get(this.sql+'/api/vuelo/'+id_vuelo+"/"+dia).subscribe((data: vuelo[]) => {
+      console.log(data);
+      this.arrayEspecifico = data;
+      console.log(this.arrayEspecifico);
+    })
+    this.detalles=true;
+    this.vuelo=false;
+  }
 
 }
 
