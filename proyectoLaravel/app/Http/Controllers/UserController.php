@@ -64,9 +64,12 @@ class UserController extends Controller
     } 
 
     public function logout() {
-        if(Auth::check()) {
-            Auth::user()->AauthAcessToken()->delete();
-        }
+        
+        Auth::user()->tokens->each(function($token, $key) {
+            $token->delete();
+        });
+    
+        return response()->json('Successfully logged out');
     }
 
 }

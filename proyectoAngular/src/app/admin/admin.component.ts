@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { usuarios } from "../modelos/usuarios";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Label, MultiDataSet } from 'ng2-charts';
+import { fromEventPattern } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,6 +13,34 @@ import { Label, MultiDataSet } from 'ng2-charts';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  name: string;
+  email: string;
+
+  constructor(
+    private router: Router,
+    public http: HttpClient
+    ) { 
+
+  }
+
+  LogOut() {
+
+    const endpoint = 'http://127.0.0.1:8000/api/logout';
+    const data = {
+      
+      email: this.email = sessionStorage.getItem('email'),
+      name: this.name = sessionStorage.getItem('name')
+    };
+
+    this.http.post(endpoint, data).toPromise().then(
+      (token:string) => {
+        console.log(token);
+        
+        this.router.navigate(['/login']);
+      }
+    );
+  }
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -40,8 +72,6 @@ export class AdminComponent implements OnInit {
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
     { data: [28, 48, 40, 19, 86, 27, 70], label: 'Series B' }
   ];
-
-  constructor() { }
 
   ngOnInit() {
   }

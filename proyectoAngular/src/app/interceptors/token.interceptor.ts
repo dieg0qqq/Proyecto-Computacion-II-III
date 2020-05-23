@@ -27,7 +27,7 @@ export class TokenInterceptor implements HttpInterceptor {
         if (sessionStorage.getItem('token')) {
             request = request.clone({
                 setHeaders: {
-                    Authorization: 'Bearer ' + sessionStorage.getitem('token')
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
                 }
             });
         }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { usuarios } from '../modelos/usuarios';
 import { ResourceLoader } from '@angular/compiler';
 
 @Component({
@@ -43,14 +44,15 @@ export class InterfazadminComponent implements OnInit {
     .then((token:string) => {
       console.log(token);
       sessionStorage.setItem('token', token);
-      // this.http.get('http://127.0.0.1:8000/api/admin').subscribe();
+      this.router.navigate(['/login/admin']);
+      
     })
     .catch(error => {
       console.error(error);
       alert('Error al iniciar sesion');
     });
 
-
+   
 
   }
 
