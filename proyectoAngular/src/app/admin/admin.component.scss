@@ -1,10 +1,21 @@
 .content-father{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    overflow: scroll;
+    margin: auto;
+    width: 90%;
+    height: 120%;
 }
 
 .content-canvas{
     display: block;
+}
+
+.chart-wrapper {
+    display: block;
+    margin: auto;
+    height: 1000px;
+    width: 1000px;
 }
 
 .content-principal{
