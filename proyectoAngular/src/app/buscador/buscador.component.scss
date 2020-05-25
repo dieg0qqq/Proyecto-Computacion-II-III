@@ -1,3 +1,4 @@
+
 .body{
     display: flex;
     flex-direction: column;
@@ -35,4 +36,39 @@ tbody button{
     background: none;
 	color: inherit;
 	border: none;
+}
+body {
+    background-color:#93d1ff;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    font-size: 1em;
+}
+label {
+    font-size: 1em;
+}
+
+
+
+.container {
+    display: grid;
+    justify-content: center;
+    width: auto;
+    padding: 2.5%;
+}
+
+.main-title {
+    margin-top: 5%;
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+}
+.main-title h2{
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }

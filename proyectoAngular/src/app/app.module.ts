@@ -14,6 +14,7 @@ import { InterfazadminComponent } from './interfazadmin/interfazadmin.component'
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { ChartsModule } from 'ng2-charts';
+import { ScriptaltComponent } from './scriptalt/scriptalt.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ChartsModule } from 'ng2-charts';
     InicioComponent,
     BuscadorComponent,
     InterfazadminComponent,
-    AdminComponent
+    AdminComponent,
+    ScriptaltComponent
   ],
   imports: [
     BrowserModule,

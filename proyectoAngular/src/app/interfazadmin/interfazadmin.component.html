@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
 <div class = "container">
 
 <div class="cuadroPrincipal">
@@ -39,4 +39,32 @@
     </form>
 </div>
 </div>
+</body> -->
+
+<body>
+<div class="login-page">
+    <div class="form">
+    <h3>Accede a tu usuario</h3>
+      <form class="login-form" [ngFormOptions]="{updateOn:'change'}" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+
+        <input placeholder="email" type="text" name="username" class="form-control inputText" [(ngModel)] = "email" #username="ngModel"
+        (ngModelChange)="blur('username')" ngModel required (blur)="blur('username')"
+        [ngClass]="{ 'is-invalid': ((submitted || blurredUser) && !username.valid) || messageError.length>0 }"/>
+
+        <div style="color: red;" 
+            *ngIf="(((submitted || blurredUser) && !username.valid))">El email es obligatorio
+        </div>
+
+        <input placeholder="contraseña" type="password" name="password" class="form-control inputText" [(ngModel)] = "pass" #password="ngModel"
+        (ngModelChange)="blur('password')" ngModel required (blur)="blur('password')"
+        [ngClass]="{ 'is-invalid': ((submitted || blurredPass) && !password.valid) || messageError.length>0 }" />
+
+        <span style="color: red;" 
+            *ngIf="(((submitted || blurredPass) && !password.valid))">La contraseña es obligatoria
+    </span>
+
+        <button (click)="doLogin()">acceder</button>
+      </form>
+    </div>
+  </div>
 </body>

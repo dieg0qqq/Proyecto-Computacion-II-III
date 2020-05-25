@@ -3,12 +3,24 @@
 //     background-repeat: repeat-y repeat-x;
 // }
 
+.container {
+}
+body {
+    background-color:#93d1ff;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
 .inicio {
     padding-top: 2%;
-    background-color:white;
+    
 }
 h2 {
     padding: 15px;
+    text-align: center;
 }
 
 .row {
@@ -19,4 +31,21 @@ h2 {
 .card {
     margin-left: auto;
     margin-right: auto;
+    width: 18rem;
+    height: 23rem;
+}
+.card-body {
+    display: grid;
+}
+.welcome {
+    margin-top: 10%;
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+}
+.welcome h2{
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }

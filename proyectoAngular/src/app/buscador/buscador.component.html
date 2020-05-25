@@ -1,6 +1,10 @@
-<div class="body" *ngIf = "vuelo">
-    <h2>Buscador de vuelos</h2>
-    <form class="container" >
+<body><div class="body" *ngIf="vuelo">
+    
+    <div class="main-title">
+        <h2>Buscador de vuelos</h2>
+      </div>
+
+      <form class="container" >
         <div class="form-group">
             <label>Numero de vuelo</label>
             <input type="text" name="inputVuelo" [(ngModel)]="inputVuelo" placeholder="EJ:IB6585">
@@ -16,12 +20,12 @@
             <input type="submit" value="Buscar" (click)="buscarVuelo()">
             <div class="error container" *ngIf = "errorFecha">
               <ngb-alert [dismissible]="false">
-                <strong>!Error!</strong> Debe elegir una fecha.
+                <strong>¡Error!</strong>Debe elegir una fecha.
               </ngb-alert>
             </div>
             <div class="error container" *ngIf = "errorInput">
               <ngb-alert [dismissible]="false">
-                <strong>!Error!</strong> Debe introducir el número de vuelo.
+                <strong>¡Error!</strong>Debe introducir el número de vuelo.
               </ngb-alert>
             </div>
         </div>
@@ -112,3 +116,5 @@
   <a href="buscador"> Volver a intentarlo</a>
 </div>
 
+
+</body>

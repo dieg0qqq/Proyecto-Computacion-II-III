@@ -1,38 +1,37 @@
 <body>
-
-  <div class ="container">
-    
-    <h2>Bienvenido a tu buscador de vuelos online</h2>
-    <div class = "inicio">
-       
+  <div class="container">
+    <div class="welcome">
+      <h2>¡Bienvenido al nuevo buscador de vuelos!</h2>
+    </div>
+    <div class="inicio">
         <div class="row">
           <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
               <img src="https://www.adslzone.net/app/uploads-adslzone.net/2019/07/vuelos-930x487.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Encuentra tu vuelo</h5>
-                <p class="card-text">Aquí podrás encontrar tu vuelo ya sea por poner su id de vuelo y fecha o bien por la lista de vuelos de un aeropuerto</p>
-                <a href="http://localhost:4200/buscador" class="btn btn-primary">Buscador vuelos</a>
+                <p class="card-text">Aquí podrás obtener información acerca de tu vuelo a partir de su ID y su fecha, o bien buscándolo en la lista del aeropuerto correspondiente.</p>
+                <a routerLink="/buscador" class="btn btn-primary">Buscador vuelos</a>
               </div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
               <img src="https://img.malv.news/850x478/images/5WJsLbi84weR7ixL48jYFtleR3uPmfTv9HIO8WEV.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Revise el clima</h5>
-                <p class="card-text">El clima de donde sale tu vuelo es fundamental para saber si dicho vuelo pueda atrasarse</p>
-                <a href="#" class="btn btn-primary">Ver Climas</a>
+                <h5 class="card-title">Consulta el clima</h5>
+                <p class="card-text">Siempre viene bien conocer el clima de tu próximo lugar de destino y puedes saberlo fácilmente aquí.</p>
+                <a routerLink="/" class="btn btn-primary">Consultar Clima</a>
               </div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
               <img src="https://blog.krowdy.com/hubfs/Campa%C3%B1a%202%20-%20Febrero%202020/proyecciones-seleccion-personal-recursos-humanos-1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Personal</h5>
-                <p class="card-text">Los administradores de esta página se podrán logear para añadir más vuelos y así nuestros usuarios tengan más probabilidad de encontra su vuelo</p>
-                <a href="http://localhost:4200/login" class="btn btn-primary">Login Admin</a>
+                <p class="card-text">Los administradores pueden acceder para poder añadir nuevos vuelos al sistema, permitiendo a nuestros usuarios mejorar sus búsquedas.</p>
+                <a routerLink="/login" class="btn btn-primary">Acceso</a>
               </div>
             </div>
           </div>
@@ -42,3 +41,7 @@
   </div>  
 </body>
     
+
+
+
+

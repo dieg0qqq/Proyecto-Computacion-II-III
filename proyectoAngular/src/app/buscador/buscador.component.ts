@@ -73,7 +73,7 @@ export class BuscadorComponent implements OnInit {
           console.log(data);
           if (Object.keys(data).length == 0){
             // No se ha encotrado el vuelo o no existe
-            console.log("NO se ha encontrado nada");
+            console.log("No se ha encontrado nada");
             // abrir ventana de error
             this.vuelo = false;
             this.no_encontrado = true;
