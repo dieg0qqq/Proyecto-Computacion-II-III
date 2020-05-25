@@ -19,7 +19,6 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class BuscadorComponent implements OnInit {
-
   sql = 'http://127.0.0.1:8000';
   siglas: aeroSiglas[];
   arrayVuelo: vuelo[];
@@ -44,7 +43,6 @@ export class BuscadorComponent implements OnInit {
 
   model: NgbDateStruct;
 
-  // fechaActual: string;
   currentDate = new Date();
 
   constructor(private datePipe: DatePipe, private aeroSiglasService: AeroSiglasService, private aerolinasService: AerolineasService, private httpClient: HttpClient) {
@@ -72,23 +70,15 @@ export class BuscadorComponent implements OnInit {
         this.httpClient.get(this.sql+'/api/vuelo/'+this.inputVuelo+"/"+fecha).subscribe((data: vuelo[]) =>{
           console.log(data);
           if (Object.keys(data).length == 0){
-            // No se ha encotrado el vuelo o no existe
-            console.log("No se ha encontrado nada");
+            // No se ha encontrado el vuelo o no existe
+            console.log("NO se ha encontrado nada");
             // abrir ventana de error
             this.vuelo = false;
             this.no_encontrado = true;
           }
           else{
-            // for (var i = 0; i < Object.keys(data).length;i++){
-            //   this.httpClient.get(this.sql+'/api/aerolineas/'+data[i]['Aerolinea']).subscribe((datum) =>{
-            //     for (var i = 0; i <Object.keys(datum).length; i++){
-            //       data[i]['Aerolinea']= datum[i]['nombreAerolinea'];
-            //       console.log(data[i]['Aerolinea']);
-            //     }
-            //   });
-              this.arrayEspecifico = data;
-              console.log(this.arrayEspecifico);
-            // }
+            this.arrayEspecifico = data;
+            console.log(this.arrayEspecifico);
             // importante 
             this.detalles = true;//activar el contenido del vuelo
             this.vuelo = false;//esconder el formulario
@@ -104,9 +94,6 @@ export class BuscadorComponent implements OnInit {
   listaAeropuerto() {
     console.log(this.selectedLevel)
     this.httpClient.get(this.sql + '/api/vuelosXaeropuerto/' + this.selectedLevel).subscribe((data: vuelo[]) => {
-      for (var i=0; i<Object.keys(data).length;i++){
-        console.log(i+"->"+data[i]["IdVuelo"]);
-      }
       this.arrayVuelo = data;
       console.log(this.arrayVuelo);
       this.lista = true;
@@ -114,8 +101,7 @@ export class BuscadorComponent implements OnInit {
   };
   vueloEspecifico(id_vuelo){
     // var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
-    var dia = "2020-05-13";
-    
+    var dia = "2020-05-14";
     this.httpClient.get(this.sql+'/api/vuelo/'+id_vuelo+"/"+dia).subscribe((data: vuelo[]) => {
       console.log(data);
       this.arrayEspecifico = data;
@@ -124,6 +110,4 @@ export class BuscadorComponent implements OnInit {
     this.detalles=true;
     this.vuelo=false;
   }
-
 }
-

@@ -1,24 +1,25 @@
 
 <div class="content-father">
-    <div class="content-principal">
-        <div>
-            <div class="content-canvas">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-                </canvas>
-            </div>
-            <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
-        </div>
-    </div>
+  <div class="chart-wrapper" *ngIf="chartReady">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+    </canvas>
+  </div>
 
-    <div class="content-principal">
-        <div>
-            <div class="content-canvas">
-                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
-                    [chartType]="doughnutChartType">
-                </canvas>
-            </div>
-        </div>
-    </div>
+  <div class="chart-wrapper">
+      <canvas baseChart 
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
     <button (click)="LogOut()"></button>
 </div>
