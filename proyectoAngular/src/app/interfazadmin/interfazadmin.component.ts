@@ -42,8 +42,9 @@ export class InterfazadminComponent implements OnInit {
     this.http.post(endpoint, data)
     .toPromise()
     .then((token:string) => {
-      console.log(token);
-      sessionStorage.setItem('token', token);
+      
+      sessionStorage.setItem('token', token['success']['token']);
+      console.log(sessionStorage.getItem('token'));
       this.router.navigate(['/login/admin']);
       
     })
@@ -51,8 +52,6 @@ export class InterfazadminComponent implements OnInit {
       console.error(error);
       alert('Error al iniciar sesion');
     });
-
-   
 
   }
 

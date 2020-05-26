@@ -36,28 +36,31 @@ export class AdminComponent implements OnInit {
   constructor(
     private router: Router,
     public http: HttpClient
+   
     ) { 
       monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
   }
 
   LogOut() {
-
     const endpoint = 'http://127.0.0.1:8000/api/logout';
-    const data = {
-      
-      email: this.email = sessionStorage.getItem('email'),
-      name: this.name = sessionStorage.getItem('name')
-    };
-
-    this.http.post(endpoint, data).toPromise().then(
-      (token:string) => {
-        console.log(token);
-        
-        this.router.navigate(['/login']);
-      }
-    );
+    const headers = new Headers ({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer: " + sessionStorage.getItem('token')
+    });
+   
+    this.http.post(endpoint, headers).toPromise().then((token:string) => {
+      token = sessionStorage.getItem('token');
+      console.log(token);
+      this.router.navigate(['/login']);
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Error al hacer logout');
+    });
+  
   }
+
   ngOnInit() {
     //grafica 1 = vuelos totales por cada aeropuerto
     this.http.get(this.sql+"/api/vuelos/contadorAeropuerto").subscribe((data)=>{
