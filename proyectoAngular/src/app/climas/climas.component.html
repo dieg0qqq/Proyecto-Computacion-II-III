@@ -1,0 +1,63 @@
+<body><div class="body" *ngIf="siglas">
+    
+    <div class="main-title">
+        <h2>Consultar climas</h2>
+      </div>
+
+      <form class="container" >
+        <hr class="rounded">
+        <div class="form-group">
+            <label>Seleccionar aeropuerto:</label>
+            <select class="custom-select select" name="selectedLevel" [(ngModel)]="selectedLevel" default="Choose Here">
+                Choose Here
+                <option *ngFor="let i of siglas" value="{{i.id}}">
+                    {{i.nombre}} ({{i.siglas}})
+                </option>
+            </select>
+            <small class="form-text text-muted">Solo se mostrará el clima de hoy.</small>
+            <input type="submit" value="Buscar" (click)="listaClimas()">
+        </div>
+       
+        <table class = "table" *ngIf="lista">
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Previsión</th>
+                    <th scope="col">Temp (ºC)</th>
+                    <th scope="col">Lluvia (m.m)</th>
+                    <th scope="col">Nubes (%)</th>
+                    <th scope="col">Viento (km/h)</th>
+                    <th scope="col">Rafagas (km/h)</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Humedad (%)</th>
+                    <th scope="col">Presión (mb)</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of arrayClima">
+                    <th>{{a.hora}}</th>
+                    <th>{{a.prevision}}</th>
+                    <th>{{a.temperatura}}</th>
+                    <th>{{a.lluvia}}</th>
+                    <th>{{a.nubes}}</th>
+                    <th>{{a.viento}}</th>
+                    <th>{{a.rafagas}}</th>
+                    <th>{{a.direccion}}</th>
+                    <th>{{a.humedad}}</th>
+                    <th>{{a.presion}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div class="no-encontrado container" *ngIf="no_encontrado">
+  <h3>Ha ocurrido un problema interno</h3>
+  <img src="../../assets/nubes.jpg" alt="">
+  <a href="buscador"> Volver a intentarlo</a>
+</div>
+
+
+</body>

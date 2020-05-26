@@ -29,6 +29,9 @@ Route::post('/tripadvisor/comentarios', 'TripAdvisorController@store');
 
 Route::get('/twitter/opinionG','TwitterController@index');
 Route::get('/siglas/lista', 'AeroSiglasController@index');
+Route::get('/clima/lista', 'ClimaController@index');
+
+Route::get('/climaXaeropuerto/{id}', 'ClimaController@showXclima');
 
 Route::get('/aerolineas/lista', 'AerolineaController@show');
 Route::get('/aerolineas/{id}', 'AerolineaController@show');
