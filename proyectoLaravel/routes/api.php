@@ -29,6 +29,9 @@ Route::post('/tripadvisor/comentarios', 'TripAdvisorController@store');
 
 Route::get('/twitter/opinionG','TwitterController@index');
 Route::get('/siglas/lista', 'AeroSiglasController@index');
+Route::get('/clima/lista', 'ClimaController@index');
+
+Route::get('/climaXaeropuerto/{id}', 'ClimaController@showXclima');
 
 Route::get('/aerolineas/lista', 'AerolineaController@show');
 Route::get('/aerolineas/{id}', 'AerolineaController@show');
@@ -43,5 +46,8 @@ Route::post('register', 'UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'UserController@details');
 Route::post('logout', 'UserController@logout');
-
 });
+Route::get('/vuelos/contador','VuelosController@countAll');//total de vuelos
+Route::get('/vuelos/contadorDia', 'VuelosController@countEachDay');//vuelos por cada dia
+Route::get('/vuelos/contadorAeropuerto', 'VuelosController@countFlightAriport');//vuelos totales de cada aeropuerto
+Route::get('/vuelos/contadorAerolineasVuelos', 'VuelosController@countFlightAirline');

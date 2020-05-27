@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Clima;
 use App\AeroSiglas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group MRC Clima
@@ -20,7 +21,11 @@ class ClimaController extends Controller
      */
     public function index()
     {
-        //
+        $climas = DB::table('climas')
+        ->join('aero_siglas', 'climas.siglas', 'aero_siglas.id')
+        ->select('aero_siglas.nombre','fecha','hora')
+        ->get();
+        return($climas);
     }
 
     /**
@@ -114,6 +119,24 @@ class ClimaController extends Controller
     public function show(Clima $clima)
     {
         //
+    }
+
+     /**
+     * Muestra la lista de climas en un específico aeropuerto
+     *
+     * @param  \App\Clima  $aerolinea
+     * @return \Illuminate\Http\Response
+     */
+    public function showXclima($id_aeropuerto)
+    {
+        $lista_climas = DB::table('climas')
+        ->join('aero_siglas', 'climas.siglas', 'aero_siglas.id')
+        ->select('aero_siglas.nombre','fecha','hora','prevision','temperatura','lluvia','nubes',
+        'viento','rafagas','direccion','humedad','presion')
+        ->where('climas.siglas', $id_aeropuerto)
+        ->get();
+
+        return $lista_climas;
     }
 
     /**

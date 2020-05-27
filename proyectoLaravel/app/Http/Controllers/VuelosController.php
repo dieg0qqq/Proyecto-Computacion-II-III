@@ -32,6 +32,73 @@ class VuelosController extends Controller
     }
 
     /**
+     * Cantidad de vuelos totales en la base de datos
+     * 
+     * 
+     */
+    public function countAll()
+    {
+        $num_vuelos = DB::table('vuelos')
+            ->count();
+        return $num_vuelos;
+    }
+
+    /**
+     * Cantidad de vuelos por dia
+     * 
+     */
+    public function countEachDay()
+    {
+        $num_vuelos = DB::table('vuelos')
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as views'))
+            ->groupBy('date')
+            ->get();
+        return $num_vuelos;
+    }
+
+/**
+ * numero de vuelos por aeropuerto
+ * numero de comentarios por aerolinea
+ * numero de retrasos por aeropuerto
+ * porcentaje de comenatarios positivos y los negativos
+ * 
+ */
+
+    /**
+     * Numero de vuelos por Aeropuerto
+     * 
+     */
+    public function countFlightAriport(){
+        $num_vuelos = DB::table('vuelos')
+            ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')  
+            ->select(DB::raw('count(*) as num_vuelos'), DB::raw('aero_siglas.nombre as aeropuertos'))
+            ->groupBy('aeropuertos')
+            ->get();
+        return $num_vuelos;
+    }
+
+    /**
+     * Numero de vuelos por Aerolinea
+     * 
+     * 
+     */
+    public function countFlightAirline(){
+        $num_vuelos = DB::table('vuelos')
+        ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')
+        ->join('aerolineas','vuelos.Aerolinea','aerolineas.id')
+        ->get();
+        return $num_vuelos;
+    }
+
+    /**
+     * 
+     */
+    public function commentsAirline(){
+        
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
