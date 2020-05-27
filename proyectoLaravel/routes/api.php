@@ -30,6 +30,10 @@ Route::post('/tripadvisor/comentarios', 'TripAdvisorController@store');
 Route::get('/twitter/opinionG','TwitterController@index');
 Route::get('/siglas/lista', 'AeroSiglasController@index');
 Route::get('/clima/lista', 'ClimaController@index');
+Route::get('/tripadvisor/lista', 'TripAdvisorController@index');
+Route::get('/aerolinea/lista', 'AerolineaController@index');
+
+Route::get('/tripadvisorXaerolinea/{id}','TripAdvisorController@showXaerolinea');
 
 Route::get('/climaXaeropuerto/{id}', 'ClimaController@showXclima');
 

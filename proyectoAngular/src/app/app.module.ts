@@ -16,6 +16,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ChartsModule } from 'ng2-charts';
 import { ScriptaltComponent } from './scriptalt/scriptalt.component';
 import { ClimasComponent } from './climas/climas.component';
+import { TripadvisorsComponent } from './tripadvisors/tripadvisors.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ClimasComponent } from './climas/climas.component';
     InterfazadminComponent,
     AdminComponent,
     ScriptaltComponent,
-    ClimasComponent
+    ClimasComponent,
+    TripadvisorsComponent
   ],
   imports: [
     BrowserModule,

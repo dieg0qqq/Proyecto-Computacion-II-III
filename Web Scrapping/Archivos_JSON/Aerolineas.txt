@@ -1,61 +1,60 @@
+ASL Airlines Belgium
+Aeroflot
 Aerolineas Argentinas
 Aeromexico
 Air Arabia Maroc
+Air Austral
 Air Europa
 Air France
-Air Mauritius
 Alitalia
 American Airlines
 Anisec
+Belavia
 Binter Canarias
 Blue Air
 British Airways
 China Airlines
 China Eastern Airlines
 China Southern Airlines
-Condor
 Delta Air Lines
 El Al
 Emirates
 Ethiopian Airlines
-Etihad Airways
 Eurowings
 Finnair
 Garuda Indonesia
 Gol
 Iberia
 Iberia Express
-Icelandair
 JAL
 KLM
 Kenya Airways
 Korean Air
 LATAM Airlines
 Lufthansa
-Mahan Air
+Malaysia Airlines
 Peoples
-Plus Ultra
 Qatar Airways
 SA AVIANCA
 SAS
-SWISS
-Saudia
+Singapore Airlines
 SkyUP Airlines
 Swiftair
 TAP Air Portugal
 Turkish Airlines
 UIA
-Vietnam Airlines
 Virgin Atlantic
 Vueling
 Wizz Air
 Xiamen Airlines
 easyJet
-tair
-Turkish Airlines
-Virgin Atlantic
+ted Airlines
 Vueling
 Wizz Air
+Wizz Air UK
+Xiamen Airlines
+easyJet
+
 Xiamen Airlines
 easyJet
 ines

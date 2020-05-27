@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\TripAdvisor;
 use App\Aerolinea;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group MRC TripAdvisor
@@ -19,7 +20,12 @@ class TripAdvisorController extends Controller
      */
     public function index()
     {
-        //
+        $tripadvisor = DB::table('trip_advisors')
+        ->join('aerolineas', 'trip_advisors.IdAerolinea','aerolineas.id')
+        ->select('aerolineas.nombreAerolinea','Comentario','Valoracion')
+        ->get();
+
+        return($tripadvisor);
     }
 
     /**
@@ -72,6 +78,17 @@ class TripAdvisorController extends Controller
             $model->save();
         }
         return $model;
+    }
+
+    public function showXaerolinea($id_aerolinea) {
+
+        $lista_aerolineas = DB::table('trip_advisors')
+        ->join('aerolineas','trip_advisors.IdAerolinea','aerolineas.id')
+        ->select('aerolineas.nombreAerolinea','Comentario','Valoracion')
+        ->where('IdAerolinea', $id_aerolinea)
+        ->get();
+        
+        return $lista_aerolineas;
     }
 
     /**

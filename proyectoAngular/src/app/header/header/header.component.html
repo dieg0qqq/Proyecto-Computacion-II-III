@@ -20,22 +20,24 @@
 
 <nav>
   <div class="nav-wrapper">
-    <a class="brand-logo" routerLink="/">Flight Project</a>
+    <a class="brand-logo" routerLink="/"> <img src="https://image.flaticon.com/icons/png/512/88/88579.png" height="50px"><b style="color: black; font-weight: 500; font-size: 30px;">   CABD Flights</b></a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li routerLink="/buscador" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Buscador</a></li>
-      <li routerLink="/climas" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Climas</a></li>
-      <li routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Acceso</a></li>
-      <li routerLink="/cerrar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Salir</a></li>
+      <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Inicio   <img src="https://image.flaticon.com/icons/png/512/69/69524.png" height="24px"> </a></li>
+      <li routerLink="/buscador" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Buscador de vuelos   <img src="https://i.ya-webdesign.com/images/search-magnifying-glass-png.png" height="24px"> </a></li>
+      <li routerLink="/tripadvisor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Opiniones de aerolíneas   <img src="https://image.flaticon.com/icons/png/512/1162/1162344.png" height="25px"> </a></li>
+      <li routerLink="/climas" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Clima por aeropuerto   <img src="https://i.dlpng.com/static/png/6715891_preview.png" height="24px"> </a></li>
+      <li routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Portal administrador   <img src="https://image.flaticon.com/icons/png/512/63/63440.png" height="24px"> </a></li>
     </ul>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-  <li routerLink="/buscador" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Buscador</a></li>
-  <li routerLink="/climas" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Climas</a></li>
-  <li routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Acceso</a></li>
-  <li routerLink="/cerrar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a>Salir</a></li>
+  <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a><img src="https://image.flaticon.com/icons/png/512/69/69524.png" height="20px">  Inicio</a></li>
+  <li routerLink="/buscador" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a><img src="https://i.ya-webdesign.com/images/search-magnifying-glass-png.png" height="21px">  Buscador</a></li>
+  <li routerLink="/tripadvisor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a><img src="https://image.flaticon.com/icons/png/512/1162/1162344.png" height="25px">  Opiniones de aerolíneas</a></li>
+  <li routerLink="/climas" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a><img src="https://i.dlpng.com/static/png/6715891_preview.png" height="22px">  Climas</a></li>
+  <li routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a><img src="https://image.flaticon.com/icons/png/512/63/63440.png" height="22px">  Admin</a></li>
 </ul>
 
 <scriptalt>$('.sidenav').sidenav();</scriptalt>

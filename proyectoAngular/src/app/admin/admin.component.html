@@ -1,25 +1,35 @@
 
+<body>
+
+  <br>
+  <button class="admin-logout" (click)="LogOut()">Log Out</button>
+
 <div class="content-father">
-  <div class="chart-wrapper" *ngIf="chartReady">
-    <canvas baseChart 
-    [data]="pieChartData" 
-    [labels]="pieChartLabels" 
-    [chartType]="pieChartType"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins"
-    [legend]="pieChartLegend">
-    </canvas>
-  </div>
+
+
+    <div class="chart-wrapper" *ngIf="chartReady">
+      <canvas baseChart 
+      [data]="pieChartData" 
+      [labels]="pieChartLabels" 
+      [chartType]="pieChartType"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend">
+      </canvas>
+    </div>
+  
+    <br><br><br><br><br>
 
   <div class="chart-wrapper">
-      <canvas baseChart 
-      [datasets]="barChartData"
-      [labels]="barChartLabels"
-      [options]="barChartOptions"
-      [plugins]="barChartPlugins"
-      [legend]="barChartLegend"
-      [chartType]="barChartType">
-    </canvas>
+        <canvas baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
   </div>
-    <button (click)="LogOut()"></button>
+      
 </div>
+</body>

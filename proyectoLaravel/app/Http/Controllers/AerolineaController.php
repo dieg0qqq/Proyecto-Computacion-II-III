@@ -14,7 +14,8 @@ class AerolineaController extends Controller
      */
     public function index()
     {
-        //
+        $aerolineas = Aerolinea::all();
+        return($aerolineas);
     }
 
     /**

@@ -1,70 +1,29 @@
-<!-- <body>
-<div class = "container">
-
-<div class="cuadroPrincipal">
-    <div class="contentImage">
-        <img  class="logo"src="https://upload.wikimedia.org/wikipedia/commons/1/12/User_icon_2.svg">
-    </div>
-    <br>
-    <form [ngFormOptions]="{updateOn:'change'}" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
-        <div class="form-group">
-            <label for="username">Email</label>
-            <input type="text" name="username" class="form-control inputText" [(ngModel)] = "email" #username="ngModel"
-                (ngModelChange)="blur('username')" ngModel required (blur)="blur('username')"
-                [ngClass]="{ 'is-invalid': ((submitted || blurredUser) && !username.valid) || messageError.length>0 }" />
-
-            <div style="color: red;" 
-                *ngIf="(((submitted || blurredUser) && !username.valid))">El email es obligatorio
-            </div>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" class="form-control inputText" [(ngModel)] = "pass" #password="ngModel"
-                (ngModelChange)="blur('password')" ngModel required (blur)="blur('password')"
-                [ngClass]="{ 'is-invalid': ((submitted || blurredPass) && !password.valid) || messageError.length>0 }" />
-            
-            <div style="color: red;" 
-                *ngIf="(((submitted || blurredPass) && !password.valid))">La contraseña es obligatoria
-            </div>
-        </div>
-        <div class="form-group" style="color: red;">{{messageError}}</div>
-        <div class="form-group-button">
-            <button  class="botonLogin" (click) = "doLogin()">
-                Login
-            </button>
-        </div>
-        <br>
-       
-    </form>
-</div>
-</div>
-</body> -->
-
 <body>
 <div class="login-page">
-    <div class="form">
-    <h3>Accede a tu usuario</h3>
-      <form class="login-form" [ngFormOptions]="{updateOn:'change'}" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+  <div class="form">
+      
+    <h3>¡Bienvenido administrador!</h3>
+    <br>
+    <img src="https://static.vecteezy.com/system/resources/previews/000/440/656/non_2x/vector-users-icon.jpg" height="100" width="100">
+    <br><br><br>
+    <form class="login-form" [ngFormOptions]="{updateOn:'change'}" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
 
-        <input placeholder="email" type="text" name="username" class="form-control inputText" [(ngModel)] = "email" #username="ngModel"
+        <label class="login-label"><b>Email: </b></label>
+        <input placeholder="example@gmail.com" type="text" name="username" class="form-control inputText" [(ngModel)] = "email" #username="ngModel"
         (ngModelChange)="blur('username')" ngModel required (blur)="blur('username')"
         [ngClass]="{ 'is-invalid': ((submitted || blurredUser) && !username.valid) || messageError.length>0 }"/>
+        <span class="login-span" *ngIf="(((submitted || blurredUser) && !username.valid))">El email es obligatorio</span>
 
-        <div style="color: red;" 
-            *ngIf="(((submitted || blurredUser) && !username.valid))">El email es obligatorio
-        </div>
-
-        <input placeholder="contraseña" type="password" name="password" class="form-control inputText" [(ngModel)] = "pass" #password="ngModel"
+        <label class="login-label"><b>Contraseña: </b></label>
+        <input placeholder="password" type="password" name="password" class="form-control inputText" [(ngModel)] = "pass" #password="ngModel"
         (ngModelChange)="blur('password')" ngModel required (blur)="blur('password')"
         [ngClass]="{ 'is-invalid': ((submitted || blurredPass) && !password.valid) || messageError.length>0 }" />
+        <span class="login-span" *ngIf="(((submitted || blurredPass) && !password.valid))">La contraseña es obligatoria </span>
 
-        <span style="color: red;" 
-            *ngIf="(((submitted || blurredPass) && !password.valid))">La contraseña es obligatoria
-    </span>
+        <br>
+        <button (click)="doLogin()">Acceder <img src="https://assets.materialup.com/uploads/53a51966-b17f-4f52-a2d8-e34c38b12d5c/preview" height="30" width="30"> </button>
 
-        <button (click)="doLogin()">acceder</button>
-      </form>
-    </div>
+    </form>
   </div>
+</div>
 </body>
