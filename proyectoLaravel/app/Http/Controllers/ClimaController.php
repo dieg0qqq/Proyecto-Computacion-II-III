@@ -89,7 +89,7 @@ class ClimaController extends Controller
             $model->nubes = $array['clima'][$dict]['nubes'];
             $model->viento = $array['clima'][$dict]['viento'];
             $model->rafagas = $array['clima'][$dict]['rafagas'];
-            $model->direccion = $array['clima'][$dict]['direccion'];
+            $model->direccion = "";
             $model->humedad = $array['clima'][$dict]['humedad'];
             $model->presion = $array['clima'][$dict]['presion'];
 
@@ -102,7 +102,6 @@ class ClimaController extends Controller
             echo($array['clima'][$dict]['nubes']);
             echo($array['clima'][$dict]['viento']);
             echo($array['clima'][$dict]['rafagas']);
-            echo($array['clima'][$dict]['direccion']);
             echo($array['clima'][$dict]['humedad']);
             echo($array['clima'][$dict]['presion']);
             $model->save();

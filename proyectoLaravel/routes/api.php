@@ -55,3 +55,4 @@ Route::get('/vuelos/contador','VuelosController@countAll');//total de vuelos
 Route::get('/vuelos/contadorDia', 'VuelosController@countEachDay');//vuelos por cada dia
 Route::get('/vuelos/contadorAeropuerto', 'VuelosController@countFlightAriport');//vuelos totales de cada aeropuerto
 Route::get('/vuelos/contadorAerolineasVuelos', 'VuelosController@countFlightAirline');
+Route::get('/prediccion', 'VuelosController@prediccion');

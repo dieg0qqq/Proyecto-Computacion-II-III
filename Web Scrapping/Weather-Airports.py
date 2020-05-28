@@ -32,7 +32,7 @@ for line in archivo:
             'rafagas': datos[17+(11*(i-1))].text.replace(" km/h",""),
             #'direccion' ya no existe en la web
             'humedad': datos[20+(11*(i-1))].text.replace("%", ""),
-            'presion': datos[21+(11*(i-1))].text.replace(" mb", ""),
+            'presion': datos[21+(11*(i-1))].text.replace("%", ""),
         })
         #print(data['clima'][i-1])
 

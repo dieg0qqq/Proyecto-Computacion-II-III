@@ -86,6 +86,8 @@ class VuelosController extends Controller
         $num_vuelos = DB::table('vuelos')
         ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')
         ->join('aerolineas','vuelos.Aerolinea','aerolineas.id')
+        ->select(DB::raw('count(*) as numero_vuelos'), DB::raw('aerolineas.nombreAerolinea as Aerolineas'), 'aero_siglas.nombre')
+        ->groupBy(['Aerolineas', 'aero_siglas.nombre'])
         ->get();
         return $num_vuelos;
     }
@@ -95,6 +97,17 @@ class VuelosController extends Controller
      */
     public function commentsAirline(){
         
+    }
+    /**
+     * 
+     */
+    public function prediccion()
+    {
+        $filas_vuelos = DB::select(DB::raw('select * from vuelos
+        join aero_siglas on vuelos.SiglasOrigen = aero_siglas.id
+        inner join climas on vuelos.SiglasOrigen = climas.siglas AND DATE(vuelos.created_at)= climas.fecha 
+            and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 )'));
+        return $filas_vuelos;
     }
 
 
