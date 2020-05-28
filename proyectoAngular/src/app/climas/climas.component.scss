@@ -5,12 +5,12 @@
     align-items: center;
     align-content: center;
 }
-h2{
-    padding: 15px;
-}
+
 .container{
     background-color:white;
-    padding: 15px 10px 15px 10px;
+    width: 90%;
+    display: grid; 
+ 
 }
 hr.rounded {
     border-top: 8px solid #9cbfff;
@@ -51,13 +51,18 @@ label {
     font-size: 1em;
 }
 
+th {
+    
+    margin: auto;
+    text-align: center;
+    height: auto;
+}
 
+.th-header {
 
-.container {
-    display: grid;
-    justify-content: center;
-    width: auto;
-    padding: 2.5%;
+    margin: auto;
+    text-align: center;
+   
 }
 
 .main-title {
@@ -71,4 +76,7 @@ label {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    padding: 15px;
+
 }
+

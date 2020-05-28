@@ -1,0 +1,40 @@
+<body class="body" *ngIf="aerolineas">
+
+        <div class="main-title">
+            <h2>Opiniones aerolíneas</h2>
+        </div>
+  
+        <form class="container" >
+            <hr class="rounded">
+            <div class="form-group">
+                <label>Seleccionar aerolínea:</label>
+                <select class="custom-select select" name="selectedLevel" [(ngModel)]="selectedLevel" default="Choose Here">
+                    Choose Here
+                    <option *ngFor="let i of aerolineas" value="{{i.id}}">
+                        {{i.nombreAerolinea}} 
+                    </option>
+                </select>
+                <small class="form-text text-muted">Muestra todas las opiniones de la aerolínea</small>
+                <br>
+                <input type="submit" value="Buscar" (click)="listaAerolineas()">
+            </div>
+
+            <table class = "table" *ngIf="lista">
+                <thead class = "thead-dark">
+                    <tr>
+                        <th scope="col" class="th-header">Reseña</th>
+                        <th scope="col"class="th-header">Valoración</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of arrayTripadvisor">
+                        <th>{{a.Comentario}}</th>
+                        <th class="th-body">{{a.Valoracion}}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </form>
+
+</body>

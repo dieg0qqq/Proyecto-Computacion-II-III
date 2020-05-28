@@ -1,10 +1,11 @@
-<body><div class="body" *ngIf="siglas">
+<body class="body" *ngIf="siglas">
+    
     
     <div class="main-title">
         <h2>Consultar climas</h2>
-      </div>
+    </div>
 
-      <form class="container" >
+    <form class="container" >
         <hr class="rounded">
         <div class="form-group">
             <label>Seleccionar aeropuerto:</label>
@@ -15,24 +16,24 @@
                 </option>
             </select>
             <small class="form-text text-muted">Solo se mostrará el clima de hoy.</small>
+            <br>
             <input type="submit" value="Buscar" (click)="listaClimas()">
         </div>
        
         <table class = "table" *ngIf="lista">
             <thead class = "thead-dark">
                 <tr>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Previsión</th>
-                    <th scope="col">Temp (ºC)</th>
-                    <th scope="col">Lluvia (m.m)</th>
-                    <th scope="col">Nubes (%)</th>
-                    <th scope="col">Viento (km/h)</th>
-                    <th scope="col">Rafagas (km/h)</th>
-                    <th scope="col">Direccion</th>
-                    <th scope="col">Humedad (%)</th>
-                    <th scope="col">Presión (mb)</th>
+                    <th scope="col" class="th-header">Hora</th>
+                    <th scope="col"class="th-header">Previsión</th>
+                    <th scope="col"class="th-header">Temp (ºC)</th>
+                    <th scope="col"class="th-header">Lluvia (m.m)</th>
+                    <th scope="col"class="th-header">Nubes (%)</th>
+                    <th scope="col"class="th-header">Viento (km/h)</th>
+                    <th scope="col"class="th-header">Rafagas (km/h)</th>
+                    <th scope="col"class="th-header">Direccion</th>
+                    <th scope="col"class="th-header">Humedad (%)</th>
+                    <th scope="col"class="th-header">Presión (mb)</th>
 
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,5 @@
             </tbody>
         </table>
     </form>
-</div>
 
 </body>
