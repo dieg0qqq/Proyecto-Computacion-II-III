@@ -106,7 +106,7 @@ class VuelosController extends Controller
         $filas_vuelos = DB::select(DB::raw('select * from vuelos
         join aero_siglas on vuelos.SiglasOrigen = aero_siglas.id
         inner join climas on vuelos.SiglasOrigen = climas.siglas AND DATE(vuelos.created_at)= climas.fecha 
-            and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 )'));
+            and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 ) where Date(vuelos.created_at) <> Date(NOW())'));
         return $filas_vuelos;
     }
 
