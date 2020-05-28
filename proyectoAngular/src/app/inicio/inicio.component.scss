@@ -26,19 +26,22 @@ h2 {
     margin-right: auto;
 }
 
+.card-img-top {
+    height: 160px;
+}
+
 .card {
     
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 18rem;
-    height: 23rem;
+    margin: auto;
+    margin-bottom: 10%;
+    width: 265px;
+    height: 370px;
+    
 }
 .card-body {
     display: grid;
     margin: auto;
-    height: auto;
-    width: auto;
+  
 }
 .welcome {
     margin-top: 10%;
