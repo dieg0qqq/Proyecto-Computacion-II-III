@@ -40,6 +40,7 @@ export class BuscadorComponent implements OnInit {
   errorInput: boolean;
   // para en caso de error por no encontrarlo
   no_encontrado : boolean;
+  retraso: boolean;
 
   model: NgbDateStruct;
 
@@ -55,6 +56,7 @@ export class BuscadorComponent implements OnInit {
     this.lista = false;
     this.vuelo = true;
     this.detalles = false;
+    this.retraso=false;
   }
 
   buscarVuelo() {
@@ -79,6 +81,16 @@ export class BuscadorComponent implements OnInit {
           else{
             this.arrayEspecifico = data;
             console.log(this.arrayEspecifico);
+            // var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
+            var dia="2020-5-18"
+            if (dia == fecha){
+              this.httpClient.get(this.sql+'/api/prediccion_vuelo/'+this.inputVuelo+"/"+fecha).subscribe(j => {
+                console.log(j[0]["retraso"]);
+                if (j[0]["retraso"] == "Si"){
+                  this.retraso = true;
+                }
+              });
+            }
             // importante 
             this.detalles = true;//activar el contenido del vuelo
             this.vuelo = false;//esconder el formulario

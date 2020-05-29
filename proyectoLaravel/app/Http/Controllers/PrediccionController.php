@@ -65,6 +65,17 @@ class PrediccionController extends Controller
         //
     }
 
+    public function search($id_vuelo, $fecha)
+    {
+        $vuelo = DB::table('prediccions')
+        ->select('retraso')
+        ->where('id_vuelo', $id_vuelo)
+        ->where('fecha_vuelo', $fecha)
+        ->get();
+
+        return $vuelo;
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

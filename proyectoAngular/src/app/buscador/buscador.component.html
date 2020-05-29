@@ -92,6 +92,11 @@
           {{e.IdVuelo}}
       </h3>  
       <br>
+      <div class="error" *ngIf = "retraso">
+        <ngb-alert [dismissible]="false">
+          <strong>¡Atención!</strong>Este vuelo puede sufrir retraso.
+        </ngb-alert>
+      </div>
       <label class="sub-h3">Aerolinea: {{e.nombreAerolinea}}</label>
       <br>
       <label class="sub-h3">Estado del vuelo: {{e.Estado1}} <small>{{e.Estado2}}</small></label>      
