@@ -1,8 +1,16 @@
 
 <body>
 
+  <div class="contenedor-img">
+    <img src="https://d35xtc4gznccds.cloudfront.net/ministry/5303-MinistryWeekdayOfficeAdmin-WebHeader.jpg" class="img-cab" >
+</div>
+
+<div class="contenedor-titulo">
+    <div class="centrado">Administración</div>
+</div>
+<br>
   <br>
-  <button class="admin-logout" (click)="LogOut()">Log Out</button>
+  <button class="admin-logout" (click)="LogOut()">Log Out  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_logOut-ltr.svg/1200px-OOjs_UI_icon_logOut-ltr.svg.png" height="25px"> </button>
 
 <div class="content-father">
 
@@ -30,7 +38,11 @@
         [chartType]="barChartType">
       </canvas>
 
-      <button class="admin-logout" (click)="Dale()">Dale</button>
+      <br><br><br><br><br>
+
+      <button class="admin-scraper" (click)="btnW()">Climas</button>
+      <button class="admin-scraper" (click)="btnV()">Vuelos</button>
+      <button class="admin-scraper" (click)="btnT()">Comentarios</button>
 
   </div>
       
