@@ -1,23 +1,36 @@
-<body><div class="body" *ngIf="vuelo">
-    
-    <div class="main-title">
-        <h2>Buscador de vuelos</h2>
-      </div>
+<body>
 
+    <div class="contenedor-img">
+        <img src="https://www.executiveline.co.uk/wp-content/uploads/2020/04/amazing-domestic-aircraft-take-off-header.jpg" class="img-cab" >
+    </div>
+    
+    <div class="contenedor-titulo">
+        <div class="centrado">Buscador Vuelos</div>
+    </div>
+    <br>
+
+    <div *ngIf="vuelo">
+    
       <form class="container" >
         <div class="form-group">
-            <label>Numero de vuelo</label>
+            <br>
+            <label>Identificador del vuelo</label>
             <input type="text" name="inputVuelo" [(ngModel)]="inputVuelo" placeholder="EJ:IB6585">
+            <label>Fecha</label>
             <div class="form-group">
                 <div class="input-group">
                   <input class="form-control" placeholder="yyyy-mm-dd"
                          name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
                   <div class="input-group-append">
                     <button class="btn" (click)="d.toggle()" type="button"><span class="material-icons">event</span></button>
+                    <br>
                   </div>
                 </div>
             </div>
-            <input type="submit" value="Buscar" (click)="buscarVuelo()">
+            <input type="submit" value="Buscar" (click)="buscarVuelo()" class="btn-buscar">
+
+            <hr>
+
             <div class="error container" *ngIf = "errorFecha">
               <ngb-alert [dismissible]="false">
                 <strong>¡Error!</strong>Debe elegir una fecha.
@@ -29,7 +42,7 @@
               </ngb-alert>
             </div>
         </div>
-        <hr class="rounded">
+      
         <div class="form-group">
             <label>Seleccionar aeropuerto:</label>
             <select class="custom-select select" name="selectedLevel" [(ngModel)]="selectedLevel" default="Choose Here">
@@ -39,18 +52,19 @@
                 </option>
             </select>
             <small class="form-text text-muted">Solo se mostrarán los vuelos del día de hoy.</small>
-            <input type="submit" value="Buscar" (click)="listaAeropuerto()">
+            <br>
+            <input type="submit" value="Buscar" (click)="listaAeropuerto()" class="btn-buscar">
         </div>
-       
+        <br>
         <table class = "table" *ngIf="lista">
             <thead class = "thead-dark">
                 <tr>
-                    <th scope="col">ID vuelo</th>
-                    <th scope="col">Aerolinea</th>
-                    <th scope="col">Destino</th>
-                    <th scope="col">Hora de salida</th>
-                    <th scope="col">Estado del vuelo</th>
-                    <th></th>
+                    <th scope="col"class="th-header">ID vuelo</th>
+                    <th scope="col"class="th-header">Aerolinea</th>
+                    <th scope="col"class="th-header">Destino</th>
+                    <th scope="col"class="th-header">Hora de salida</th>
+                    <th scope="col"class="th-header">Estado del vuelo</th>
+                    <th class="th-header"></th>
                 </tr>
             </thead>
             <tbody>
@@ -66,22 +80,27 @@
         </table>
     </form>
 </div>
-<div class="detalles-vuelo container" *ngIf = "detalles">
+
+<div class="container" *ngIf = "detalles">
+    <br>
   <div class="volver">
     <a href="buscador"><span class="material-icons">arrow_back_ios</span> Volver</a>
   </div>
+  <br>
   <div *ngFor="let e of arrayEspecifico">
-      <h3>
+      <h3 class="h3-id">
           {{e.IdVuelo}}
-      </h3>        
-      <ul>
-          <li>Aerolinea: {{e.nombreAerolinea}}</li>
-          <li>Estado del vuelo: {{e.Estado1}} <small>{{e.Estado2}}</small></li>
-      </ul>
+      </h3>  
+      <br>
+      <label class="sub-h3">Aerolinea: {{e.nombreAerolinea}}</label>
+      <br>
+      <label class="sub-h3">Estado del vuelo: {{e.Estado1}} <small>{{e.Estado2}}</small></label>      
+     <br> 
   </div>
+  <hr>
   <div data-role="accordion" data-material="true"*ngFor="let e of arrayEspecifico">
       <div class="frame active">
-          <div class="heading">Origen</div>
+          <div class="heading"><h3 class="h3-id2">Origen</h3></div>
           <div class="content">
               <div class="p-2">
                   <ul>
@@ -95,7 +114,7 @@
           </div>
       </div>
       <div class="frame">
-          <div class="heading">Destino</div>
+        <div class="heading"><h3 class="h3-id2">Destino</h3></div>
           <div class="content">
               <div class="p-2">
                   <ul>
@@ -110,6 +129,7 @@
       </div>
     </div>
 </div>
+<br>
 <div class="no-encontrado container" *ngIf="no_encontrado">
   <h3>Ha ocurrido un problema interno</h3>
   <img src="../../assets/nubes.jpg" alt="">

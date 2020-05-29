@@ -1,30 +1,39 @@
-
-.body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-}
-h2{
-    padding: 15px;
-}
 .container{
     background-color:white;
-    padding: 15px 10px 15px 10px;
+    width: 45%;
+    display: block; 
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 
 }
-hr.rounded {
-    border-top: 8px solid #9cbfff;
-    border-radius: 5px;
+
+.contenedor-titulo {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 100%;
+    height: 70px;
+    background-color: #3F51B5;
 }
-#myTab{
-    padding-top: 25px;
+
+.img-cab {
+
+    width: 100%;
+    height: 350px;
 }
-#myTabContent div {
-    padding: 15px;
+
+.centrado {
+
+    font-weight: bold;
+    font-family: Verdana;
+    color: whitesmoke;
+    font-size: 230%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.nav-link{
-    color: grey;
-}
+
 .no-encontrado img{
     width: 45%;
     // height: auto;
@@ -32,43 +41,45 @@ hr.rounded {
     margin-left: auto;
     margin-right: auto;
 }
-tbody button{
-    background: none;
-	color: inherit;
-	border: none;
-}
+
 body {
-    background-color:#93d1ff;
-    background-image: linear-gradient(white 2px, transparent 2px),
-    linear-gradient(90deg, white 2px, transparent 2px),
-    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
-    font-size: 1em;
-}
-label {
-    font-size: 1em;
+    background-color:#F2F4F4;
+
 }
 
-
-
-.container {
-    display: grid;
-    justify-content: center;
-    width: auto;
-    padding: 2.5%;
+th {
+    
+    border-radius: 1px;
+    margin: auto;
+    text-align: center;
+    height: auto;
 }
 
-.main-title {
-    margin-top: 5%;
-    display: grid;
-    grid-auto-flow: column;
-    justify-items: center;
+.th-header {
+
+    margin: auto;
+    text-align: center;
+   
 }
-.main-title h2{
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+
+.h3-id {
+
+    margin-left: 2%;
+    font-size: 40px;
+}
+
+.h3-id2 {
+
+    font-size: 30px;
+}
+
+.sub-h3 {
+    margin-left: 2%;
+    font-size: 15px;
+}
+
+.btn-buscar {
+    
+    font-size: 15px;
+    border-radius: 5px;
 }

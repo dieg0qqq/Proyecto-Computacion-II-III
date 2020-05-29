@@ -2,8 +2,8 @@
     
     <div class="contenedor-img">
         <img src="https://coverfiles.alphacoders.com/796/79690.jpg" class="img-cab" >
-        
     </div>
+    
     <div class="contenedor-titulo">
         <div class="centrado">Consultar Climas</div>
     </div>
@@ -21,7 +21,7 @@
             </select>
             <small class="form-text text-muted">Solo se mostrará el clima de hoy.</small>
             <br>
-            <input type="submit" value="Buscar" (click)="listaClimas()">
+            <input type="submit" value="Buscar" (click)="listaClimas()" class="btn-buscar">
             
         </div>
        
@@ -29,7 +29,7 @@
         <table class = "table" *ngIf="lista">
             <thead class = "thead-dark">
                 <tr>
-                    <th scope="col" class="th-header">Hora</th>
+                    <th scope="col"class="th-header">Hora</th>
                     <th scope="col"class="th-header">Previsión</th>
                     <th scope="col"class="th-header">Temp (ºC)</th>
                     <th scope="col"class="th-header">Lluvia (m.m)</th>

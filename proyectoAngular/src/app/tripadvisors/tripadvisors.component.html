@@ -1,7 +1,7 @@
 <body *ngIf="aerolineas">
 
     <div class="contenedor-img">
-        <img src="https://images.studentuniverse.com/new/suwebui/photos/marketing/flights-plane-header.jpg" class="img-cab" >
+        <img src="https://abuzzinbabe.files.wordpress.com/2017/07/aviation-page-header.jpg" class="img-cab" >
         
     </div>
     <div class="contenedor-titulo">
@@ -21,7 +21,7 @@
                 </select>
                 <small class="form-text text-muted">Muestra todas las opiniones de la aerolínea</small>
                 <br>
-                <input type="submit" value="Buscar" (click)="listaAerolineas()">
+                <input type="submit" value="Buscar" (click)="listaAerolineas()" class="btn-buscar">
             </div>
             <br>
             <table class = "table" *ngIf="lista">
