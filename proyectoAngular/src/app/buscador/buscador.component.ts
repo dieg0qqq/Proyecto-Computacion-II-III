@@ -81,8 +81,8 @@ export class BuscadorComponent implements OnInit {
           else{
             this.arrayEspecifico = data;
             console.log(this.arrayEspecifico);
-            // var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
-            var dia="2020-5-18"
+            var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
+            // var dia="2020-5-18"
             if (dia == fecha){
               this.httpClient.get(this.sql+'/api/prediccion_vuelo/'+this.inputVuelo+"/"+fecha).subscribe(j => {
                 console.log(j[0]["retraso"]);
