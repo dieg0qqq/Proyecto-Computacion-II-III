@@ -62,3 +62,7 @@ Route::get('/vuelos/contadorAerolineasVuelos', 'VuelosController@countFlightAirl
 Route::get('/prediccion', 'VuelosController@prediccion');
 Route::get('/clasificador', 'VuelosController@clasificar');
 
+Route::get('/prediccion', 'VuelosController@prediccion');
+Route::get('/clasificador', 'VuelosController@clasificar');
+
+Route::get('/prediccion_vuelo/{id}/{fecha}', 'PrediccionController@search');
