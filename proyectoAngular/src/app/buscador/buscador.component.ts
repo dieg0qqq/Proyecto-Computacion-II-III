@@ -93,7 +93,8 @@ export class BuscadorComponent implements OnInit {
   };
   listaAeropuerto() {
     console.log(this.selectedLevel)
-    this.httpClient.get(this.sql + '/api/vuelosXaeropuerto/' + this.selectedLevel).subscribe((data: vuelo[]) => {
+    var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
+    this.httpClient.get(this.sql + '/api/vuelosXaeropuerto/' + this.selectedLevel+"/"+dia).subscribe((data: vuelo[]) => {
       this.arrayVuelo = data;
       console.log(this.arrayVuelo);
       this.lista = true;

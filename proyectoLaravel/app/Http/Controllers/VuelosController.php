@@ -106,7 +106,7 @@ class VuelosController extends Controller
         $filas_vuelos = DB::select(DB::raw('select * from vuelos
         join aero_siglas on vuelos.SiglasOrigen = aero_siglas.id
         inner join climas on vuelos.SiglasOrigen = climas.siglas AND DATE(vuelos.created_at)= climas.fecha 
-            and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 ) where Date(vuelos.created_at) <> Date(NOW())'));
+            and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 ) where Date(vuelos.created_at) <> Date(NOW()) and `Estado1` <> "Cancelled" and `Estado1` <> "Unknown"'));
         return $filas_vuelos;
     }
 
@@ -127,16 +127,17 @@ class VuelosController extends Controller
      * @param  \App\Vuelos  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function showxAeropuerto($id_aeropuerto)
+    public function showxAeropuerto($id_aeropuerto, $fecha)
     {
         $lista_aeropuertos = DB::table('vuelos')
             ->join('aerolineas','vuelos.Aerolinea','aerolineas.id')
             ->join('aero_siglas', 'vuelos.SiglasOrigen', 'aero_siglas.id')
-            ->select('IdVuelo','aerolineas.nombreAerolinea','Estado1','Estado2',
+            ->select('vuelos.created_at','IdVuelo','aerolineas.nombreAerolinea','Estado1','Estado2',
             'aero_siglas.nombre','Origen','HoraProgOrigen','HoraEstOrigen','TerminalOrigen',
             'GateOrigen','SiglasDestino','Destino','HoraProgDestino','HoraEstDestino',
             'TerminalDestino','GateDestino')
             ->where('siglasOrigen', $id_aeropuerto)
+            ->where(DB::raw("DATE(vuelos.created_at)"), $fecha)
             ->get();
         return $lista_aeropuertos;
     }
