@@ -104,7 +104,7 @@ export class AdminComponent implements OnInit {
   barChartOptions: ChartOptions = {
     responsive: true,
   };
-  // barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
