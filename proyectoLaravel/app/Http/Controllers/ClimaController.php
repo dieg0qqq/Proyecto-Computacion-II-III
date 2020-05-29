@@ -28,6 +28,15 @@ class ClimaController extends Controller
         return($climas);
     }
 
+    public function boton()
+    {
+        $cmd = "python ".storage_path("/Aeropuertos-Siglas.py"." 2>&1");
+        
+        error_log (shell_exec($cmd));
+        
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

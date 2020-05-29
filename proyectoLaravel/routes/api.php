@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Route::apiResource("vuelos","VuelosController");
 // Route::apiResource("twitters", "TwitterController");
 // Route::apiResource("tripadvisor", "TripAdvisorController");
+Route::get('/boton','ClimaController@boton');
 
 Route::post('/clima/datos','ClimaController@store');
 Route::post('/vuelos/datos','VuelosController@store');
@@ -60,3 +61,4 @@ Route::get('/vuelos/contadorAeropuerto', 'VuelosController@countFlightAriport');
 Route::get('/vuelos/contadorAerolineasVuelos', 'VuelosController@countFlightAirline');
 Route::get('/prediccion', 'VuelosController@prediccion');
 Route::get('/clasificador', 'VuelosController@clasificar');
+

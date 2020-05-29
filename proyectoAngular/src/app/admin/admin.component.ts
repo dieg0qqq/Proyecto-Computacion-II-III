@@ -61,6 +61,13 @@ export class AdminComponent implements OnInit {
   
   }
 
+Dale(){
+
+  this.http.get(this.sql+"/api/boton").subscribe((data)=>{
+  });
+}
+
+
   ngOnInit() {
     //grafica 1 = vuelos totales por cada aeropuerto
     this.http.get(this.sql+"/api/vuelos/contadorAeropuerto").subscribe((data)=>{
@@ -74,6 +81,14 @@ export class AdminComponent implements OnInit {
       this.pieChartData = numero_vuelos;
       this.chartReady = true;
     });
+
+
+
+
+
+
+
+
     this.http.get(this.sql+"/api/vuelos/contadorDia").subscribe(data =>{
       var dia = new Array();
       var numero_vuelos = new Array();
