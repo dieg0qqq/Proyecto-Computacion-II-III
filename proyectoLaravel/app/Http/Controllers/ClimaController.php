@@ -126,13 +126,14 @@ class ClimaController extends Controller
      * @param  \App\Clima  $aerolinea
      * @return \Illuminate\Http\Response
      */
-    public function showXclima($id_aeropuerto)
+    public function showXclima($id_aeropuerto, $fecha)
     {
         $lista_climas = DB::table('climas')
         ->join('aero_siglas', 'climas.siglas', 'aero_siglas.id')
-        ->select('aero_siglas.nombre','fecha','hora','prevision','temperatura','lluvia','nubes',
+        ->select('climas.created_at','aero_siglas.nombre','fecha','hora','prevision','temperatura','lluvia','nubes',
         'viento','rafagas','direccion','humedad','presion')
         ->where('climas.siglas', $id_aeropuerto)
+        ->where(DB::raw("DATE(climas.created_at)"), $fecha)
         ->get();
 
         return $lista_climas;

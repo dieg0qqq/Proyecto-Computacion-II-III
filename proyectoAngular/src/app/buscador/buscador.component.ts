@@ -101,10 +101,10 @@ export class BuscadorComponent implements OnInit {
     });
   };
   vueloEspecifico(id_vuelo){
-    // var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
-    var dia = "2020-05-14";
+    var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
+    // var dia = "2020-05-14";
     this.httpClient.get(this.sql+'/api/vuelo/'+id_vuelo+"/"+dia).subscribe((data: vuelo[]) => {
-      console.log(data);
+      // console.log(data);
       this.arrayEspecifico = data;
       console.log(this.arrayEspecifico);
     })

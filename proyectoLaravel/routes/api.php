@@ -35,7 +35,7 @@ Route::get('/aerolinea/lista', 'AerolineaController@index');
 
 Route::get('/tripadvisorXaerolinea/{id}','TripAdvisorController@showXaerolinea');
 
-Route::get('/climaXaeropuerto/{id}', 'ClimaController@showXclima');
+Route::get('/climaXaeropuerto/{id}/{fecha}', 'ClimaController@showXclima');
 
 Route::get('/aerolineas/lista', 'AerolineaController@show');
 Route::get('/aerolineas/{id}', 'AerolineaController@show');
