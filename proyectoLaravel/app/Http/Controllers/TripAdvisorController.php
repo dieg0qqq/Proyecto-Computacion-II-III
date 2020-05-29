@@ -28,6 +28,14 @@ class TripAdvisorController extends Controller
         return($tripadvisor);
     }
 
+    public function botonTripadvisor()
+    {
+        set_time_limit(180);
+        $cmd = "python ".storage_path("TripAdvisor.py"." 2>&1");
+        error_log (shell_exec($cmd));
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *

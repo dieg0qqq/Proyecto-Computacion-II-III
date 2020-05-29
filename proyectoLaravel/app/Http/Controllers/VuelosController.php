@@ -153,6 +153,14 @@ class VuelosController extends Controller
         return $lista_aeropuertos;
     }
 
+    public function botonVuelos()
+    {
+        set_time_limit(180);
+        $cmd = "python ".storage_path("Vuelos_Espana.py"." 2>&1");
+        error_log (shell_exec($cmd));
+        
+    }
+
     // /**
     //  * Display the specified resource.
     //  *

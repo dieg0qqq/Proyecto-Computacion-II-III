@@ -7,7 +7,8 @@ siglas = []
 data={}
 data['clima'] = []
 
-ruta_rel = "Web Scrapping\\Archivos_JSON\\"
+
+ruta_rel = "..\\..\\Web Scrapping\\Archivos_JSON\\"
 archivo = open(ruta_rel + "Siglas" + ".txt","r", encoding="utf-8")
 
 for line in archivo:
@@ -38,4 +39,4 @@ for line in archivo:
 
 print(siglas)        
 print(data)
-requests.post('http://127.0.0.1:8000/api/clima/datos', json=data)
+# requests.post('http://127.0.0.1:8000/api/clima/datos', json=data)
