@@ -8,8 +8,6 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report, confusion_matrix
 
 def entrenamiento():
-    
-
     ruta='Web Scrapping\\vuelos_tiempo.csv'
 
     csv = pd.read_csv(ruta, sep=';')
@@ -145,6 +143,7 @@ def entrenamiento():
     y = tabla['retraso']
     contador_ejemplares = len(tabla[columna])
     print(contador_ejemplares)
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
 
     scaler = StandardScaler()
@@ -154,7 +153,6 @@ def entrenamiento():
 
     #Calcula del clasificador
     clasificador = KNeighborsClassifier(n_neighbors=5)
-    # clasificador = KNeighborsClassifier(n_neighbors=1)
     clasificador.fit(X_train, y_train)
     print(clasificador)
 
@@ -175,10 +173,25 @@ def entrenamiento():
     valorDivisionP = sum(matriz2)
     precision = (valorD + valorA) / valorDivisionP
     print('--------------------------------------------')
+    algoritmo ="KN-N"
+
+    data = {}
+    data['modelos'] = []
+    data['modelos'].append({
+        'algoritmo':algoritmo,
+        'exactitud': exactitud,
+        'recall': recall,
+        'precision': precision
+    })
+
+    print(data)
+
+    requests.post('http://127.0.0.1:8000/api/modelos_prediccion', json= data )
 
     return({'clasificador': clasificador, 'diccionario': diccionario, 
         'exactitud':exactitud, 'recall': recall, 'precision': precision, 
         'contadorEjemplo': contador_ejemplares})
+    
 
 
 if __name__ == "__main__":

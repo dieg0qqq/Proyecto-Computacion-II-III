@@ -10,7 +10,7 @@ clasificador = faseEntrenamiento['clasificador']
 print('conexion con MySQL')
 json = requests.get('http://127.0.0.1:8000/api/clasificador').json()
 
-# print(json)
+print(json)
 
 destino = []
 cd_aero = []
@@ -122,16 +122,19 @@ for i in range(len(y_pred)):
     else:
         c3="??"
         retraso = '??'
+    
+    fecha= tabla_copia['anio'][i]+"-"+tabla_copia['mes'][i]+"-"+tabla_copia['dia'][i]
 
     data['prediccion'].append({
+        'identificador_vuelo' :  json[i]['id'],
         'idVuelo' : tabla_copia['id_vuelo'][i],
+        'origen': json[i]['Origen'],
         'destino': tabla_copia['destino'][i],
-        'dia': tabla_copia['dia'][i],
-        'mes': tabla_copia['mes'][i],
-        'anio': tabla_copia['anio'][i],
+        'fecha': fecha,
         'hora_programada': str(tabla_copia['hora_programada'][i]).replace(".",":"),
         'retraso': retraso
     })
-
 print(data)
+
+requests.post('http://127.0.0.1:8000/api/prediccion', json= data )
 

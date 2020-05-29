@@ -27,6 +27,9 @@ Route::post('/siglas/datos','AeroSiglasController@store');
 Route::post('/comentarios/twitter', 'TwitterController@store');
 Route::post('/tripadvisor/comentarios', 'TripAdvisorController@store');
 
+Route::post('/modelos_prediccion', 'ModeloPrediccionController@store');
+Route::post('/prediccion', 'PrediccionController@store');
+
 Route::get('/twitter/opinionG','TwitterController@index');
 Route::get('/siglas/lista', 'AeroSiglasController@index');
 Route::get('/clima/lista', 'ClimaController@index');
