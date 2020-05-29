@@ -1,13 +1,17 @@
-<body class="body" *ngIf="siglas">
+<body *ngIf="siglas">
     
-    
-    <div class="main-title">
-        <h2>Consultar climas</h2>
+    <div class="contenedor-img">
+        <img src="https://coverfiles.alphacoders.com/796/79690.jpg" class="img-cab" >
+        
     </div>
+    <div class="contenedor-titulo">
+        <div class="centrado">Consultar Climas</div>
+    </div>
+    <br>
 
     <form class="container" >
-        <hr class="rounded">
         <div class="form-group">
+            <br>
             <label>Seleccionar aeropuerto:</label>
             <select class="custom-select select" name="selectedLevel" [(ngModel)]="selectedLevel" default="Choose Here">
                 Choose Here
@@ -18,8 +22,10 @@
             <small class="form-text text-muted">Solo se mostrará el clima de hoy.</small>
             <br>
             <input type="submit" value="Buscar" (click)="listaClimas()">
+            
         </div>
        
+        <br>
         <table class = "table" *ngIf="lista">
             <thead class = "thead-dark">
                 <tr>
@@ -50,7 +56,10 @@
                     <th>{{a.presion}}</th>
                 </tr>
             </tbody>
+            
         </table>
+       
     </form>
+    <br>
 
 </body>

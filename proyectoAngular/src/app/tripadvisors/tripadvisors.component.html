@@ -1,12 +1,17 @@
-<body class="body" *ngIf="aerolineas">
+<body *ngIf="aerolineas">
 
-        <div class="main-title">
-            <h2>Opiniones aerolíneas</h2>
-        </div>
-  
-        <form class="container" >
-            <hr class="rounded">
+    <div class="contenedor-img">
+        <img src="https://images.studentuniverse.com/new/suwebui/photos/marketing/flights-plane-header.jpg" class="img-cab" >
+        
+    </div>
+    <div class="contenedor-titulo">
+        <div class="centrado">Opiniones Aerolíneas</div>
+    </div>
+    <br>
+
+    <form class="container" >
             <div class="form-group">
+                <br>
                 <label>Seleccionar aerolínea:</label>
                 <select class="custom-select select" name="selectedLevel" [(ngModel)]="selectedLevel" default="Choose Here">
                     Choose Here
@@ -18,7 +23,7 @@
                 <br>
                 <input type="submit" value="Buscar" (click)="listaAerolineas()">
             </div>
-
+            <br>
             <table class = "table" *ngIf="lista">
                 <thead class = "thead-dark">
                     <tr>
@@ -34,7 +39,8 @@
                     </tr>
                 </tbody>
             </table>
-            <br>
-        </form>
+            
+    </form>
+        <br>
 
 </body>
