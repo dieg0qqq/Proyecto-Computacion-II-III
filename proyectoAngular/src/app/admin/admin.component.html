@@ -16,6 +16,7 @@
 
 
     <div class="chart-wrapper" *ngIf="chartReady">
+      <h2>Cantidad de vuelos por aeropuerto: </h2>
       <canvas baseChart 
       [data]="pieChartData" 
       [labels]="pieChartLabels" 
@@ -26,9 +27,11 @@
       </canvas>
     </div>
   
-    <br><br><br><br><br>
+    
 
   <div class="chart-wrapper">
+    <h2>Número de vuelos por día: </h2>
+    <br>
         <canvas baseChart 
         [datasets]="barChartData"
         [labels]="barChartLabels"
@@ -40,9 +43,11 @@
 
       <br><br><br><br><br>
 
-      <button class="admin-scraper" (click)="btnW()">Climas</button>
-      <button class="admin-scraper" (click)="btnV()">Vuelos</button>
-      <button class="admin-scraper" (click)="btnT()">Comentarios</button>
+      <label>Actualizar climas: <button class="admin-scraper" (click)="btnW()">Climas</button></label>
+      <br>
+      <label>Actualizar vuelos: <button class="admin-scraper" (click)="btnV()">Vuelos</button></label>
+      <br>
+      <label>Actualizar comentarios: <button class="admin-scraper" (click)="btnT()">Comentarios</button></label>
 
   </div>
       

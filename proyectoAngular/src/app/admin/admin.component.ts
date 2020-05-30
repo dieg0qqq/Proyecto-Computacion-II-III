@@ -61,12 +61,23 @@ export class AdminComponent implements OnInit {
   
   }
 
-Dale(){
+  btnW(){
 
-  this.http.get(this.sql+"/api/boton").subscribe((data)=>{
-  });
-}
-
+    this.http.get(this.sql+"/api/botonW").subscribe((data)=>{
+    });
+  }
+  
+  btnV(){
+  
+    this.http.get(this.sql+"/api/botonV").subscribe((data)=>{
+    });
+  }
+  
+  btnT(){
+  
+    this.http.get(this.sql+"/api/botonT").subscribe((data)=>{
+    });
+  }
 
   ngOnInit() {
     //grafica 1 = vuelos totales por cada aeropuerto

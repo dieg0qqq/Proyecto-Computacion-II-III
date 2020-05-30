@@ -28,10 +28,10 @@ class ClimaController extends Controller
         return($climas);
     }
 
-    public function boton()
+    public function botonWeather()
     {
-        $cmd = "python ".storage_path("/Aeropuertos-Siglas.py"." 2>&1");
-        
+        set_time_limit(180);
+        $cmd = "python ".storage_path("Weather-Airports.py"." 2>&1");
         error_log (shell_exec($cmd));
         
     }

@@ -106,6 +106,7 @@ export class BuscadorComponent implements OnInit {
   listaAeropuerto() {
     console.log(this.selectedLevel)
     var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
+    var dia2 = "2020-05-29";
     this.httpClient.get(this.sql + '/api/vuelosXaeropuerto/' + this.selectedLevel+"/"+dia).subscribe((data: vuelo[]) => {
       this.arrayVuelo = data;
       console.log(this.arrayVuelo);

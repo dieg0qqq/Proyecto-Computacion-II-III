@@ -1,9 +1,10 @@
+ANA
+ASL Airlines Belgium
 Aeroflot
 Aerolineas Argentinas
 Aeromexico
 Air Arabia Maroc
-Air Canada
-Air China LTD
+Air Austral
 Air Europa
 Air France
 Alitalia
@@ -11,42 +12,39 @@ American Airlines
 Anisec
 Binter Canarias
 Blue Air
+BoA
 British Airways
-Bulgaria Air
-CEIBA Intercontinental
 China Airlines
 China Eastern Airlines
 China Southern Airlines
 Condor
 Corendon Airlines Europe
+Corendon Dutch Airlines
+Cubana de Aviacion
 Delta Air Lines
-El Al
 Emirates
 Ethiopian Airlines
 Eurowings
 Finnair
+FlexFlight
 Garuda Indonesia
+Gol
+Hainan Airlines
 Iberia
+Iberia Express
 JAL
 KLM
 Kenya Airways
 Korean Air
 LATAM Airlines
 Lufthansa
-Neos
+Malaysia Airlines
 Qatar Airways
 SA AVIANCA
 SAS
-SkyUP Airlines
-Swiftair
-Turkish Airlines
-UIA
-United Airlines
-Vueling
-Wizz Air
-Wizz Air UK
-Xiamen Airlines
-
+SWISS
+Saudia
+Singapore Airlines
 SkyUP Airlines
 SriLankan Airlines
 Swiftair

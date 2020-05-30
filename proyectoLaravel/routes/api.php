@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 // Route::apiResource("vuelos","VuelosController");
 // Route::apiResource("twitters", "TwitterController");
 // Route::apiResource("tripadvisor", "TripAdvisorController");
-Route::get('/boton','ClimaController@boton');
+
+Route::get('/botonW','ClimaController@botonWeather');
+Route::get('/botonV','VuelosController@botonVuelos');
+Route::get('/botonT','TripAdvisorController@botonTripadvisor');
 
 Route::post('/clima/datos','ClimaController@store');
 Route::post('/vuelos/datos','VuelosController@store');
