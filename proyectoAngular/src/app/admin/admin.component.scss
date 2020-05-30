@@ -17,10 +17,11 @@ body {
 .chart-wrapper {
     display: block;
     margin: auto;
-    height: 50%;
+    height: 60%;
     width: 50%;
  
 }
+
 
 .admin-logout {
 
@@ -29,4 +30,11 @@ body {
     display: flex;
     margin-left: 90%;
 
+}
+
+label {
+
+    color: #34495E;
+    font-size: 15px;
+    font-weight: 400;
 }
