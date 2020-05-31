@@ -31,12 +31,12 @@
 
             <hr>
 
-            <div class="error container" *ngIf = "errorFecha">
+            <div class="error " *ngIf = "errorFecha">
               <ngb-alert [dismissible]="false">
                 <strong>¡Error!</strong>Debe elegir una fecha.
               </ngb-alert>
             </div>
-            <div class="error container" *ngIf = "errorInput">
+            <div class="error " *ngIf = "errorInput">
               <ngb-alert [dismissible]="false">
                 <strong>¡Error!</strong>Debe introducir el número de vuelo.
               </ngb-alert>
@@ -94,7 +94,7 @@
       <br>
       <div class="error" *ngIf = "retraso">
         <ngb-alert [dismissible]="false">
-          <strong>¡Atención!</strong>Este vuelo puede sufrir retraso.
+          <strong>¡Atención!</strong> Este vuelo puede sufrir retraso.
         </ngb-alert>
       </div>
       <label class="sub-h3">Aerolinea: {{e.nombreAerolinea}}</label>

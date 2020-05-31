@@ -73,8 +73,8 @@ class PrediccionController extends Controller
     {
         $vuelo = DB::table('prediccions')
         ->select('retraso')
-        ->where('id_vuelo', $id_vuelo)
-        ->where('fecha_vuelo', $fecha)
+        ->whereRaw('id_vuelo = ? ', $id_vuelo)
+        ->whereRaw('fecha_vuelo = ?', $fecha)
         ->get();
 
         return $vuelo;

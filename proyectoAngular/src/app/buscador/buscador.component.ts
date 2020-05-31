@@ -83,14 +83,18 @@ export class BuscadorComponent implements OnInit {
             console.log(this.arrayEspecifico);
             var dia = this.currentDate.toJSON().match("([0-9]{4}-[0-9]{2}-[0-9]{2})T")[1];
             // var dia="2020-5-18"
-            if (dia == fecha){
-              this.httpClient.get(this.sql+'/api/prediccion_vuelo/'+this.inputVuelo+"/"+fecha).subscribe(j => {
-                console.log(j[0]["retraso"]);
-                if (j[0]["retraso"] == "Si"){
-                  this.retraso = true;
-                }
-              });
-            }
+            console.log(this.inputVuelo)
+            var partes = this.inputVuelo.split(" ")
+            var id = partes[0]+"%20"+ partes[1]
+            console.log(id)
+            console.log(this.sql+'/api/prediccion_vuelo/'+id+"/"+fecha)
+            this.httpClient.get(this.sql+'/api/prediccion_vuelo/'+id+'/'+fecha).subscribe(j => {
+              console.log(j[0]["retraso"]);
+              if (j[0]["retraso"] == "Si"){
+                this.retraso = true;
+              }
+            });
+            // 
             // importante 
             this.detalles = true;//activar el contenido del vuelo
             this.vuelo = false;//esconder el formulario
@@ -120,6 +124,13 @@ export class BuscadorComponent implements OnInit {
       // console.log(data);
       this.arrayEspecifico = data;
       console.log(this.arrayEspecifico);
+      var id = data[0]["IdVuelo"]
+      this.httpClient.get(this.sql+'/api/prediccion_vuelo/'+id+'/'+dia).subscribe(j => {
+        console.log(j[0]["retraso"]);
+        if (j[0]["retraso"] == "Si"){
+          this.retraso = true;
+        }
+      });
     })
     this.detalles=true;
     this.vuelo=false;
