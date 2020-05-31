@@ -23,16 +23,16 @@ for line in archivo:
         data['clima'].append({
             'idaeropuerto': aeropuerto_sigla,
             'fecha': date.today().strftime("%Y-%m-%d"),
-            'hora': datos[12+(11*(i-1))].text,
-            'prevision': datos[13+(11*(i-1))].select('.img-fluid')[0].get('alt'),
-            'temperatura': datos[14+(11*(i-1))].text.replace(" °c", ""),
-            'lluvia': datos[18+(11*(i-1))].text.replace(" mm", ""),
-            'nubes': datos[21+(11*(i-1))].text.replace("%", ""),
-            'viento': datos[16+(11*(i-1))].text.replace(" km/h",""),
-            'rafagas': datos[17+(11*(i-1))].text.replace(" km/h",""),
+            'hora': datos[11+(10*(i-1))].text,
+            'prevision': datos[12+(10*(i-1))].text.rstrip(),
+            'temperatura': datos[13+(10*(i-1))].text.replace(" °c", ""),
+            'lluvia': datos[17+(10*(i-1))].text.split(" ")[0],
+            'nubes': datos[19+(10*(i-1))].text.replace("%", ""),
+            'viento': datos[15+(10*(i-1))].text.replace(" km/h",""),
+            'rafagas': datos[16+(10*(i-1))].text.replace(" km/h",""),
             #'direccion' ya no existe en la web
-            'humedad': datos[20+(11*(i-1))].text.replace("%", ""),
-            'presion': datos[21+(11*(i-1))].text.replace("%", ""),
+            'humedad': datos[18+(10*(i-1))].text.replace("%", ""),
+            'presion': datos[20+(10*(i-1))].text.replace(" mb", ""),
         })
         #print(data['clima'][i-1])
 
