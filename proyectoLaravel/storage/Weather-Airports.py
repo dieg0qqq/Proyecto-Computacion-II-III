@@ -8,7 +8,7 @@ data={}
 data['clima'] = []
 
 
-ruta_rel = "..\\..\\Web Scrapping\\Archivos_JSON\\"
+ruta_rel = "..\\Web Scrapping\\Archivos_JSON\\"
 archivo = open(ruta_rel + "Siglas" + ".txt","r", encoding="utf-8")
 
 for line in archivo:

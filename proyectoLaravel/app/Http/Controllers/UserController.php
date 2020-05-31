@@ -8,13 +8,26 @@ use App\User;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 
+/**
+ * @group MRC User
+ * Controlador-Modelo-Tabla
+ */
+
 class UserController extends Controller
 {
     public $successStatus = 200;
 
     /** 
     * Hace una verificación sobre el email y la contraseña, que lo compara contra los datos del usuario y si es exitoso, crea un token y pasa al estado de success.
-    * 
+    * @response {
+    * "email": "dfraj.aznarez@gmail.com",
+    * "password": "12345"
+    * }
+    *
+    * @bodyParam email string required El correo electrónico con el que te registraste.
+    * @bodyParam password string required La contraseña para poder acceder a tu cuenta.
+    *
+    * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response 
     */ 
     public function login(){ 
@@ -31,6 +44,19 @@ class UserController extends Controller
     /** 
     * Llama a un validador que valida los campos necesarios para registrar un usuario (name, email, password, confirm password), si los valores son correctos, registrará al usuario y le creará un token. 
     * 
+    * @response {
+    * "name": "Diego",
+    * "email": "correo@gmail.com",
+    * "password": "12345",
+    * "c_password: "12345"
+    * }
+    *
+    * @bodyParam name string required Tu nombre de usuario.
+    * @bodyParam email string required El correo electrónico con el que te registraste.
+    * @bodyParam password string required La contraseña para poder acceder a tu cuenta.
+    * @bodyParam c_password string required Repite la contraseña.
+    *
+    * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response 
     */ 
     public function register(Request $request) 
@@ -53,7 +79,7 @@ class UserController extends Controller
     }
 
     /** 
-    * details api 
+    * Details api: En Postman para ver los detalles de tu cuenta, no se usa en la web.
     * 
     * @return \Illuminate\Http\Response 
     */ 

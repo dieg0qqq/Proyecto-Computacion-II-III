@@ -1672,7 +1672,167 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
-<strong><code>api/twitter/opinionG</code></strong></p><h1>MRC Vuelos</h1>
+<strong><code>api/twitter/opinionG</code></strong></p><h1>MRC User</h1>
+<p>Controlador-Modelo-Tabla</p>
+<h2>Hace una verificación sobre el email y la contraseña, que lo compara contra los datos del usuario y si es exitoso, crea un token y pasa al estado de success.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"temporibus","password":"aliquam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "temporibus",
+    "password": "aliquam"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "email": "dfraj.aznarez@gmail.com",
+    "password": "12345"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/login</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>email</b></code>&nbsp; <small>string</small>     <br>
+    El correo electrónico con el que te registraste.
+</p>
+<p>
+    <code><b>password</b></code>&nbsp; <small>string</small>     <br>
+    La contraseña para poder acceder a tu cuenta.
+</p>
+<h2>Llama a un validador que valida los campos necesarios para registrar un usuario (name, email, password, confirm password), si los valores son correctos, registrará al usuario y le creará un token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"harum","email":"tenetur","password":"debitis","c_password":"et"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "harum",
+    "email": "tenetur",
+    "password": "debitis",
+    "c_password": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/register</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+    <code><b>name</b></code>&nbsp; <small>string</small>     <br>
+    Tu nombre de usuario.
+</p>
+<p>
+    <code><b>email</b></code>&nbsp; <small>string</small>     <br>
+    El correo electrónico con el que te registraste.
+</p>
+<p>
+    <code><b>password</b></code>&nbsp; <small>string</small>     <br>
+    La contraseña para poder acceder a tu cuenta.
+</p>
+<p>
+    <code><b>c_password</b></code>&nbsp; <small>string</small>     <br>
+    Repite la contraseña.
+</p>
+<h2>Details api: En Postman para ver los detalles de tu cuenta, no se usa en la web.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/details" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/details"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/details</code></strong></p>
+<h2>Borrará el token que se haya activado de la cuenta correspondiente.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/logout</code></strong></p><h1>MRC Vuelos</h1>
 <p>Recoge el diccionario y crea un fila para la bbdd</p>
 <h2>[Se busca la aerolinea en su tabla y si no se encuentra se crea una entrada, además se busca la sigla del aeropuerto de origen]</h2>
 <blockquote>

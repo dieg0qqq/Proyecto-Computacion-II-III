@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "77657fb6-9013-4dc3-a759-9abd21698c68",
+        "_postman_id": "5bcdaaab-a8f2-418a-ab19-44e644791e45",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -572,118 +572,6 @@
                     }
                 },
                 {
-                    "name": "Hace una verificaci\u00f3n sobre el email y la contrase\u00f1a, que lo compara contra los datos del usuario y si es exitoso, crea un token y pasa al estado de success.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/login",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Llama a un validador que valida los campos necesarios para registrar un usuario (name, email, password, confirm password), si los valores son correctos, registrar\u00e1 al usuario y le crear\u00e1 un token.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/register",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "details api",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/details",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Borrar\u00e1 el token que se haya activado de la cuenta correspondiente.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/logout",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
                     "name": "[Buscar si es que se retrasa o no el vuelo indicado con los par\u00e1metros]",
                     "request": {
                         "url": {
@@ -767,7 +655,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 7,\n    \"name\": \"qui\",\n    \"acronym\": \"libero\"\n}"
+                            "raw": "{\n    \"id\": 11,\n    \"name\": \"non\",\n    \"acronym\": \"debitis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -808,34 +696,6 @@
             "description": "Controlador-Modelo-Tabla",
             "item": [
                 {
-                    "name": "Devuelve todos los datos del clima de Weather-Airports",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/boton",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
                     "name": "Recoge el diccionario y lo procesa para buscar el fk del aeropuerto antes de insertarlo en la bbdd",
                     "request": {
                         "url": {
@@ -857,7 +717,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 13,\n    \"idaeropuerto\": 11,\n    \"fecha\": \"numquam\",\n    \"hora\": \"aut\",\n    \"prevision\": 16937722.5062,\n    \"temperatura\": 971097.16188,\n    \"lluvia\": 31.86768131,\n    \"nubes\": 148321.805978,\n    \"viento\": 489.9867,\n    \"rafagas\": 2590674.3,\n    \"direccion\": 172.3,\n    \"humedad\": 7862027.3,\n    \"presion\": 530969\n}"
+                            "raw": "{\n    \"id\": 17,\n    \"idaeropuerto\": 1,\n    \"fecha\": \"beatae\",\n    \"hora\": \"nihil\",\n    \"prevision\": 34332195.578113,\n    \"temperatura\": 561574.39995,\n    \"lluvia\": 4.4519,\n    \"nubes\": 0,\n    \"viento\": 654200597.59185,\n    \"rafagas\": 206464,\n    \"direccion\": 399713.5542,\n    \"humedad\": 2,\n    \"presion\": 325920.742\n}"
                         },
                         "description": "",
                         "response": []
@@ -947,7 +807,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 10,\n    \"tienda\": \"quibusdam\",\n    \"direccion\": 10\n}"
+                            "raw": "{\n    \"id\": 19,\n    \"tienda\": \"aliquid\",\n    \"direccion\": 11\n}"
                         },
                         "description": "",
                         "response": []
@@ -981,7 +841,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 11,\n    \"id_aerolinea\": 19,\n    \"cuerpo\": \"debitis\",\n    \"valoracion\": 7949.41527\n}"
+                            "raw": "{\n    \"id\": 2,\n    \"id_aerolinea\": 16,\n    \"cuerpo\": \"id\",\n    \"valoracion\": 3.1\n}"
                         },
                         "description": "",
                         "response": []
@@ -1071,7 +931,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 9,\n    \"nombreAerolinea\": 12,\n    \"comentario\": \"qui\",\n    \"analisis\": \"voluptatem\"\n}"
+                            "raw": "{\n    \"id\": 11,\n    \"nombreAerolinea\": 9,\n    \"comentario\": \"consequatur\",\n    \"analisis\": \"mollitia\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1087,6 +947,124 @@
                             "query": []
                         },
                         "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "MRC User",
+            "description": "Controlador-Modelo-Tabla",
+            "item": [
+                {
+                    "name": "Hace una verificaci\u00f3n sobre el email y la contrase\u00f1a, que lo compara contra los datos del usuario y si es exitoso, crea un token y pasa al estado de success.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"temporibus\",\n    \"password\": \"aliquam\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Llama a un validador que valida los campos necesarios para registrar un usuario (name, email, password, confirm password), si los valores son correctos, registrar\u00e1 al usuario y le crear\u00e1 un token.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"harum\",\n    \"email\": \"tenetur\",\n    \"password\": \"debitis\",\n    \"c_password\": \"et\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Details api: En Postman para ver los detalles de tu cuenta, no se usa en la web.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/details",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Borrar\u00e1 el token que se haya activado de la cuenta correspondiente.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/logout",
+                            "query": []
+                        },
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -1133,7 +1111,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"id\": 13,\n    \"IdVuelo\": \"aut\",\n    \"Aerolinea\": 2,\n    \"Estado1\": \"qui\",\n    \"Estado2\": \"porro\",\n    \"SiglasOrigen\": 7,\n    \"Origen\": \"placeat\",\n    \"HoraProgOrigen\": \"laborum\",\n    \"HoraEstOrigen\": \"cum\",\n    \"TerminalOrigen\": \"labore\",\n    \"GateOrigen\": \"officiis\",\n    \"SiglasDestino\": \"quo\",\n    \"Destino\": \"velit\",\n    \"HoraProgDestino\": \"ut\",\n    \"HoraEstDestino\": \"quidem\",\n    \"TerminalDestino\": \"sed\",\n    \"GateDestino\": \"culpa\"\n}"
+                            "raw": "{\n    \"id\": 7,\n    \"IdVuelo\": \"dolorem\",\n    \"Aerolinea\": 19,\n    \"Estado1\": \"adipisci\",\n    \"Estado2\": \"magnam\",\n    \"SiglasOrigen\": 14,\n    \"Origen\": \"sed\",\n    \"HoraProgOrigen\": \"accusamus\",\n    \"HoraEstOrigen\": \"ea\",\n    \"TerminalOrigen\": \"perspiciatis\",\n    \"GateOrigen\": \"at\",\n    \"SiglasDestino\": \"autem\",\n    \"Destino\": \"ea\",\n    \"HoraProgDestino\": \"iste\",\n    \"HoraEstDestino\": \"eius\",\n    \"TerminalDestino\": \"occaecati\",\n    \"GateDestino\": \"aut\"\n}"
                         },
                         "description": "",
                         "response": []
