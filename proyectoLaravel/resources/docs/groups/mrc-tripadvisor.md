@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/tripadvisor/comentarios" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":2,"id_aerolinea":4,"cuerpo":"earum","valoracion":261010873.85384536}'
+    -d '{"id":11,"id_aerolinea":19,"cuerpo":"debitis","valoracion":7949.41527}'
 
 ```
 
@@ -27,10 +27,10 @@ let headers = {
 };
 
 let body = {
-    "id": 2,
-    "id_aerolinea": 4,
-    "cuerpo": "earum",
-    "valoracion": 261010873.85384536
+    "id": 11,
+    "id_aerolinea": 19,
+    "cuerpo": "debitis",
+    "valoracion": 7949.41527
 }
 
 fetch(url, {
@@ -77,6 +77,98 @@ fetch(url, {
     <code><b>valoracion</b></code>&nbsp; <small>float</small>     <br>
     La valoración de 1 a 5 sobre la aerolínea.
 </p>
+
+
+## Devuelve todos los comentarios que se tengan en la BBDD
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/tripadvisor/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/tripadvisor/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/tripadvisor/lista`**
+
+
+
+## Devuelve los comentarios de un aeropuerto en especifico
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/tripadvisorXaerolinea/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/tripadvisorXaerolinea/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/tripadvisorXaerolinea/{id}`**
+
 
 
 

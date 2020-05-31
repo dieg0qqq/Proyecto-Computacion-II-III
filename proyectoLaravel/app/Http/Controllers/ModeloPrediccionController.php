@@ -28,7 +28,7 @@ class ModeloPrediccionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Añade modelos nuevos con los que se han entrenado para la prediccion.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

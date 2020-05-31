@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AerolineaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * [Devuelve todas las aerolineas que tengamos asociados a los vuelos]
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,7 +41,7 @@ class AerolineaController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * [Devuelve la lista de vuelos de un aeropuerto en especifico]
      *
      * @param  \App\Aerolinea  $aerolinea
      * @return \Illuminate\Http\Response

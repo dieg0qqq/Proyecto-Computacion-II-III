@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/vuelos/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":13,"IdVuelo":"quasi","Aerolinea":1,"Estado1":"numquam","Estado2":"odit","SiglasOrigen":13,"Origen":"mollitia","HoraProgOrigen":"maxime","HoraEstOrigen":"provident","TerminalOrigen":"enim","GateOrigen":"ipsum","SiglasDestino":"consequuntur","Destino":"voluptatem","HoraProgDestino":"praesentium","HoraEstDestino":"eaque","TerminalDestino":"earum","GateDestino":"molestias"}'
+    -d '{"id":13,"IdVuelo":"aut","Aerolinea":2,"Estado1":"qui","Estado2":"porro","SiglasOrigen":7,"Origen":"placeat","HoraProgOrigen":"laborum","HoraEstOrigen":"cum","TerminalOrigen":"labore","GateOrigen":"officiis","SiglasDestino":"quo","Destino":"velit","HoraProgDestino":"ut","HoraEstDestino":"quidem","TerminalDestino":"sed","GateDestino":"culpa"}'
 
 ```
 
@@ -28,22 +28,22 @@ let headers = {
 
 let body = {
     "id": 13,
-    "IdVuelo": "quasi",
-    "Aerolinea": 1,
-    "Estado1": "numquam",
-    "Estado2": "odit",
-    "SiglasOrigen": 13,
-    "Origen": "mollitia",
-    "HoraProgOrigen": "maxime",
-    "HoraEstOrigen": "provident",
-    "TerminalOrigen": "enim",
-    "GateOrigen": "ipsum",
-    "SiglasDestino": "consequuntur",
-    "Destino": "voluptatem",
-    "HoraProgDestino": "praesentium",
-    "HoraEstDestino": "eaque",
-    "TerminalDestino": "earum",
-    "GateDestino": "molestias"
+    "IdVuelo": "aut",
+    "Aerolinea": 2,
+    "Estado1": "qui",
+    "Estado2": "porro",
+    "SiglasOrigen": 7,
+    "Origen": "placeat",
+    "HoraProgOrigen": "laborum",
+    "HoraEstOrigen": "cum",
+    "TerminalOrigen": "labore",
+    "GateOrigen": "officiis",
+    "SiglasDestino": "quo",
+    "Destino": "velit",
+    "HoraProgDestino": "ut",
+    "HoraEstDestino": "quidem",
+    "TerminalDestino": "sed",
+    "GateDestino": "culpa"
 }
 
 fetch(url, {
@@ -152,6 +152,420 @@ fetch(url, {
     <code><b>GateDestino</b></code>&nbsp; <small>string</small>     <br>
     La puerta de embarque del vuelo a la llegada.
 </p>
+
+
+## Muestra la lista de vuelos en un específico aeropuerto
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/vuelosXaeropuerto/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/vuelosXaeropuerto/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/vuelosXaeropuerto/{id}/{fecha}`**
+
+
+
+## Muestra los detalles del vuelo
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/vuelo/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/vuelo/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/vuelo/{id}/{fecha}`**
+
+
+
+## Devuelve todos los vuelos que hayan en la BBDD
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/listaVuelos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/listaVuelos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/listaVuelos`**
+
+
+
+## Cantidad de vuelos totales en la base de datos
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/vuelos/contador" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/vuelos/contador"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/vuelos/contador`**
+
+
+
+## Cantidad de vuelos por dia
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/vuelos/contadorDia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/vuelos/contadorDia"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/vuelos/contadorDia`**
+
+
+
+## Numero de vuelos por Aeropuerto
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/vuelos/contadorAeropuerto" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/vuelos/contadorAeropuerto"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/vuelos/contadorAeropuerto`**
+
+
+
+## Numero de vuelos por Aerolinea
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/vuelos/contadorAerolineasVuelos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/vuelos/contadorAerolineasVuelos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/vuelos/contadorAerolineasVuelos`**
+
+
+
+## Devuelve los vuelos con sus climas juntandolos por los dos primeros digitos de la hora siempre que no sean los vuelos de hoy ni que su estado sea ni cancelado o desconocido
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/prediccion" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/prediccion"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/prediccion`**
+
+
+
+## Devuelve los vuelos con sus climas juntandolos por los dos primeros digitos de la hora que sean de la fecha actual
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/clasificador" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/clasificador"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/clasificador`**
+
 
 
 

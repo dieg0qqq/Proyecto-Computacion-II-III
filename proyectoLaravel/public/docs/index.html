@@ -43,7 +43,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: May 8 2020</li>
+            <li>Last updated: May 31 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -53,6 +53,686 @@
 <p>Welcome to our API documentation!</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p><h1>Endpoints</h1>
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/oauth/authorize" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>oauth/authorize</code></strong></p>
+<h2>Approve the authorization request.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/oauth/authorize" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>oauth/authorize</code></strong></p>
+<h2>Deny the authorization request.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/oauth/authorize" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>oauth/authorize</code></strong></p>
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/oauth/token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>oauth/token</code></strong></p>
+<h2>Get all of the authorized tokens for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/oauth/tokens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>oauth/tokens</code></strong></p>
+<h2>Delete the given token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/oauth/tokens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/tokens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>oauth/tokens/{token_id}</code></strong></p>
+<h2>Get a fresh transient token cookie for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/oauth/token/refresh" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/token/refresh"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>oauth/token/refresh</code></strong></p>
+<h2>Get all of the clients for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/oauth/clients" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/clients"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>oauth/clients</code></strong></p>
+<h2>Store a new client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/oauth/clients" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/clients"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>oauth/clients</code></strong></p>
+<h2>Update the given client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/oauth/clients/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/clients/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-darkblue">PUT</small>
+<strong><code>oauth/clients/{client_id}</code></strong></p>
+<h2>Delete the given client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/oauth/clients/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/clients/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>oauth/clients/{client_id}</code></strong></p>
+<h2>Get all of the available scopes for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/oauth/scopes" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/scopes"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>oauth/scopes</code></strong></p>
+<h2>Get all of the personal access tokens for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/oauth/personal-access-tokens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/personal-access-tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>oauth/personal-access-tokens</code></strong></p>
+<h2>Create a new personal access token for the user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/oauth/personal-access-tokens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/personal-access-tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>oauth/personal-access-tokens</code></strong></p>
+<h2>Delete the given token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/oauth/personal-access-tokens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/oauth/personal-access-tokens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>oauth/personal-access-tokens/{token_id}</code></strong></p>
+<h2>Añade modelos nuevos con los que se han entrenado para la prediccion.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/modelos_prediccion" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/modelos_prediccion"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/modelos_prediccion</code></strong></p>
+<h2>[Se añade las predicciones de los vuelos y cada vez que se ejecuta borra todos los datos de la tabla ]</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/prediccion" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/prediccion"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/prediccion</code></strong></p>
+<h2>[Devuelve todas las aerolineas que tengamos asociados a los vuelos]</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/aerolinea/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/aerolinea/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/aerolinea/lista</code></strong></p>
+<h2>[Devuelve la lista de vuelos de un aeropuerto en especifico]</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/aerolineas/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/aerolineas/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/aerolineas/lista</code></strong></p>
+<h2>[Devuelve la lista de vuelos de un aeropuerto en especifico]</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/aerolineas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/aerolineas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/aerolineas/{id}</code></strong></p>
+<h2>Hace una verificación sobre el email y la contraseña, que lo compara contra los datos del usuario y si es exitoso, crea un token y pasa al estado de success.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/login</code></strong></p>
+<h2>Llama a un validador que valida los campos necesarios para registrar un usuario (name, email, password, confirm password), si los valores son correctos, registrará al usuario y le creará un token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/register</code></strong></p>
+<h2>details api</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/details" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/details"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/details</code></strong></p>
+<h2>Borrará el token que se haya activado de la cuenta correspondiente.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/logout</code></strong></p>
+<h2>[Buscar si es que se retrasa o no el vuelo indicado con los parámetros]</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/prediccion_vuelo/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/prediccion_vuelo/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/prediccion_vuelo/{id}/{fecha}</code></strong></p>
 <h2>/</h2>
 <blockquote>
 <p>Example request:</p>
@@ -88,7 +768,7 @@ fetch(url, {
     "http://localhost/api/siglas/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":19,"name":"officiis","acronym":"minus"}'
+    -d '{"id":7,"name":"qui","acronym":"libero"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/siglas/datos"
@@ -100,9 +780,9 @@ let headers = {
 };
 
 let body = {
-    "id": 19,
-    "name": "officiis",
-    "acronym": "minus"
+    "id": 7,
+    "name": "qui",
+    "acronym": "libero"
 }
 
 fetch(url, {
@@ -118,8 +798,8 @@ fetch(url, {
 <pre><code class="language-json">{
     "nombre": "Aeropuerto de Madrid Barajas",
     "siglas": "MAD",
-    "updated_at": "2020-05-08T19:16:27.000000Z",
-    "created_at": "2020-05-08T19:16:27.000000Z",
+    "updated_at": "2020-05-08",
+    "created_at": "2020-05-08",
     "id": 37
 }</code></pre>
 <h3>Request</h3>
@@ -162,262 +842,11 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
-<pre><code class="language-json">[
-    {
-        "id": 1,
-        "created_at": "2020-05-08T21:49:43.000000Z",
-        "updated_at": "2020-05-08T21:49:43.000000Z",
-        "nombre": "Aeropuerto de Madrid Barajas",
-        "siglas": "MAD"
-    },
-    {
-        "id": 2,
-        "created_at": "2020-05-08T21:49:43.000000Z",
-        "updated_at": "2020-05-08T21:49:43.000000Z",
-        "nombre": "Aeropuerto de Barcelona El Prat",
-        "siglas": "BCN"
-    },
-    {
-        "id": 3,
-        "created_at": "2020-05-08T21:49:43.000000Z",
-        "updated_at": "2020-05-08T21:49:43.000000Z",
-        "nombre": "Aeropuerto de Bilbao",
-        "siglas": "BIO"
-    },
-    {
-        "id": 4,
-        "created_at": "2020-05-08T21:49:43.000000Z",
-        "updated_at": "2020-05-08T21:49:43.000000Z",
-        "nombre": "Aeropuerto de Ibiza",
-        "siglas": "IBZ"
-    },
-    {
-        "id": 5,
-        "created_at": "2020-05-08T21:49:43.000000Z",
-        "updated_at": "2020-05-08T21:49:43.000000Z",
-        "nombre": "Aeropuerto de Santiago de Compostela",
-        "siglas": "SCQ"
-    },
-    {
-        "id": 6,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de La Coruña",
-        "siglas": "LCG"
-    },
-    {
-        "id": 7,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Santander",
-        "siglas": "SDR"
-    },
-    {
-        "id": 8,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Málaga",
-        "siglas": "AGP"
-    },
-    {
-        "id": 9,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Vigo",
-        "siglas": "VGO"
-    },
-    {
-        "id": 10,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Asturias",
-        "siglas": "OVD"
-    },
-    {
-        "id": 11,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Valencia",
-        "siglas": "VLC"
-    },
-    {
-        "id": 12,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Alicante",
-        "siglas": "ALC"
-    },
-    {
-        "id": 13,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Palma de Mallorca",
-        "siglas": "PMI"
-    },
-    {
-        "id": 14,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Zaragoza",
-        "siglas": "ZAZ"
-    },
-    {
-        "id": 15,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Gran Canaria",
-        "siglas": "LPA"
-    },
-    {
-        "id": 16,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Sevilla",
-        "siglas": "SVQ"
-    },
-    {
-        "id": 17,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Granada",
-        "siglas": "GRX"
-    },
-    {
-        "id": 18,
-        "created_at": "2020-05-08T21:49:44.000000Z",
-        "updated_at": "2020-05-08T21:49:44.000000Z",
-        "nombre": "Aeropuerto de Tenerife Sur",
-        "siglas": "TFS"
-    },
-    {
-        "id": 19,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Girona-Costa Brava",
-        "siglas": "GRO"
-    },
-    {
-        "id": 20,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Tenerife Norte",
-        "siglas": "TFN"
-    },
-    {
-        "id": 21,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Lanzarote",
-        "siglas": "ACE"
-    },
-    {
-        "id": 22,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Jerez",
-        "siglas": "XRY"
-    },
-    {
-        "id": 23,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Valladolid",
-        "siglas": "VLL"
-    },
-    {
-        "id": 24,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Menorca",
-        "siglas": "MAH"
-    },
-    {
-        "id": 25,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Almería",
-        "siglas": "LEI"
-    },
-    {
-        "id": 26,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Pamplona",
-        "siglas": "PNA"
-    },
-    {
-        "id": 27,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de León",
-        "siglas": "LEN"
-    },
-    {
-        "id": 28,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Fuerteventura",
-        "siglas": "FUE"
-    },
-    {
-        "id": 29,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Melilla",
-        "siglas": "MLN"
-    },
-    {
-        "id": 30,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Reus",
-        "siglas": "REU"
-    },
-    {
-        "id": 31,
-        "created_at": "2020-05-08T21:49:45.000000Z",
-        "updated_at": "2020-05-08T21:49:45.000000Z",
-        "nombre": "Aeropuerto de Murcia",
-        "siglas": "RMU"
-    },
-    {
-        "id": 32,
-        "created_at": "2020-05-08T21:49:46.000000Z",
-        "updated_at": "2020-05-08T21:49:46.000000Z",
-        "nombre": "Aeropuerto de San Sebastián",
-        "siglas": "EAS"
-    },
-    {
-        "id": 33,
-        "created_at": "2020-05-08T21:49:46.000000Z",
-        "updated_at": "2020-05-08T21:49:46.000000Z",
-        "nombre": "Aeropuerto de La Palma",
-        "siglas": "SPC"
-    },
-    {
-        "id": 34,
-        "created_at": "2020-05-08T21:49:46.000000Z",
-        "updated_at": "2020-05-08T21:49:46.000000Z",
-        "nombre": "Aeropuerto de Lleida",
-        "siglas": "ILD"
-    },
-    {
-        "id": 35,
-        "created_at": "2020-05-08T21:49:46.000000Z",
-        "updated_at": "2020-05-08T21:49:46.000000Z",
-        "nombre": "Aeropuerto de Huesca-Pirineos",
-        "siglas": "HSK"
-    },
-    {
-        "id": 36,
-        "created_at": "2020-05-08T21:49:46.000000Z",
-        "updated_at": "2020-05-08T21:49:46.000000Z",
-        "nombre": "Aeropuerto de El Hierro",
-        "siglas": "VDE"
-    }
-]</code></pre>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/siglas/lista</code></strong></p><h1>MRC Areosiglas</h1>
@@ -764,6 +1193,32 @@ fetch(url, {
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/siglas/lista</code></strong></p><h1>MRC Clima</h1>
 <p>Controlador-Modelo-Tabla</p>
+<h2>Devuelve todos los datos del clima de Weather-Airports</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/boton" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/boton"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/boton</code></strong></p>
 <h2>Recoge el diccionario y lo procesa para buscar el fk del aeropuerto antes de insertarlo en la bbdd</h2>
 <blockquote>
 <p>Example request:</p>
@@ -772,7 +1227,7 @@ fetch(url, {
     "http://localhost/api/clima/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":6,"idaeropuerto":15,"fecha":"ea","hora":"asperiores","prevision":48.823585726,"temperatura":959.80741148,"lluvia":85.05864437,"nubes":14403151.8616042,"viento":7112556.8,"rafagas":3561223.5,"direccion":623.31,"humedad":19756246.4481039,"presion":862802.8}'
+    -d '{"id":13,"idaeropuerto":11,"fecha":"numquam","hora":"aut","prevision":16937722.5062,"temperatura":971097.16188,"lluvia":31.86768131,"nubes":148321.805978,"viento":489.9867,"rafagas":2590674.3,"direccion":172.3,"humedad":7862027.3,"presion":530969}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/clima/datos"
@@ -784,19 +1239,19 @@ let headers = {
 };
 
 let body = {
-    "id": 6,
-    "idaeropuerto": 15,
-    "fecha": "ea",
-    "hora": "asperiores",
-    "prevision": 48.823585726,
-    "temperatura": 959.80741148,
-    "lluvia": 85.05864437,
-    "nubes": 14403151.8616042,
-    "viento": 7112556.8,
-    "rafagas": 3561223.5,
-    "direccion": 623.31,
-    "humedad": 19756246.4481039,
-    "presion": 862802.8
+    "id": 13,
+    "idaeropuerto": 11,
+    "fecha": "numquam",
+    "hora": "aut",
+    "prevision": 16937722.5062,
+    "temperatura": 971097.16188,
+    "lluvia": 31.86768131,
+    "nubes": 148321.805978,
+    "viento": 489.9867,
+    "rafagas": 2590674.3,
+    "direccion": 172.3,
+    "humedad": 7862027.3,
+    "presion": 530969
 }
 
 fetch(url, {
@@ -879,7 +1334,71 @@ fetch(url, {
 <p>
     <code><b>presion</b></code>&nbsp; <small>float</small>     <br>
     La cantidad de presión en milibars (mb).
-</p><h1>MRC Tiendas</h1>
+</p>
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/clima/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/clima/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/clima/lista</code></strong></p>
+<h2>Muestra la lista de climas en un específico aeropuerto</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/climaXaeropuerto/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/climaXaeropuerto/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/climaXaeropuerto/{id}/{fecha}</code></strong></p><h1>MRC Tiendas</h1>
 <p>Controlador-Modelo-Tabla</p>
 <h2>Recoge el diccionario y crea las filas para la bbdd</h2>
 <blockquote>
@@ -889,7 +1408,7 @@ fetch(url, {
     "http://localhost/api/tienda/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":11,"tienda":"deleniti","direccion":6}'
+    -d '{"id":10,"tienda":"quibusdam","direccion":10}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/tienda/datos"
@@ -901,9 +1420,9 @@ let headers = {
 };
 
 let body = {
-    "id": 11,
-    "tienda": "deleniti",
-    "direccion": 6
+    "id": 10,
+    "tienda": "quibusdam",
+    "direccion": 10
 }
 
 fetch(url, {
@@ -947,7 +1466,7 @@ fetch(url, {
     "http://localhost/api/tripadvisor/comentarios" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":2,"id_aerolinea":4,"cuerpo":"earum","valoracion":261010873.85384536}'
+    -d '{"id":11,"id_aerolinea":19,"cuerpo":"debitis","valoracion":7949.41527}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/tripadvisor/comentarios"
@@ -959,10 +1478,10 @@ let headers = {
 };
 
 let body = {
-    "id": 2,
-    "id_aerolinea": 4,
-    "cuerpo": "earum",
-    "valoracion": 261010873.85384536
+    "id": 11,
+    "id_aerolinea": 19,
+    "cuerpo": "debitis",
+    "valoracion": 7949.41527
 }
 
 fetch(url, {
@@ -1002,7 +1521,71 @@ fetch(url, {
 <p>
     <code><b>valoracion</b></code>&nbsp; <small>float</small>     <br>
     La valoración de 1 a 5 sobre la aerolínea.
-</p><h1>MRC Twitter</h1>
+</p>
+<h2>Devuelve todos los comentarios que se tengan en la BBDD</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/tripadvisor/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/tripadvisor/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/tripadvisor/lista</code></strong></p>
+<h2>Devuelve los comentarios de un aeropuerto en especifico</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/tripadvisorXaerolinea/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/tripadvisorXaerolinea/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/tripadvisorXaerolinea/{id}</code></strong></p><h1>MRC Twitter</h1>
 <h2>Recoge el diccionario y crea un fila pra la bbdd</h2>
 <blockquote>
 <p>Example request:</p>
@@ -1011,7 +1594,7 @@ fetch(url, {
     "http://localhost/api/comentarios/twitter" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":8,"nombreAerolinea":17,"comentario":"quibusdam","analisis":"dolorem"}'
+    -d '{"id":9,"nombreAerolinea":12,"comentario":"qui","analisis":"voluptatem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/comentarios/twitter"
@@ -1023,10 +1606,10 @@ let headers = {
 };
 
 let body = {
-    "id": 8,
-    "nombreAerolinea": 17,
-    "comentario": "quibusdam",
-    "analisis": "dolorem"
+    "id": 9,
+    "nombreAerolinea": 12,
+    "comentario": "qui",
+    "analisis": "voluptatem"
 }
 
 fetch(url, {
@@ -1099,7 +1682,7 @@ fetch(url, {
     "http://localhost/api/vuelos/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":13,"IdVuelo":"quasi","Aerolinea":1,"Estado1":"numquam","Estado2":"odit","SiglasOrigen":13,"Origen":"mollitia","HoraProgOrigen":"maxime","HoraEstOrigen":"provident","TerminalOrigen":"enim","GateOrigen":"ipsum","SiglasDestino":"consequuntur","Destino":"voluptatem","HoraProgDestino":"praesentium","HoraEstDestino":"eaque","TerminalDestino":"earum","GateDestino":"molestias"}'
+    -d '{"id":13,"IdVuelo":"aut","Aerolinea":2,"Estado1":"qui","Estado2":"porro","SiglasOrigen":7,"Origen":"placeat","HoraProgOrigen":"laborum","HoraEstOrigen":"cum","TerminalOrigen":"labore","GateOrigen":"officiis","SiglasDestino":"quo","Destino":"velit","HoraProgDestino":"ut","HoraEstDestino":"quidem","TerminalDestino":"sed","GateDestino":"culpa"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/vuelos/datos"
@@ -1112,22 +1695,22 @@ let headers = {
 
 let body = {
     "id": 13,
-    "IdVuelo": "quasi",
-    "Aerolinea": 1,
-    "Estado1": "numquam",
-    "Estado2": "odit",
-    "SiglasOrigen": 13,
-    "Origen": "mollitia",
-    "HoraProgOrigen": "maxime",
-    "HoraEstOrigen": "provident",
-    "TerminalOrigen": "enim",
-    "GateOrigen": "ipsum",
-    "SiglasDestino": "consequuntur",
-    "Destino": "voluptatem",
-    "HoraProgDestino": "praesentium",
-    "HoraEstDestino": "eaque",
-    "TerminalDestino": "earum",
-    "GateDestino": "molestias"
+    "IdVuelo": "aut",
+    "Aerolinea": 2,
+    "Estado1": "qui",
+    "Estado2": "porro",
+    "SiglasOrigen": 7,
+    "Origen": "placeat",
+    "HoraProgOrigen": "laborum",
+    "HoraEstOrigen": "cum",
+    "TerminalOrigen": "labore",
+    "GateOrigen": "officiis",
+    "SiglasDestino": "quo",
+    "Destino": "velit",
+    "HoraProgDestino": "ut",
+    "HoraEstDestino": "quidem",
+    "TerminalDestino": "sed",
+    "GateDestino": "culpa"
 }
 
 fetch(url, {
@@ -1230,6 +1813,294 @@ fetch(url, {
     <code><b>GateDestino</b></code>&nbsp; <small>string</small>     <br>
     La puerta de embarque del vuelo a la llegada.
 </p>
+<h2>Muestra la lista de vuelos en un específico aeropuerto</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/vuelosXaeropuerto/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/vuelosXaeropuerto/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/vuelosXaeropuerto/{id}/{fecha}</code></strong></p>
+<h2>Muestra los detalles del vuelo</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/vuelo/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/vuelo/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/vuelo/{id}/{fecha}</code></strong></p>
+<h2>Devuelve todos los vuelos que hayan en la BBDD</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/listaVuelos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/listaVuelos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/listaVuelos</code></strong></p>
+<h2>Cantidad de vuelos totales en la base de datos</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/vuelos/contador" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/vuelos/contador"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/vuelos/contador</code></strong></p>
+<h2>Cantidad de vuelos por dia</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/vuelos/contadorDia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/vuelos/contadorDia"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/vuelos/contadorDia</code></strong></p>
+<h2>Numero de vuelos por Aeropuerto</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/vuelos/contadorAeropuerto" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/vuelos/contadorAeropuerto"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/vuelos/contadorAeropuerto</code></strong></p>
+<h2>Numero de vuelos por Aerolinea</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/vuelos/contadorAerolineasVuelos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/vuelos/contadorAerolineasVuelos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/vuelos/contadorAerolineasVuelos</code></strong></p>
+<h2>Devuelve los vuelos con sus climas juntandolos por los dos primeros digitos de la hora siempre que no sean los vuelos de hoy ni que su estado sea ni cancelado o desconocido</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/prediccion" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/prediccion"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/prediccion</code></strong></p>
+<h2>Devuelve los vuelos con sus climas juntandolos por los dos primeros digitos de la hora que sean de la fecha actual</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/clasificador" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/clasificador"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/clasificador</code></strong></p>
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

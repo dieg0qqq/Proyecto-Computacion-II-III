@@ -29,7 +29,7 @@ class PrediccionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * [Se añade las predicciones de los vuelos y cada vez que se ejecuta borra todos los datos de la tabla ]
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,6 +64,10 @@ class PrediccionController extends Controller
     {
         //
     }
+    /**
+     * [Buscar si es que se retrasa o no el vuelo indicado con los parámetros]
+     * 
+     */
 
     public function search($id_vuelo, $fecha)
     {

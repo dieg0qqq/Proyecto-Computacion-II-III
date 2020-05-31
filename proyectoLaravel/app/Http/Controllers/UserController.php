@@ -13,7 +13,7 @@ class UserController extends Controller
     public $successStatus = 200;
 
     /** 
-    * login api 
+    * Hace una verificación sobre el email y la contraseña, que lo compara contra los datos del usuario y si es exitoso, crea un token y pasa al estado de success.
     * 
     * @return \Illuminate\Http\Response 
     */ 
@@ -29,7 +29,7 @@ class UserController extends Controller
     }
 
     /** 
-    * Register api 
+    * Llama a un validador que valida los campos necesarios para registrar un usuario (name, email, password, confirm password), si los valores son correctos, registrará al usuario y le creará un token. 
     * 
     * @return \Illuminate\Http\Response 
     */ 
@@ -62,6 +62,11 @@ class UserController extends Controller
     $user = Auth::user(); 
     return response()->json(['success' => $user], $this-> successStatus); 
     } 
+
+    /**
+     * Borrará el token que se haya activado de la cuenta correspondiente.
+     * 
+     */
 
     public function logout() {
         

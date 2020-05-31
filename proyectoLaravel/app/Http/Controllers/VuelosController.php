@@ -99,6 +99,7 @@ class VuelosController extends Controller
         
     }
     /**
+     * Devuelve los vuelos con sus climas juntandolos por los dos primeros digitos de la hora siempre que no sean los vuelos de hoy ni que su estado sea ni cancelado o desconocido
      * 
      */
     public function prediccion()
@@ -110,13 +111,18 @@ class VuelosController extends Controller
         return $filas_vuelos;
     }
 
+     /**
+     * Devuelve los vuelos con sus climas juntandolos por los dos primeros digitos de la hora que sean de la fecha actual
+     * 
+     */
+
     public function clasificar()
     {
         $filas_vuelos=DB::select(DB::raw('select *, vuelos.id from vuelos
         join aero_siglas on vuelos.SiglasOrigen = aero_siglas.id
         join climas on vuelos.SiglasOrigen = climas.siglas AND DATE(vuelos.created_at)= climas.fecha 
-            and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 ) where Date(vuelos.created_at) = "2020-05-18"'));
-            // Date(NOW())
+        and substr(vuelos.HoraProgOrigen, 1, 2) = substr(climas.hora, 1 ,2 ) where Date(vuelos.created_at) = Date(NOW())'));
+        // "2020-05-18"
         return $filas_vuelos;
 
     }

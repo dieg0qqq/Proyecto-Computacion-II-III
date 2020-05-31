@@ -28,6 +28,11 @@ class ClimaController extends Controller
         return($climas);
     }
 
+    /**
+     * Devuelve todos los datos del clima de Weather-Airports
+     * 
+     */
+
     public function botonWeather()
     {
         set_time_limit(180);

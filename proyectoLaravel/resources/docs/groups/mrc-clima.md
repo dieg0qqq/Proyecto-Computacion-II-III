@@ -1,6 +1,45 @@
 # MRC Clima
 Controlador-Modelo-Tabla
 
+## Devuelve todos los datos del clima de Weather-Airports
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/boton" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/boton"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/boton`**
+
+
+
 ## Recoge el diccionario y lo procesa para buscar el fk del aeropuerto antes de insertarlo en la bbdd
 
 
@@ -12,7 +51,7 @@ curl -X POST \
     "http://localhost/api/clima/datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":6,"idaeropuerto":15,"fecha":"ea","hora":"asperiores","prevision":48.823585726,"temperatura":959.80741148,"lluvia":85.05864437,"nubes":14403151.8616042,"viento":7112556.8,"rafagas":3561223.5,"direccion":623.31,"humedad":19756246.4481039,"presion":862802.8}'
+    -d '{"id":13,"idaeropuerto":11,"fecha":"numquam","hora":"aut","prevision":16937722.5062,"temperatura":971097.16188,"lluvia":31.86768131,"nubes":148321.805978,"viento":489.9867,"rafagas":2590674.3,"direccion":172.3,"humedad":7862027.3,"presion":530969}'
 
 ```
 
@@ -27,19 +66,19 @@ let headers = {
 };
 
 let body = {
-    "id": 6,
-    "idaeropuerto": 15,
-    "fecha": "ea",
-    "hora": "asperiores",
-    "prevision": 48.823585726,
-    "temperatura": 959.80741148,
-    "lluvia": 85.05864437,
-    "nubes": 14403151.8616042,
-    "viento": 7112556.8,
-    "rafagas": 3561223.5,
-    "direccion": 623.31,
-    "humedad": 19756246.4481039,
-    "presion": 862802.8
+    "id": 13,
+    "idaeropuerto": 11,
+    "fecha": "numquam",
+    "hora": "aut",
+    "prevision": 16937722.5062,
+    "temperatura": 971097.16188,
+    "lluvia": 31.86768131,
+    "nubes": 148321.805978,
+    "viento": 489.9867,
+    "rafagas": 2590674.3,
+    "direccion": 172.3,
+    "humedad": 7862027.3,
+    "presion": 530969
 }
 
 fetch(url, {
@@ -129,6 +168,98 @@ fetch(url, {
     <code><b>presion</b></code>&nbsp; <small>float</small>     <br>
     La cantidad de presión en milibars (mb).
 </p>
+
+
+## Display a listing of the resource.
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/clima/lista" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/clima/lista"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/clima/lista`**
+
+
+
+## Muestra la lista de climas en un específico aeropuerto
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/climaXaeropuerto/1/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/climaXaeropuerto/1/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/climaXaeropuerto/{id}/{fecha}`**
+
 
 
 

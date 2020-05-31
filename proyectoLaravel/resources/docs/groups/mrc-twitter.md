@@ -12,7 +12,7 @@ curl -X POST \
     "http://localhost/api/comentarios/twitter" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"id":8,"nombreAerolinea":17,"comentario":"quibusdam","analisis":"dolorem"}'
+    -d '{"id":9,"nombreAerolinea":12,"comentario":"qui","analisis":"voluptatem"}'
 
 ```
 
@@ -27,10 +27,10 @@ let headers = {
 };
 
 let body = {
-    "id": 8,
-    "nombreAerolinea": 17,
-    "comentario": "quibusdam",
-    "analisis": "dolorem"
+    "id": 9,
+    "nombreAerolinea": 12,
+    "comentario": "qui",
+    "analisis": "voluptatem"
 }
 
 fetch(url, {

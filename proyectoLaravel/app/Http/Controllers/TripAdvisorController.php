@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class TripAdvisorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Devuelve todos los comentarios que se tengan en la BBDD
      *
      * @return \Illuminate\Http\Response
      */
@@ -87,6 +87,11 @@ class TripAdvisorController extends Controller
         }
         return $model;
     }
+
+    /**
+     * Devuelve los comentarios de un aeropuerto en especifico
+     * 
+     */
 
     public function showXaerolinea($id_aerolinea) {
 
