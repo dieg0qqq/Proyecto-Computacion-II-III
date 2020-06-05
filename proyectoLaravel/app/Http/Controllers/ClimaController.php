@@ -23,7 +23,18 @@ class ClimaController extends Controller
     {
         $climas = DB::table('climas')
         ->join('aero_siglas', 'climas.siglas', 'aero_siglas.id')
-        ->select('aero_siglas.nombre','fecha','hora')
+        ->select('climas.created_at','aero_siglas.nombre','fecha','hora','prevision','temperatura','lluvia','nubes',
+        'viento','rafagas','direccion','humedad','presion')
+        ->get();
+        return($climas);
+    }
+
+    public function array($climaLista) {
+        $climas = DB::table('climas')
+        ->join('aero_siglas', 'climas.siglas', 'aero_siglas.id')
+        ->select('climas.id','climas.created_at','aero_siglas.nombre','fecha','hora','prevision','temperatura','lluvia','nubes',
+        'viento','rafagas','direccion','humedad','presion')
+        ->where('climas.id', $climaLista)
         ->get();
         return($climas);
     }

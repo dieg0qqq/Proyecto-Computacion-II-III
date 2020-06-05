@@ -45,7 +45,7 @@ export class InterfazadminComponent implements OnInit {
       
       sessionStorage.setItem('token', token['success']['token']);
       console.log(sessionStorage.getItem('token'));
-      this.router.navigate(['/login/admin']);
+      this.router.navigate(['/login/examen']);
       
     })
     .catch(error => {

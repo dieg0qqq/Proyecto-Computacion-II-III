@@ -1,0 +1,58 @@
+<body>
+     <br>
+    <button  [(ngModel)]="button" class="btn" (click)="listaClimas()">Cargar Info</button>
+    <br>
+
+    <div class="superior" *ngIf = "parte_sup">
+        <br>
+        <div class="volver">
+          <a href="/login/examen"><span class="material-icons">arrow_back_ios</span> Volver</a>
+          <p class="elem">Hora: </p>
+        </div>
+        <div class = "info" *ngFor = "let a of datos">
+            <p class="elem">Hora: </p>
+            <p>{{a.hora}}</p>
+        </div>
+        <br>
+    </div>
+
+
+    <table class = "table" *ngIf = "lista">
+        <thead class = "thead-dark">
+            <tr>
+                <th scope="col"class="th-header">Num</th>
+                <th scope="col"class="th-header">Hora</th>
+                <th scope="col"class="th-header">Previsión</th>
+                <th scope="col"class="th-header">Temp (ºC)</th>
+                <th scope="col"class="th-header">Lluvia (m.m)</th>
+                <th scope="col"class="th-header">Nubes (%)</th>
+                <th scope="col"class="th-header">Viento (km/h)</th>
+                <th scope="col"class="th-header">Rafagas (km/h)</th>
+                <!-- <th scope="col"class="th-header">Direccion</th> -->
+                <th scope="col"class="th-header">Humedad (%)</th>
+                <th scope="col"class="th-header">Presión (mb)</th>
+                <th scope="col"class="th-header">...</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of arrayClima">
+                <th>{{a.id}}</th>
+                <th>{{a.hora}}</th>
+                <th>{{a.prevision}}</th>
+                <th>{{a.temperatura}}</th>
+                <th>{{a.lluvia}}</th>
+                <th>{{a.nubes}}</th>
+                <th>{{a.viento}}</th>
+                <th>{{a.rafagas}}</th>
+                <!-- <th>{{a.direccion}}</th> -->
+                <th>{{a.humedad}}</th>
+                <th>{{a.presion}}</th>
+                <th><button (click)="sup()">Ver más <span class="material-icons">keyboard_arrow_right</span></button></th>
+            </tr>
+        </tbody>
+        
+    </table>
+    
+
+</body>
